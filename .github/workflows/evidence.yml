@@ -1,0 +1,14 @@
+name: Check saved research evidence
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reconcile saved evidence
+        run: python scripts/check_evidence.py
+      - name: Compile analysis source
+        run: python -m compileall -q -x 'venv|\.git' .

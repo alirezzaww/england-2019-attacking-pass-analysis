@@ -1,0 +1,57 @@
+{
+  "prepared_on": "2026-10-28",
+  "source": "StatsBomb Open Data",
+  "source_revision": null,
+  "note": "Digests identify captured raw inputs; no source commit inferred. Provider files can change.",
+  "raw_inputs": [
+    {
+      "match_id": 22936,
+      "relative_path": "data/cache_2019_events/22936.json",
+      "sha256": "425fe527fbe498741ce98723854522c5317efc1bb26e0c86df7913f3f8d18b83",
+      "source_url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/22936.json"
+    },
+    {
+      "match_id": 22962,
+      "relative_path": "data/cache_2019_events/22962.json",
+      "sha256": "499fe4ccaa25e1cfbed9d3b90b3ac8d5c9692a31783bf703b978fbde07f6c397",
+      "source_url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/22962.json"
+    },
+    {
+      "match_id": 68337,
+      "relative_path": "data/cache_2019_events/68337.json",
+      "sha256": "1af974a4b8bd7a85fb2c1429c5c6be5478525377a3e120865c1174513fbad174",
+      "source_url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/68337.json"
+    },
+    {
+      "match_id": 68362,
+      "relative_path": "data/cache_2019_events/68362.json",
+      "sha256": "82e886c552c1a1642a50d41d4e61bb1738e5d689e1d3d4abb71a5ade67b6649f",
+      "source_url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/68362.json"
+    },
+    {
+      "match_id": 69199,
+      "relative_path": "data/cache_2019_events/69199.json",
+      "sha256": "49118d4923c8be08552075960a48cf420fc97834d917beaf205f90ae992c2e25",
+      "source_url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/69199.json"
+    },
+    {
+      "match_id": 69258,
+      "relative_path": "data/cache_2019_events/69258.json",
+      "sha256": "fe7c0e4e2b71cb359e924d51266c5b6f36bbf78b301a28d3004115d1a1117970",
+      "source_url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/69258.json"
+    },
+    {
+      "match_id": 69301,
+      "relative_path": "data/cache_2019_events/69301.json",
+      "sha256": "ad1ea11d557f82377bd6cad0923d79e44fbb3933b0941c3dc51b445d07e25cf5",
+      "source_url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/69301.json"
+    }
+  ],
+  "analysis_environment": {
+    "pandas": "3.0.6",
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.2",
+    "mplsoccer": "1.8.1",
+    "requests": "2.34.2"
+  }
+}
