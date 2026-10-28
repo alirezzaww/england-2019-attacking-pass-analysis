@@ -1,6 +1,6 @@
 # England 2019: attacking passing involvement
 
-**Football analytics portfolio · Python/pandas · In progress**  
+**Football analytics portfolio · Python/pandas · In progress**
 **Author:** Alireza Erfanian
 
 Which England players were involved in passing shortly before shots at the 2019

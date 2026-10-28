@@ -35,8 +35,9 @@ constitute a recruitment recommendation or a complete assessment of any player.
 4. **Still to develop:** comparisons within roles, opportunity/context adjustments,
    analysis of match-to-match variation and uncertainty, and review of individual
    sequences in video when video is available.
-5. **Still to write and defend:** a concise coach-facing assessment with observations,
-   limitations and follow-up questions, supported by the existing scripts and figures.
+5. **Written with guidance; independent defence still to practise:** a concise
+   case study in `docs/CASE_STUDY.md`, with observations, limitations and follow-up
+   questions supported by the existing scripts and figures.
 
 ## Reproduce the current player-analysis block in Spyder
 

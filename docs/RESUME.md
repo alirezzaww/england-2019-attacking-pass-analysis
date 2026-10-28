@@ -1,6 +1,6 @@
 # Résumé presentation
 
-**Project:** England 2019: attacking passing involvement  
+**Project:** England 2019: attacking passing involvement
 **Tools:** Python, pandas, NumPy, Matplotlib, mplsoccer, StatsBomb event data
 
 ## Wording while the project is in progress

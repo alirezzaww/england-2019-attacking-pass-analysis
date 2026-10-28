@@ -208,6 +208,21 @@ extensions. A portfolio version should credit the course, data provider, and ass
   evidence, sensitivity, limitations and a follow-up investigation. Do not claim
   independent mastery from assistant-executed tasks.
 
+### Portfolio documentation and Git preparation
+
+- Date: 28 October 2026. User requested a research portfolio suitable for résumé presentation.
+- Rewrote the project README for a recruiter/coach; retained the old guide in
+  `docs/LEARNING_GUIDE.md`. Added case study, methods, reproduction notes and accurate
+  in-progress résumé wording. Added source attribution and provider logo.
+- Added an input-hash manifest, saved-evidence checks, a CI workflow and direct
+  dependency pins. Cache and virtual environments are excluded from Git.
+- Evidence checks passed locally and without the raw cache. Dependency resolution
+  dry run passed; no new clean-environment installation is claimed.
+- Local Git repository initialized and project committed. GitHub visibility is still
+  to be chosen before publication. No public project URL is claimed yet.
+- This improves presentation and inspectability, not evidence of independently
+  mastered methods. Independent reproduction and explanation remain part of learning.
+
 ## Evidence of learning
 
 - Demonstrated in conversation: 6 out of 10 = 60%; 14 qualifying passes across seven games = two per game.

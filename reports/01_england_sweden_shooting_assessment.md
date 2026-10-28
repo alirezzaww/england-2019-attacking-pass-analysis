@@ -1,6 +1,6 @@
 # England–Sweden: match shooting assessment
 
-**2019 Women's World Cup · 6 July 2019 · England 1–2 Sweden**  
+**2019 Women's World Cup · 6 July 2019 · England 1–2 Sweden**
 **Question:** Did England's greater shot volume produce greater scoring opportunity?
 
 ## Assessment
