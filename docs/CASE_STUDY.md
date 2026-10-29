@@ -42,6 +42,24 @@ already inside the attacking third than entry into it, within this specific samp
 
 ![Kirby profile](../figures/18_kirby_passes_before_shots_profile.png)
 
+## Finding 4: the tournament average hides variation
+
+At the 0.10 cutoff, Kirby's selected pass counts were Scotland 4, Argentina 3,
+Cameroon 4, Norway 1, USA 0 and Sweden 0; she did not play against Japan. Eight
+of twelve passes came in two fixtures. This is not evidence of uniformly high
+involvement across appearances, nor does a zero establish poor performance.
+
+![Match totals and per-90 rates](../figures/19_kirby_match_variation.png)
+
+The tournament rate is 12 / 497.11 × 90 = 2.17. The simple mean of her six
+appearance-level per-90 rates is 1.97; that gives a 40-minute appearance the same
+weight as a 108-minute appearance. The pooled rate weights by minutes and answers
+the question of event frequency across all her recorded playing time.
+
+Removing one appearance at a time gives rates from 1.74 to 2.72. This quantifies
+sensitivity to the matches included; it is not a confidence interval or a forecast.
+Opposition, role and game state remain unadjusted, so the cause of variation is open.
+
 ## Provisional analyst observation
 
 Kirby's passing involvement warrants further sequence review. She retained the
@@ -52,7 +70,7 @@ passes are omitted, and player roles and game contexts differ.
 
 ## Unresolved questions
 
-Do a few matches drive these results? What changes within comparable roles or after
+What explains the observed match variation? What changes within comparable roles or after
 accounting for possession? Does a larger sample support the pattern? What options,
 pressure and tactical purpose are visible in the actual sequences?
 

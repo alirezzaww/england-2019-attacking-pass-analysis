@@ -42,6 +42,18 @@ end_x > x. Final-third starts: x >= 80. Entries: x < 80 and end_x >= 80.
 Heatmaps count START locations in a six-column, five-row grid. Profile arrows connect
 recorded pass starts and endpoints; they do not trace a curved ball trajectory.
 
+## Match variation
+
+Script 16 uses the same 0.10 selection and reconstructed intervals. All seven
+fixtures are shown: a zero with minutes is an observed zero, while no appearance
+has no per-90 rate. The pooled tournament rate is sum(counts) / sum(minutes) × 90,
+equivalent to a minute-weighted mean of appearance rates. The unweighted mean
+answers a different question and is not used as the pooled rate.
+
+Leave-one-appearance-out values are calculated by removing the appearance's count
+and minutes together, then recomputing the pooled rate. Their range describes
+sensitivity to match inclusion; it is not a confidence interval or significance test.
+
 ## Checks and limits
 
 Selected IDs, totals, player counts, minutes, rates and spatial counts reconcile.

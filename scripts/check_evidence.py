@@ -19,6 +19,7 @@ base = read('11_tournament_passes_evidence.json')
 timed = read('13_minutes_and_quality_evidence.json')
 sensitivity = read('14_threshold_sensitivity_evidence.json')
 profile = read('15_kirby_profile_evidence.json')
+variation = read('16_match_variation_evidence.json')
 manifest = read('source_manifest.json')
 
 assert base['games'] == len(set(base['match_ids'])) == 7
@@ -66,6 +67,28 @@ assert profile['backward'] == sum(p['end_x'] < p['x'] for p in rows) == 2
 assert profile['final_third_starts'] == sum(p['x'] >= 80 for p in rows) == 9
 assert profile['final_third_entries'] == sum(p['x'] < 80 <= p['end_x'] for p in rows) == 2
 
+match_rows = variation['matches']
+assert {r['match_id'] for r in match_rows} == set(base['match_ids'])
+assert sum(r['qualifying_passes'] for r in match_rows) == variation['total_passes'] == 12
+player_intervals = [r for r in timed['player_intervals'] if r['player_name'] == variation['player']]
+for row in match_rows:
+    expected_minutes = sum(r['minutes'] for r in player_intervals if r['match_id'] == row['match_id'])
+    expected_count = sum(r['match_id'] == row['match_id'] and r['player_name'] == variation['player'] for r in high)
+    assert row['qualifying_passes'] == expected_count
+    assert math.isclose(row['minutes'], expected_minutes)
+    if row['minutes'] == 0:
+        assert row['per90'] is None and row['qualifying_passes'] == 0
+    else:
+        assert math.isclose(row['per90'], expected_count / expected_minutes * 90)
+assert math.isclose(sum(r['minutes'] for r in match_rows), variation['total_minutes'])
+assert math.isclose(variation['tournament_per90'], 12 / variation['total_minutes'] * 90)
+for row in variation['leave_one_appearance_out']:
+    omitted = next(r for r in match_rows if r['match_id'] == row['omitted_match_id'])
+    assert omitted['minutes'] > 0
+    assert row['remaining_passes'] == 12 - omitted['qualifying_passes']
+    assert math.isclose(row['remaining_minutes'], variation['total_minutes'] - omitted['minutes'])
+    assert math.isclose(row['per90'], row['remaining_passes'] / row['remaining_minutes'] * 90)
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -73,5 +96,5 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: seven games; 200 passes; 113/98 nested threshold sets; minutes, rates and profile totals reconcile.')
+print('PASS: seven games; 200 passes; 113/98 threshold sets; minutes, rates, profile and match variation reconcile.')
 print(f'Raw input hashes checked locally: {checked}/7 (cache is optional and not committed).')

@@ -1,6 +1,6 @@
 # Football analysis learning journal
 
-Updated: 28 October 2026
+Updated: 29 October 2026
 
 ## Goal
 
@@ -222,6 +222,29 @@ extensions. A portfolio version should credit the course, data provider, and ass
   to be chosen before publication. No public project URL is claimed yet.
 - This improves presentation and inspectability, not evidence of independently
   mastered methods. Independent reproduction and explanation remain part of learning.
+
+### Match variation, absence and weighted rates
+
+- Date: 29 October 2026. Script: `16_match_variation.py`; an applied project
+  extension, not a claim to be the next official course chapter.
+- Question: Does Kirby's 2.17 per-90 rate reflect uniformly frequent qualifying
+  involvement or concentration in a few appearances? Keep the 0.10 definition fixed.
+- Counts in fixture order: Scotland 4, Argentina 3, Japan did not play, Cameroon 4,
+  Norway 1, USA 0, Sweden 0. Eight of 12 occur in two fixtures.
+- DNP has no per-90 value. A played match with no qualifying event has a zero rate.
+- Pooled rate: total count / total reconstructed minutes × 90 = 2.17.
+  Unweighted mean of appearance rates = 1.97; it gives unequal durations equal weight.
+  Both are arithmetic summaries, but they answer different questions.
+- Omit one appearance at a time, removing both its passes and minutes: rates range
+  from 1.74 to 2.72. This is inclusion sensitivity, not a confidence interval.
+- Interpretation: the aggregate hides variation. Do not attribute it to opposition,
+  role or game state without testing those explanations. A zero does not imply a
+  bad overall performance. No causal or statistical significance claim.
+- Saved Figure 19 and `data/16_match_variation_evidence.json`. Cross-artifact checks
+  added to the offline checker. Case study and methods updated; lesson committed locally.
+- GitHub remains unpublished pending the earlier public/private visibility choice.
+- Guided coverage, not evidence of independent learner execution. Next applied work:
+  investigate one high-count and one zero-count appearance with context held explicit.
 
 ## Evidence of learning
 

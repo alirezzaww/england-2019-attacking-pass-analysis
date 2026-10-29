@@ -1,6 +1,6 @@
 # Validation record
 
-Prepared: 28 October 2026.
+Updated: 29 October 2026.
 
 - Saved-evidence checker passed with all seven cached raw-input hashes verified.
 - Checker also passed in a clean temporary directory without the raw cache or
@@ -16,3 +16,6 @@ Prepared: 28 October 2026.
 
 These checks support artifact consistency and inspection. They do not establish
 statistical significance, tactical causality or general player quality.
+
+Match-variation evidence now reconciles by fixture against the selected pass IDs and
+player intervals, including absence handling, pooled rates and leave-one-out results.
