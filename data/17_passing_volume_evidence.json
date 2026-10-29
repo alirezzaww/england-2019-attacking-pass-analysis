@@ -1,0 +1,238 @@
+{
+  "xg_threshold_strictly_greater_than": 0.1,
+  "match_ids": [
+    22936,
+    22962,
+    68337,
+    68362,
+    69199,
+    69258,
+    69301
+  ],
+  "eligible_passes_total": 2837,
+  "qualifying_passes_total": 98,
+  "denominator_definition": "Completed possession-team passes; listed restarts excluded",
+  "players": [
+    {
+      "player_id": 4641,
+      "player_name": "Francesca Kirby",
+      "minutes": 497.11448333333334,
+      "qualifying_passes": 12,
+      "qualifying_per90": 2.1725377879924306,
+      "eligible_completed_passes": 187,
+      "eligible_passes_per90": 33.85538052954871,
+      "qualifying_share_pct": 6.417112299465241
+    },
+    {
+      "player_id": 4642,
+      "player_name": "Millie Bright",
+      "minutes": 442.82565,
+      "qualifying_passes": 3,
+      "qualifying_per90": 0.6097207783695457,
+      "eligible_completed_passes": 249,
+      "eligible_passes_per90": 50.60682460467229,
+      "qualifying_share_pct": 1.2048192771084338
+    },
+    {
+      "player_id": 4643,
+      "player_name": "Georgia Stanway",
+      "minutes": 132.49471666666665,
+      "qualifying_passes": 1,
+      "qualifying_per90": 0.6792723684705416,
+      "eligible_completed_passes": 31,
+      "eligible_passes_per90": 21.05744342258679,
+      "qualifying_share_pct": 3.225806451612903
+    },
+    {
+      "player_id": 4648,
+      "player_name": "Abbie McManus",
+      "minutes": 224.94133333333332,
+      "qualifying_passes": 3,
+      "qualifying_per90": 1.200312970493047,
+      "eligible_completed_passes": 187,
+      "eligible_passes_per90": 74.81950849406661,
+      "qualifying_share_pct": 1.6042780748663104
+    },
+    {
+      "player_id": 4651,
+      "player_name": "Demi Stokes",
+      "minutes": 289.84875,
+      "qualifying_passes": 3,
+      "qualifying_per90": 0.9315203187869536,
+      "eligible_completed_passes": 101,
+      "eligible_passes_per90": 31.361184065827437,
+      "qualifying_share_pct": 2.9702970297029703
+    },
+    {
+      "player_id": 4654,
+      "player_name": "Nikita Parris",
+      "minutes": 554.6332,
+      "qualifying_passes": 12,
+      "qualifying_per90": 1.9472328739065745,
+      "eligible_completed_passes": 148,
+      "eligible_passes_per90": 24.015872111514422,
+      "qualifying_share_pct": 8.108108108108109
+    },
+    {
+      "player_id": 4658,
+      "player_name": "Keira Walsh",
+      "minutes": 445.2189,
+      "qualifying_passes": 9,
+      "qualifying_per90": 1.8193297723883688,
+      "eligible_completed_passes": 226,
+      "eligible_passes_per90": 45.68539206219682,
+      "qualifying_share_pct": 3.982300884955752
+    },
+    {
+      "player_id": 5002,
+      "player_name": "Jodie Taylor",
+      "minutes": 178.06435000000002,
+      "qualifying_passes": 2,
+      "qualifying_per90": 1.010870508330275,
+      "eligible_completed_passes": 26,
+      "eligible_passes_per90": 13.141316608293574,
+      "qualifying_share_pct": 7.6923076923076925
+    },
+    {
+      "player_id": 5058,
+      "player_name": "Rachel Daly",
+      "minutes": 212.20063333333334,
+      "qualifying_passes": 2,
+      "qualifying_per90": 0.8482538302194824,
+      "eligible_completed_passes": 65,
+      "eligible_passes_per90": 27.56824948213318,
+      "qualifying_share_pct": 3.076923076923077
+    },
+    {
+      "player_id": 10170,
+      "player_name": "Karen Bardsley",
+      "minutes": 396.3064333333333,
+      "qualifying_passes": 0,
+      "qualifying_per90": 0.0,
+      "eligible_completed_passes": 66,
+      "eligible_passes_per90": 14.988401651819432,
+      "qualifying_share_pct": 0.0
+    },
+    {
+      "player_id": 10172,
+      "player_name": "Jill Scott",
+      "minutes": 669.18975,
+      "qualifying_passes": 12,
+      "qualifying_per90": 1.613892023899051,
+      "eligible_completed_passes": 245,
+      "eligible_passes_per90": 32.95029548793896,
+      "qualifying_share_pct": 4.8979591836734695
+    },
+    {
+      "player_id": 10178,
+      "player_name": "Lucy Bronze",
+      "minutes": 691.1842,
+      "qualifying_passes": 11,
+      "qualifying_per90": 1.4323244078785367,
+      "eligible_completed_passes": 350,
+      "eligible_passes_per90": 45.57395843249889,
+      "qualifying_share_pct": 3.1428571428571432
+    },
+    {
+      "player_id": 10180,
+      "player_name": "Ellen White",
+      "minutes": 558.1445,
+      "qualifying_passes": 3,
+      "qualifying_per90": 0.48374569667890666,
+      "eligible_completed_passes": 77,
+      "eligible_passes_per90": 12.416139548091937,
+      "qualifying_share_pct": 3.896103896103896
+    },
+    {
+      "player_id": 10183,
+      "player_name": "Toni Duggan",
+      "minutes": 246.21648333333334,
+      "qualifying_passes": 4,
+      "qualifying_per90": 1.4621279417455735,
+      "eligible_completed_passes": 75,
+      "eligible_passes_per90": 27.414898907729505,
+      "qualifying_share_pct": 5.333333333333334
+    },
+    {
+      "player_id": 10185,
+      "player_name": "Stephanie Houghton",
+      "minutes": 691.1842,
+      "qualifying_passes": 11,
+      "qualifying_per90": 1.4323244078785367,
+      "eligible_completed_passes": 372,
+      "eligible_passes_per90": 48.43860724825596,
+      "qualifying_share_pct": 2.956989247311828
+    },
+    {
+      "player_id": 10190,
+      "player_name": "Jade Moore",
+      "minutes": 245.96529999999998,
+      "qualifying_passes": 0,
+      "qualifying_per90": 0.0,
+      "eligible_completed_passes": 103,
+      "eligible_passes_per90": 37.68824301639296,
+      "qualifying_share_pct": 0.0
+    },
+    {
+      "player_id": 10252,
+      "player_name": "Alex Greenwood",
+      "minutes": 401.33545,
+      "qualifying_passes": 5,
+      "qualifying_per90": 1.1212565448678904,
+      "eligible_completed_passes": 173,
+      "eligible_passes_per90": 38.795476452429014,
+      "qualifying_share_pct": 2.8901734104046244
+    },
+    {
+      "player_id": 15553,
+      "player_name": "Karen Julia Carney",
+      "minutes": 69.71509999999999,
+      "qualifying_passes": 1,
+      "qualifying_per90": 1.2909685276217062,
+      "eligible_completed_passes": 25,
+      "eligible_passes_per90": 32.27421319054266,
+      "qualifying_share_pct": 4.0
+    },
+    {
+      "player_id": 15562,
+      "player_name": "Lucy Staniforth",
+      "minutes": 21.994450000000008,
+      "qualifying_passes": 0,
+      "qualifying_per90": 0.0,
+      "eligible_completed_passes": 10,
+      "eligible_passes_per90": 40.91941376119884,
+      "qualifying_share_pct": 0.0
+    },
+    {
+      "player_id": 15619,
+      "player_name": "Bethany Mead",
+      "minutes": 311.5765,
+      "qualifying_passes": 4,
+      "qualifying_per90": 1.1554144808738784,
+      "eligible_completed_passes": 78,
+      "eligible_passes_per90": 22.53058237704063,
+      "qualifying_share_pct": 5.128205128205128
+    },
+    {
+      "player_id": 18999,
+      "player_name": "Leah Williamson",
+      "minutes": 16.444666666666656,
+      "qualifying_passes": 0,
+      "qualifying_per90": 0.0,
+      "eligible_completed_passes": 7,
+      "eligible_passes_per90": 38.31029310414726,
+      "qualifying_share_pct": 0.0
+    },
+    {
+      "player_id": 19421,
+      "player_name": "Carly Mitchell Telford",
+      "minutes": 294.8777666666667,
+      "qualifying_passes": 0,
+      "qualifying_per90": 0.0,
+      "eligible_completed_passes": 36,
+      "eligible_passes_per90": 10.987603564098254,
+      "qualifying_share_pct": 0.0
+    }
+  ],
+  "minimum_display_minutes": 270
+}

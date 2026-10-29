@@ -19,3 +19,6 @@ statistical significance, tactical causality or general player quality.
 
 Match-variation evidence now reconciles by fixture against the selected pass IDs and
 player intervals, including absence handling, pooled rates and leave-one-out results.
+
+Passing-volume evidence reconciles 98 selected events against 2,837 eligible completed
+passes; per-player shares and the volume × share decomposition match per-90 rates.

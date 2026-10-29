@@ -20,6 +20,7 @@ timed = read('13_minutes_and_quality_evidence.json')
 sensitivity = read('14_threshold_sensitivity_evidence.json')
 profile = read('15_kirby_profile_evidence.json')
 variation = read('16_match_variation_evidence.json')
+volume = read('17_passing_volume_evidence.json')
 manifest = read('source_manifest.json')
 
 assert base['games'] == len(set(base['match_ids'])) == 7
@@ -89,6 +90,20 @@ for row in variation['leave_one_appearance_out']:
     assert math.isclose(row['remaining_minutes'], variation['total_minutes'] - omitted['minutes'])
     assert math.isclose(row['per90'], row['remaining_passes'] / row['remaining_minutes'] * 90)
 
+assert set(volume['match_ids']) == set(base['match_ids'])
+assert sum(p['qualifying_passes'] for p in volume['players']) == volume['qualifying_passes_total'] == 98
+assert sum(p['eligible_completed_passes'] for p in volume['players']) == volume['eligible_passes_total'] == 2837
+selected_counts = Counter(p['player_id'] for p in high)
+for row in volume['players']:
+    assert row['qualifying_passes'] == selected_counts[row['player_id']]
+    assert row['eligible_completed_passes'] >= row['qualifying_passes']
+    assert math.isclose(row['eligible_passes_per90'], row['eligible_completed_passes'] / row['minutes'] * 90)
+    if row['eligible_completed_passes']:
+        assert math.isclose(row['qualifying_share_pct'], row['qualifying_passes'] / row['eligible_completed_passes'] * 100)
+        assert math.isclose(row['qualifying_per90'], row['eligible_passes_per90'] * row['qualifying_share_pct'] / 100)
+    else:
+        assert row['qualifying_share_pct'] is None
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -96,5 +111,5 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: seven games; 200 passes; 113/98 threshold sets; minutes, rates, profile and match variation reconcile.')
+print('PASS: selections, minutes, rates, profile, match variation and passing-volume denominators reconcile.')
 print(f'Raw input hashes checked locally: {checked}/7 (cache is optional and not committed).')

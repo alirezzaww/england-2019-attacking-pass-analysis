@@ -54,6 +54,19 @@ Leave-one-appearance-out values are calculated by removing the appearance's coun
 and minutes together, then recomputing the pooled rate. Their range describes
 sensitivity to match inclusion; it is not a confidence interval or significance test.
 
+## Passing-volume denominator
+
+Script 17 counts all completed possession-team passes excluding the same listed
+restarts across the seven fixtures (2,837 events). The 98 selected events at
+xG > 0.10 must be a subset. For each player, qualifying share = selected passes /
+eligible completed passes × 100. An absent denominator would give an undefined
+share, not zero. This is not completion rate because failed attempts are not in
+the denominator. No general possession or pass-difficulty adjustment is claimed.
+
+A useful identity is selected passes per 90 = eligible passes per 90 × qualifying
+share / 100. It decomposes volume and the observed qualifying share; it is not a
+causal model. Neither denominator alone ranks overall player quality.
+
 ## Checks and limits
 
 Selected IDs, totals, player counts, minutes, rates and spatial counts reconcile.

@@ -15,6 +15,7 @@ python 13_minutes_and_shot_quality.py
 python 14_threshold_sensitivity.py
 python 15_kirby_passing_profile.py
 python 16_match_variation.py
+python 17_passing_volume_adjustment.py
 python scripts/check_evidence.py
 ```
 
@@ -32,6 +33,7 @@ use local evidence and cached events. Raw cache files are excluded from Git.
 - `14_threshold_sensitivity_evidence.json`: both threshold selections.
 - `15_kirby_profile_evidence.json`: selected player events and spatial totals.
 - `16_match_variation_evidence.json`: match counts, minutes, rates and leave-one-out sensitivity.
+- `17_passing_volume_evidence.json`: player denominators and qualifying share of completed passes.
 - `source_manifest.json`: raw-input file names, source URLs and SHA-256 digests.
 
 These files are in `data/`. Source data is live and can change. Compare new raw

@@ -246,6 +246,25 @@ extensions. A portfolio version should credit the course, data provider, and ass
 - Guided coverage, not evidence of independent learner execution. Next applied work:
   investigate one high-count and one zero-count appearance with context held explicit.
 
+### Compare frequency with qualifying share of completed passes
+
+- Date: 29 October 2026. Script: `17_passing_volume_adjustment.py`; applied
+  project extension. Definition remains xG > 0.10 with the existing timing rules.
+- Denominator: all 2,837 completed possession-team passes across seven games,
+  excluding the listed restart types. The 98 selected passes are a subset.
+- Qualifying share = selected passes / player eligible completed passes × 100.
+  This is not a forward-pass rate, pass completion rate or modelled chance value.
+- Kirby: 12/187 = 6.42%; Parris: 12/148 = 8.11%; Bronze: 11/350 = 3.14%.
+  Kirby has the higher per-90 rate than Parris (2.17 versus 1.95), but Parris the
+  higher qualifying share. The denominator changes the question.
+- Identity verified: qualifying per90 = eligible pass volume per90 × share/100.
+- Limits: role, difficulty, team possession and safe buildup responsibilities remain
+  unadjusted. A lower-volume player may have a higher share without being better.
+- Figure 20 and derived JSON saved; checker reconciles denominators, counts and rates.
+  Case study and methods updated; source compiles and evidence checks pass.
+- No new independent mastery claimed; user asked what comes next, and this lesson
+  advances the practical project. GitHub upload remains pending visibility choice.
+
 ## Evidence of learning
 
 - Demonstrated in conversation: 6 out of 10 = 60%; 14 qualifying passes across seven games = two per game.

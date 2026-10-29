@@ -62,6 +62,7 @@ python 13_minutes_and_shot_quality.py
 python 14_threshold_sensitivity.py
 python 15_kirby_passing_profile.py
 python 16_match_variation.py
+python 17_passing_volume_adjustment.py
 python scripts/check_evidence.py
 ```
 
@@ -72,7 +73,7 @@ See [reproduction notes](docs/REPRODUCIBILITY.md) for verification scope and dat
 ## Repository guide
 
 - `01_*.py`–`10_*.py`: foundational guided lessons and single-match analyses.
-- `11_*.py`–`16_*.py`: tournament selection, rates, sensitivity, player profile and match variation.
+- `11_*.py`–`17_*.py`: tournament selection, rates, sensitivity, profiles, match variation and passing-volume comparison.
 - `figures/`: charts with scope and source captions.
 - `data/`: derived evidence and source-input manifest; raw cache is ignored.
 - `docs/`: case study, methods, reproduction and résumé presentation.
@@ -81,7 +82,7 @@ See [reproduction notes](docs/REPRODUCIBILITY.md) for verification scope and dat
 
 ## Status
 
-The descriptive pipeline is implemented. Match variation and weighted rates are now examined. Role-specific comparison,
+The descriptive pipeline is implemented. Match variation, weighted rates and qualifying share of completed passes are examined. Role-specific comparison,
 opportunity adjustment, statistical uncertainty and video review remain future work.
 No new xG model, significance test or finished recruitment recommendation is claimed.
 

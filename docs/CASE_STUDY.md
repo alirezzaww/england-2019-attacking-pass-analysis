@@ -60,6 +60,23 @@ Removing one appearance at a time gives rates from 1.74 to 2.72. This quantifies
 sensitivity to the matches included; it is not a confidence interval or a forecast.
 Opposition, role and game state remain unadjusted, so the cause of variation is open.
 
+## Finding 5: time and passing volume give different comparisons
+
+At the 0.10 cutoff, Kirby and Parris each made 12 qualifying passes. Kirby's
+rate per reconstructed 90 is higher (2.17 versus 1.95), but Parris's qualifying
+share of eligible completed passes is higher: 12 / 148 = 8.11%, compared with
+Kirby's 12 / 187 = 6.42%. Bronze records 11 / 350 = 3.14%.
+
+![Two different denominators](../figures/20_england_passing_volume_adjustment.png)
+
+Per-90 describes frequency over playing time. Qualifying share describes how much
+of a player's completed passing met this particular shot-context definition. These
+are different questions, not competing estimates of one true player-quality rank.
+This share is not pass completion rate, an xG model or a causal chance-creation
+probability. Positions, pass difficulty, safe buildup responsibilities and team
+possession are unadjusted. Lower passing volume can produce a higher share without
+establishing greater overall value.
+
 ## Provisional analyst observation
 
 Kirby's passing involvement warrants further sequence review. She retained the

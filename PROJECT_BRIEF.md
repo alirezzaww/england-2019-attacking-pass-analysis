@@ -32,7 +32,7 @@ constitute a recruitment recommendation or a complete assessment of any player.
    check, preserving both selections for inspection.
 3. **Implemented with guidance:** Kirby's individual pass map, start-zone counts and
    final-third-entry definition.
-4. **Match variation implemented with guidance. Still to develop:** comparisons
+4. **Match variation and passing-volume comparison implemented with guidance. Still to develop:** comparisons
    within roles, opportunity/context adjustments, statistical uncertainty, and review of individual
    sequences in video when video is available.
 5. **Written with guidance; independent defence still to practise:** a concise
