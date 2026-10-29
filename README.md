@@ -70,6 +70,18 @@ Stages 11 and 13 require internet for source data. Downloaded raw events are cac
 locally and excluded from Git. Saved derived evidence and figures are included.
 See [reproduction notes](docs/REPRODUCIBILITY.md) for verification scope and data changes.
 
+## Educational xG modelling extension
+
+`18_first_xg_model.py` adapts [Soccermatics Lesson 2](https://soccermatics.readthedocs.io/en/latest/gallery/lesson2/plot_xGModelFit.html)
+to both teams' non-penalty shots in our seven cached fixtures. A distance-only
+logistic regression trains on 114 shots from the first five matches and tests on
+36 from the final two. Test Brier error is 0.1315 versus 0.1438 for a constant
+training-goal-rate baseline. This tiny selected sample is for learning, not a
+validated scouting model. It excludes angle, body part and defensive context.
+Run `python 18_first_xg_model.py` after creating the raw cache in lesson 13.
+
+![First educational xG model](figures/21_first_xg_distance_model.png)
+
 ## Repository guide
 
 - `01_*.py`–`10_*.py`: foundational guided lessons and single-match analyses.
@@ -84,7 +96,9 @@ See [reproduction notes](docs/REPRODUCIBILITY.md) for verification scope and dat
 
 The descriptive pipeline is implemented. Match variation, weighted rates and qualifying share of completed passes are examined. Role-specific comparison,
 opportunity adjustment, statistical uncertainty and video review remain future work.
-No new xG model, significance test or finished recruitment recommendation is claimed.
+The passing case study uses provider xG. A separate educational distance-only xG
+model is now implemented in lesson 18; no general predictive reliability, significance
+test or finished recruitment recommendation is claimed.
 
 [Learning journal](LEARNING_JOURNAL.md) · [Lesson archive](docs/LEARNING_GUIDE.md)
 · [Résumé presentation](docs/RESUME.md)
@@ -100,4 +114,5 @@ this project grants no additional data rights.
 Foundation: [Soccermatics pass heat maps](https://soccermatics.readthedocs.io/en/latest/gallery/lesson1/plot_PassHeatMap.html)
 and [passing networks](https://soccermatics.readthedocs.io/en/latest/gallery/lesson1/plot_PassNetworks.html).
 Methods and code were adapted and extended with assistant support. xG is supplied
-by StatsBomb; no xG model was trained here.
+by StatsBomb for the passing analysis. Lesson 18 separately trains a small
+educational model from shot outcomes, without using provider xG as an input.

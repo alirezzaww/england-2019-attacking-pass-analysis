@@ -88,3 +88,11 @@ and version control. Progress will be judged through applied work, not only quiz
 
 Prepared with assistant support; distinguish guided work from independently reproduced
 and explained work when presenting the portfolio.
+
+## Educational modelling extension
+
+Lesson 18 begins the modelling learning path with a distance-only logistic xG model,
+114 training shots and 36 held-out shots. This separate exercise does not replace
+StatsBomb xG in the passing study. It demonstrates a binary target, train/test
+separation, baseline comparison and probability-error metrics; it is not a validated
+production model. General uncertainty and opportunity adjustment remain future work.

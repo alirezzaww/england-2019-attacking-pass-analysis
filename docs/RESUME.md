@@ -20,10 +20,14 @@
 
 These describe a guided project. Keep course/assistance attribution on the project
 page and explain your own contribution accurately. Do not claim independently written
-assistant-authored code, a trained xG model, causal inference, club impact, SQL or
+assistant-authored code, a production-quality xG model, causal inference, club impact, SQL or
 machine learning that this project has not demonstrated.
 
 Before presenting it as independently completed, reproduce the pipeline, explain the
 join and duplicate handling, justify denominators, interpret a figure, identify a
 limitation and implement a small extension yourself. Record that work in the journal.
 Once published, use the real repository/case-study URL; no publication link is invented here.
+
+A separate distance-only logistic xG exercise has now been implemented with assistance.
+It can be described as an educational train/test demonstration, not as a validated
+player-recruitment model or proof of broad machine-learning proficiency.

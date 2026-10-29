@@ -21,6 +21,7 @@ sensitivity = read('14_threshold_sensitivity_evidence.json')
 profile = read('15_kirby_profile_evidence.json')
 variation = read('16_match_variation_evidence.json')
 volume = read('17_passing_volume_evidence.json')
+model = read('18_first_xg_model_evidence.json')
 manifest = read('source_manifest.json')
 
 assert base['games'] == len(set(base['match_ids'])) == 7
@@ -104,6 +105,41 @@ for row in volume['players']:
     else:
         assert row['qualifying_share_pct'] is None
 
+# Check a genuinely held-out match split and recompute saved model predictions/scores.
+train_ids, test_ids = set(model['training_match_ids']), set(model['test_match_ids'])
+assert len(train_ids) == 5 and len(test_ids) == 2 and train_ids.isdisjoint(test_ids)
+assert train_ids | test_ids == set(base['match_ids'])
+train = [r for r in model['shots'] if r['split'] == 'train']
+test = [r for r in model['shots'] if r['split'] == 'test']
+assert len(train) == model['training_shots'] == 114
+assert len(test) == model['test_shots'] == 36
+assert sum(r['goal'] for r in train) == model['training_goals'] == 11
+assert sum(r['goal'] for r in test) == model['test_goals'] == 6
+assert all(r['match_id'] in train_ids for r in train)
+assert all(r['match_id'] in test_ids for r in test)
+ids(model['shots'])
+mean_distance = sum(r['distance'] for r in train) / len(train)
+scale = math.sqrt(sum((r['distance'] - mean_distance) ** 2 for r in train) / len(train))
+assert math.isclose(model['training_mean_distance'], mean_distance)
+assert math.isclose(model['training_scale_distance'], scale)
+assert math.isclose(model['baseline_training_goal_rate'], 11 / 114)
+assert model['optimisation_success']
+for row in model['shots']:
+    assert row['goal'] in [0, 1]
+    assert math.isclose(row['distance'], math.hypot(120 - row['x'], 40 - row['y']))
+    z = model['intercept_scaled'] + model['distance_coefficient_scaled'] * (row['distance'] - mean_distance) / scale
+    predicted = 1 / (1 + math.exp(-z))
+    assert 0 < row['predicted_xg'] < 1 and math.isclose(row['predicted_xg'], predicted)
+for key, probabilities in [
+        ('model_test_metrics', [r['predicted_xg'] for r in test]),
+        ('baseline_test_metrics', [11 / 114] * len(test))]:
+    brier = sum((p - r['goal']) ** 2 for p, r in zip(probabilities, test)) / len(test)
+    log_loss = -sum(r['goal'] * math.log(p) + (1 - r['goal']) * math.log(1 - p)
+                    for p, r in zip(probabilities, test)) / len(test)
+    assert math.isclose(model[key]['brier_score'], brier)
+    assert math.isclose(model[key]['log_loss'], log_loss)
+    assert math.isclose(model[key]['predicted_goal_total'], sum(probabilities))
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -111,5 +147,5 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: selections, minutes, rates, profile, match variation and passing-volume denominators reconcile.')
+print('PASS: passing evidence and educational xG splits, predictions and test metrics reconcile.')
 print(f'Raw input hashes checked locally: {checked}/7 (cache is optional and not committed).')

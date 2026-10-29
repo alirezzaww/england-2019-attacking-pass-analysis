@@ -15,7 +15,7 @@ subsecond timestamps are used separately for reconstructed playing time.
 Count each pass once against its nearest upcoming eligible shot. For strict
 xG > 0.07 or > 0.10, filter shots BEFORE matching/deduplication: a pass can precede
 both an earlier lower-xG shot and a later qualifying shot. xG belongs to the shot;
-no pass-value model or new xG model is trained.
+no pass-value model or new xG model is trained for the passing case study.
 
 ## Playing time
 
@@ -83,3 +83,31 @@ is claimed.
 
 Primary sources: [StatsBomb Open Data](https://github.com/hudl/open-data) and
 [Soccermatics](https://soccermatics.readthedocs.io/en/latest/gallery/lesson1/plot_PassHeatMap.html).
+
+## Separate educational distance-only xG model
+
+Lesson 18 uses all Shot events from both teams in the cached seven games, excluding
+penalties and shootout periods. Four penalty events are excluded, leaving 150 shots.
+The target is 1 for a Goal outcome and 0 otherwise; own-goal event types are outside
+this shot sample. Distance to goal centre is sqrt((120-x)^2+(40-y)^2), in standardised
+StatsBomb coordinate units, not measured metres on each actual pitch.
+
+The first five chronological matches provide 114 training shots and 11 goals. The
+USA and Sweden fixtures provide 36 held-out shots and six goals. No match occurs in
+both sets. Distance mean/scale are fit on training only. Two logistic coefficients
+(intercept and distance slope) minimise training binary log loss using SciPy BFGS.
+The goal label is the training target, never a predictor. Provider xG is unused.
+
+The constant baseline is the training goal rate, 11/114. Both models are evaluated
+on the same held-out shots using Brier score and log loss. Lower is better. No
+accuracy or AUC claim is substituted for probability evaluation. Test Brier is
+0.1315 for the distance model versus 0.1438 for the baseline; log loss is 0.4076
+versus 0.4743. Predicted test goals total 2.96 versus six observed goals. The small
+sample cannot establish reliable calibration or generalisation.
+
+Headers, shot angle, pressure, defenders, goalkeeper position and other context are
+not modelled. The seven fixtures are selected around England, not a representative
+population. The fitted curve is shown only over the training distance range; test
+predictions can extrapolate. Once a test set has been inspected during development,
+repeated tuning against it is not an independent final evaluation. Larger data and
+training-only validation are needed for subsequent model selection.

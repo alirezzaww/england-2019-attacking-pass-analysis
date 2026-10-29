@@ -265,6 +265,33 @@ extensions. A portfolio version should credit the course, data provider, and ass
 - No new independent mastery claimed; user asked what comes next, and this lesson
   advances the practical project. GitHub upload remains pending visibility choice.
 
+### First educational xG model: distance, targets and held-out matches
+
+- Date: 29 October 2026. Script: `18_first_xg_model.py`; Soccermatics Lesson 2
+  adaptation using cached StatsBomb data rather than the tutorial's Wyscout data.
+- New unit of observation: one shot, from either team in the seven fixtures.
+  Four penalties excluded; no missing-location exclusions. 150 non-penalty shots.
+- Feature: Euclidean distance to (120,40), in StatsBomb coordinate units, not metres.
+  Target: Goal = 1, all other recorded Shot outcomes = 0. Provider xG is unused.
+- Split by complete chronological matches: first five train (114 shots, 11 goals),
+  last two test (36 shots, six goals). No shared match; scaling fit on train only.
+- Logistic regression returns probabilities in (0,1). Two coefficients fit by
+  minimising training log loss with SciPy BFGS; optimiser converged.
+- Baseline predicts 11/114 = 9.65% for every test shot, without inspecting test goals.
+- Test Brier: model 0.131501, baseline 0.143813. Test log loss: 0.407558 versus
+  0.474275. Lower is better, but no reliable general performance claim from two games.
+- Predicted test-goal total 2.96 versus six observed; this does not establish reliable
+  calibration. The model omits angle, headers, pressure and goalkeeper/defender context.
+- Some test distances lie outside training range. The plotted curve is restricted
+  to training distances. Test performance is descriptive on a small England-centred sample.
+- Saved Figure 21 and JSON with split IDs, features, targets, coefficients, scaling
+  and predictions. Checker independently recomputes scores and split consistency.
+- Added SciPy as a direct dependency; kept modelling distinct from the provider-xG
+  passing case study. README/methods document the extension and limitations.
+- Guided implementation is not evidence of independent mastery. Next: explain
+  logistic probability, inspect angle as a feature and use training-match validation;
+  do not repeatedly tune on the already-inspected two-game test set.
+
 ## Evidence of learning
 
 - Demonstrated in conversation: 6 out of 10 = 60%; 14 qualifying passes across seven games = two per game.

@@ -22,3 +22,7 @@ player intervals, including absence handling, pooled rates and leave-one-out res
 
 Passing-volume evidence reconciles 98 selected events against 2,837 eligible completed
 passes; per-player shares and the volume × share decomposition match per-90 rates.
+
+Lesson 18 executed successfully: optimiser converged; 114/36 match-disjoint split;
+training-only scaling and all stored probabilities/test scores reconcile independently.
+Figure 21 visually inspected. No external or general model-quality claim is inferred.

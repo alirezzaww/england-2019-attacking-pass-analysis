@@ -2,7 +2,7 @@
 
 ## Environment and execution
 
-The executed local interpreter is Python 3.11.4. `requirements-core.txt` pins the five
+The executed local interpreter is Python 3.11.4. `requirements-core.txt` pins the six
 direct analysis dependencies observed there. `requirements.txt` also records the
 earlier notebook/Spyder dependencies. An external Spyder interpreter needs a compatible
 `spyder-kernels` release; the analysis libraries alone do not provide that kernel.
@@ -49,3 +49,12 @@ rerun the full pipeline. Pipeline stages were run and figures visually inspected
 the guided project. See `VALIDATION.md` for the current validation record, including
 fresh-environment installation status. Artifact consistency alone does not establish
 statistical or tactical validity.
+
+## Educational xG extension
+
+Run `18_first_xg_model.py` after lesson 13 creates the raw event cache. SciPy 1.17.1
+is now an explicit direct dependency. The model uses both teams' non-penalty shots,
+not the passing selection. Evidence is saved in `data/18_first_xg_model_evidence.json`.
+Split IDs, training-only scaling, coefficients, predictions and test metrics are
+stored. The checker recomputes these relationships without fitting the model.
+The training process itself was executed successfully in the existing environment.
