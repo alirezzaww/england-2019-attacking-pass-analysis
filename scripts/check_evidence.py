@@ -193,6 +193,76 @@ for match_id in base['match_ids']:
         assert ids(saved) == expected, f'Raw window reconstruction differs: {match_id}, {window}'
     raw_window_matches += 1
 
+# Lesson 20: denominator and numerator must come from the same starting third.
+context = read('20_pass_location_evidence.json')
+zone_names = ['Defensive third', 'Middle third', 'Attacking third']
+assert context['match_ids'] == base['match_ids']
+assert context['windows_seconds_inclusive'] == 15
+assert context['xg_threshold_strictly_greater_than'] == 0.10
+assert context['zones'] == [
+    {'name': name, 'lower_x_inclusive': low, 'upper_x': upper, 'upper_inclusive': upper == 120}
+    for name, low, upper in zip(zone_names, [0, 40, 80], [40, 80, 120])]
+ledger = context['passes']
+assert len(ledger) == len(ids(ledger)) == context['eligible_completed_passes'] == volume['eligible_passes_total']
+assert ids([p for p in ledger if p['qualifying']]) == ids(high)
+assert context['qualifying_passes'] == len(high)
+assert all(type(p['qualifying']) is bool for p in ledger)
+assert all(p['match_id'] in base['match_ids'] for p in ledger)
+for row in ledger:
+    assert math.isfinite(row['x']) and 0 <= row['x'] <= 120
+    assert row['zone'] == zone_names[min(int(row['x'] // 40), 2)]
+zone_denominators = Counter((p['player_id'], p['zone']) for p in ledger)
+zone_numerators = Counter((p['player_id'], p['zone']) for p in ledger if p['qualifying'])
+assert len({p['player_id'] for p in context['players']}) == len(context['players'])
+original_players = {p['player_id']: p for p in volume['players']}
+assert {p['player_id'] for p in context['players']} == set(original_players)
+assert {p['player_id'] for p in ledger} <= set(original_players)
+for player in context['players']:
+    original = original_players[player['player_id']]
+    assert player['player_name'] == original['player_name']
+    assert player['eligible_completed_passes'] == original['eligible_completed_passes']
+    assert player['qualifying_passes'] == original['qualifying_passes']
+    assert [row['zone'] for row in player['zones']] == zone_names
+    total = player['eligible_completed_passes']
+    assert sum(r['eligible_completed_passes'] for r in player['zones']) == total
+    assert sum(r['qualifying_passes'] for r in player['zones']) == player['qualifying_passes']
+    overall = player['overall_qualifying_share_pct']
+    if total:
+        assert math.isclose(overall, player['qualifying_passes'] / total * 100)
+        assert math.isclose(sum(r['pass_start_mix_pct'] for r in player['zones']), 100)
+    else:
+        assert overall is None
+    for row in player['zones']:
+        key = (player['player_id'], row['zone'])
+        n, k = zone_denominators[key], zone_numerators[key]
+        assert row['eligible_completed_passes'] == n and row['qualifying_passes'] == k
+        assert 0 <= k <= n
+        if n:
+            assert math.isclose(row['qualifying_share_pct'], k / n * 100)
+        else:
+            assert row['qualifying_share_pct'] is None
+        if total:
+            assert math.isclose(row['pass_start_mix_pct'], n / total * 100)
+        else:
+            assert row['pass_start_mix_pct'] is None
+
+raw_context_matches = 0
+for match_id in base['match_ids']:
+    path = ROOT / f'data/cache_2019_events/{match_id}.json'
+    if not path.exists():
+        continue
+    expected = {}
+    for event in json.loads(path.read_text()):
+        if (event['type']['name'] == 'Pass' and event['team']['name'] == "England Women's"
+                and 'outcome' not in event['pass']
+                and event['possession_team']['id'] == event['team']['id']
+                and event['pass'].get('type', {}).get('name') not in
+                ['Throw-in', 'Corner', 'Free Kick', 'Kick Off', 'Goal Kick']):
+            expected[event['id']] = (event['player']['id'], event['location'][0])
+    actual = {p['id']: (p['player_id'], p['x']) for p in ledger if p['match_id'] == match_id}
+    assert actual == expected, f'Pass-location denominator differs from raw input: {match_id}'
+    raw_context_matches += 1
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -200,6 +270,7 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, time-window selections and educational xG metrics reconcile.')
+print('PASS: passing evidence, time-window and location context, and educational xG metrics reconcile.')
+print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')
 print(f'Raw input hashes checked locally: {checked}/7 (cache is optional and not committed).')

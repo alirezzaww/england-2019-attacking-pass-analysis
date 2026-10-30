@@ -36,3 +36,16 @@ Use the website for a quick overview and the repository for methods and reproduc
 A separate distance-only logistic xG exercise has now been implemented with assistance.
 It can be described as an educational train/test demonstration, not as a validated
 player-recruitment model or proof of broad machine-learning proficiency.
+
+## Added spatial and robustness work
+
+A supported project bullet, retaining the guided-project context:
+
+> Extended a guided seven-match football analytics study with time-window sensitivity
+> checks and within-third passing comparisons; preserved an auditable 2,837-pass
+> ledger and tested zone boundaries, missing denominators and evidence reconciliation.
+
+This demonstrates the project's implemented method. Describe personal ownership
+accurately, and practise explaining the different denominators before using the
+bullet in an interview. Broad location stratification is not full tactical adjustment,
+causal inference or proof of scouting impact.

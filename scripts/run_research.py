@@ -15,6 +15,7 @@ STAGES = [
     "17_passing_volume_adjustment.py",
     "18_first_xg_model.py",
     "19_time_window_sensitivity.py",
+    "20_pass_location_context.py",
     "scripts/check_evidence.py",
 ]
 

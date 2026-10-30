@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–19 and then validates saved evidence.
+The runner executes tournament stages 11, 13–20 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -133,3 +133,12 @@ before shots while keeping xG > 0.10 and playing-time denominators fixed. Select
 contain 38, 68 and 98 passes. Walsh's comparison with Bronze changes with the window.
 Run `python 19_time_window_sensitivity.py` in Spyder or a terminal. The lesson HTML
 can be downloaded and opened locally; GitHub displays its source.
+
+## Passing context: compare within starting thirds
+
+[Lesson 20](lessons/0002-pass-location-context.html) adds a
+[spatial denominator comparison](reports/03_pass_location_context.md), preserving a
+2,837-pass audit ledger and within-third summaries for all players. Kirby's attacking-third
+qualifying share is 9/57 (15.8%), compared with Bronze's 7/81 (8.6%). These are
+completed-pass shares, not completion rates or overall player-quality ratings.
+Run `python 20_pass_location_context.py` after caching events with lesson 13.

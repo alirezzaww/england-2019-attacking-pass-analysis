@@ -54,6 +54,7 @@ python 16_match_variation.py
 python 17_passing_volume_adjustment.py
 python 18_first_xg_model.py
 python 19_time_window_sensitivity.py
+python 20_pass_location_context.py
 python scripts/check_evidence.py
 ```
 
@@ -103,3 +104,11 @@ Lesson 19 reads saved lesson-14 evidence and produces
 `data/19_time_window_evidence.json` and `figures/22_time_window_sensitivity.png`.
 It does not require the raw cache to run. The evidence checker independently checks
 all three windows against cached raw events when those inputs are present.
+
+## Starting-third extension
+
+Lesson 20 requires lesson 13's raw cache, reads the unchanged lesson-14 selected IDs,
+and creates `data/20_pass_location_evidence.json` plus figure 23. Run
+`python -m unittest discover -s tests -v` for offline boundary/denominator tests.
+The saved-evidence checker needs no plotting dependencies and independently reconstructs
+location denominators from raw inputs when available.

@@ -352,3 +352,18 @@ New practical task: run a separate 8-second experiment and write a supported
 interpretation without turning temporal association into causality. This task and
 independent mastery are not yet demonstrated. Code, saved evidence, the figure,
 report and lesson are committed as part of the public project.
+
+## Lesson 20 — starting-third context — 30 October 2026
+
+Implemented and executed with assistant support. Grouped 2,837 eligible completed
+passes by player and starting third, preserving the unchanged 98-pass selection.
+Compared pass-start distributions and qualifying shares with matching zone denominators.
+Kirby has 9/57 (15.79%) in the attacking third; Bronze has 7/81 (8.64%). The sample
+comparison persists within this broad area without establishing overall quality.
+
+The new code separates loading, zone assignment, summary and plotting functions.
+Offline tests cover boundaries, undefined denominators and pooling counts before
+division; the evidence checker reconciles the full ledger and cached raw events.
+A report, teaching lesson and supported résumé wording accompany the implementation.
+Independent task still pending: interpret Parris and Walsh's attacking-third counts
+and shares, with a limitation. This entry records coverage, not demonstrated mastery.

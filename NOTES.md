@@ -8,3 +8,8 @@ independent mastery. Keep learning records for demonstrated understanding only.
 
 Lesson 19 introduces time-window sensitivity; an independent written interpretation
 and a new 8-second calculation remain practice, not completed student work.
+
+Lesson 20 adds within-starting-third comparisons and distinguishes location mix from
+within-zone qualifying share. Independent Parris/Walsh interpretation remains pending.
+Next teaching should build from explanation of denominators and context, not assume
+that assistant-generated features demonstrate independent analytical competence.

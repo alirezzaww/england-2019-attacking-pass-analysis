@@ -105,3 +105,12 @@ The implementation preserves selected IDs and constant playing-time denominators
 with independent cached-event reconstruction checks. See
 [the report](reports/02_time_window_sensitivity.md) and
 [the practical lesson](lessons/0001-time-window-sensitivity.html).
+
+## Latest passing extension: starting-third context
+
+Lesson 20 now compares passing location mix and within-third qualifying shares,
+using all 2,837 eligible completed passes and the unchanged 98 selected IDs. It adds
+broad location context, not full role/opportunity adjustment. All-player evidence,
+a focused Kirby/Bronze figure, a report, lesson and offline tests are implemented.
+See [the report](reports/03_pass_location_context.md). Small-sample uncertainty,
+finer spatial context and independent student interpretation remain to develop.

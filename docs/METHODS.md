@@ -125,3 +125,15 @@ shorter windows; it cannot discover extra events beyond the original 15 seconds.
 Event IDs are nested and each pass is counted once per setting. Changing the window
 alters the numerator and temporal scope, not the player's minutes. This is definition
 sensitivity; no statistical interval, independence or causal interpretation is claimed.
+
+## Starting-third context (lesson 20)
+
+Every one of the 2,837 eligible completed passes is assigned using its starting x:
+defensive [0,40), middle [40,80), attacking [80,120]. The 98 selected IDs remain unchanged.
+Pass-start mix uses the player's full eligible completed-pass count as denominator;
+within-zone qualifying share instead uses that player's eligible completed-pass count
+in that exact zone. Zero denominators produce null, not zero. All cells reconcile to
+lesson 17; the ledger preserves match, event ID, player, start x, zone and selection flag.
+The conditional comparison provides broad location context without fully adjusting
+role, pass difficulty, pressure or tactical opportunity. No causal effect, confidence
+interval or player-quality ranking is inferred.

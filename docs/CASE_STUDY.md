@@ -110,3 +110,12 @@ compared with 98 at 15 seconds. Kirby retains 8 of 12 at 5 seconds, versus Walsh
 that ordering depends on temporal scope. The [time-window report](../reports/02_time_window_sensitivity.md)
 documents all settings without choosing a preferred player ranking. This is a
 sensitivity check, not evidence of causal impact or statistical significance.
+
+## Follow-up: compare within a starting third
+
+Kirby starts 30.5% of her eligible completed passes in the attacking third, compared
+with Bronze's 23.1%. Within that area, the qualifying shares are 9/57 (15.8%) and
+7/81 (8.6%). The observed difference persists within this broad zone. These
+small-sample shares do not fully account for tactical roles or pass difficulty.
+The [location-context report](../reports/03_pass_location_context.md) preserves the
+denominators, spatial rules and limits rather than treating the chart as a player ranking.

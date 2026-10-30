@@ -47,3 +47,14 @@ count, unchanged minutes and per-90 rate. With the raw cache present, it indepen
 reconstructs all three selections from all seven matches. The 15-second set equals
 the existing 98-pass selection. Python compilation, website mirror checks and local
 link checks pass. This extension does not rerun or alter the educational xG model.
+
+## Lesson 20 validation — 30 October 2026
+
+The new script executed successfully in the project environment and figure 23 was
+visually inspected. All 2,837 eligible event IDs and starting locations reconcile to
+cached raw inputs across seven matches; the selected subset is exactly the original
+98 events. Per-player totals match lesson 17. Three offline unit tests cover zone
+boundaries/invalid coordinates, missing denominators versus measured zero, and
+pooled counts versus an unweighted mean. Saved-evidence checks validate every zone,
+count, percentage and empty cell. Full CI results are available under the repository's
+Actions tab for the published commit; local checks alone do not imply remote success.
