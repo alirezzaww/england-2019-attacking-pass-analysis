@@ -1,14 +1,26 @@
 name: Check saved research evidence
 on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
 jobs:
   check:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Reconcile saved evidence
         run: python scripts/check_evidence.py
+      - name: Check website assets and research data
+        run: python scripts/check_web.py
+      - name: Check browser script syntax
+        run: node --check web/app.js
       - name: Compile analysis source
-        run: python -m compileall -q -x 'venv|\.git' .
+        run: python -m compileall -q -x "venv|[.]git" .

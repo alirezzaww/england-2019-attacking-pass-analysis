@@ -1,5 +1,41 @@
 # Reproduce and inspect the analysis
 
+## Setup on Windows, macOS or Linux
+
+Install Python 3.11 and Git, then clone the public repository:
+
+```bash
+git clone https://github.com/alirezzaww/england-2019-attacking-pass-analysis.git
+cd england-2019-attacking-pass-analysis
+```
+
+On macOS/Linux:
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-core.txt
+```
+
+On Windows PowerShell (activation is optional):
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-core.txt
+.\.venv\Scripts\python.exe scripts/run_research.py --headless
+```
+
+On macOS/Linux with the environment activated:
+
+```bash
+python scripts/run_research.py --headless
+```
+
+For interactive plotting omit `--headless`. For Spyder, select this environment's
+Python interpreter and run each numbered lesson file. Install a `spyder-kernels`
+version compatible with your Spyder release into that environment if needed.
+Avoid installing all notebook/IDE extras merely to run the research.
+
 ## Environment and execution
 
 The executed local interpreter is Python 3.11.4. `requirements-core.txt` pins the six
@@ -16,6 +52,7 @@ python 14_threshold_sensitivity.py
 python 15_kirby_passing_profile.py
 python 16_match_variation.py
 python 17_passing_volume_adjustment.py
+python 18_first_xg_model.py
 python scripts/check_evidence.py
 ```
 

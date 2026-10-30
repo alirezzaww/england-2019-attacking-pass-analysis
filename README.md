@@ -12,6 +12,8 @@ It extends a Soccermatics exercise with reconstructed playing time, threshold
 sensitivity checks and individual-event inspection. It is a guided learning project
 with assistant support, not an independently developed player-valuation model.
 
+**[Public source on GitHub](https://github.com/alirezzaww/england-2019-attacking-pass-analysis)**
+
 ## Read the case study
 
 - **[Findings and football interpretation](docs/CASE_STUDY.md)**
@@ -44,31 +46,24 @@ the learning journal distinguishes coverage from independent practice.
 
 ## Run in Spyder or a terminal
 
-Use Python 3.11. Reuse the existing local environment, or create a new one:
+Use **Python 3.11** on Windows, macOS or Linux. Clone this repository, open its
+folder in a terminal, then follow [the setup guide](docs/REPRODUCIBILITY.md).
+After installing `requirements-core.txt`, run the complete research pipeline:
 
 ```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-core.txt
+python scripts/run_research.py --headless
 ```
 
-Select that interpreter in Spyder, with a `spyder-kernels` version compatible with
-its installed release. Kernel dependencies are separate from the analysis libraries.
-From the project root, run:
+For Spyder, select your environment's interpreter and open the numbered lesson files.
+The runner executes tournament stages 11, 13–18 and then validates saved evidence.
+The early numbered files remain independent learning exercises.
+Internet is needed to acquire source data. Raw events are cached locally and ignored
+by Git; saved derived evidence and figures are included for immediate study.
+You can inspect the saved evidence without installing analysis libraries:
 
 ```bash
-python 11_tournament_passes_per_game.py
-python 13_minutes_and_shot_quality.py
-python 14_threshold_sensitivity.py
-python 15_kirby_passing_profile.py
-python 16_match_variation.py
-python 17_passing_volume_adjustment.py
 python scripts/check_evidence.py
 ```
-
-Stages 11 and 13 require internet for source data. Downloaded raw events are cached
-locally and excluded from Git. Saved derived evidence and figures are included.
-See [reproduction notes](docs/REPRODUCIBILITY.md) for verification scope and data changes.
 
 ## Educational xG modelling extension
 
@@ -116,3 +111,13 @@ and [passing networks](https://soccermatics.readthedocs.io/en/latest/gallery/les
 Methods and code were adapted and extended with assistant support. xG is supplied
 by StatsBomb for the passing analysis. Lesson 18 separately trains a small
 educational model from shot outcomes, without using provider xG as an input.
+
+## Reuse, contribute and deploy
+
+Original code and documentation are released under [MIT](LICENSE). Provider data,
+derived records, course adaptations and logos have [separate notices](THIRD_PARTY.md).
+See [contributing](CONTRIBUTING.md) and [citation metadata](CITATION.cff).
+
+The responsive static website lives in `web/`. Read [deployment and device support](docs/DEPLOYMENT.md)
+to serve or publish your own copy. The website is readable on phones and computers;
+Python analysis runs in a computer environment.

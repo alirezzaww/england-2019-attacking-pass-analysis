@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this project and credit the original data and course sources."
+title: "England 2019: attacking passing involvement"
+authors:
+  - family-names: Erfanian
+    given-names: Alireza
+type: software
+repository-code: "https://github.com/alirezzaww/england-2019-attacking-pass-analysis"
+license: MIT
+abstract: "A guided, reproducible football analytics case study using StatsBomb Open Data; provider data retains separate terms."

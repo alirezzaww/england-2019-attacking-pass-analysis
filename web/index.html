@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142d3c">
+  <meta name="description" content="Alireza Erfanian's reproducible football analytics portfolio: passing involvement, player comparisons, and an educational xG model using England's 2019 World Cup matches.">
+  <title>England 2019 · Alireza Erfanian</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to research</a>
+<header class="site-header"><div class="wrap header-inner">
+  <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">AE</span><span>Alireza Erfanian<small>Football analysis</small></span></a>
+  <nav aria-label="Main navigation"><a href="#research">Research</a><a href="#model">xG lesson</a><a href="#methods">Methods</a></nav>
+  <a class="button button-small" href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis">View GitHub <span aria-hidden="true">↗</span></a>
+</div></header>
+<main id="main">
+<section class="hero wrap">
+  <div class="hero-copy"><p class="eyebrow">Applied research / 2019 Women’s World Cup</p>
+    <h1>England’s attacking<br>passing involvement.</h1>
+    <p class="lead">Who passed shortly before shots—and how does the answer change with playing time, shot quality and location?</p>
+    <div class="hero-actions"><a class="button" href="#research">Explore the findings <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis/blob/main/docs/CASE_STUDY.md">Read the case study ↗</a></div>
+    <p class="status"><span aria-hidden="true"></span>Guided portfolio project · In progress</p>
+  </div>
+  <figure class="pitch-feature"><div class="figure-kicker">Where selected passes started</div><svg id="hero-pitch" viewBox="0 0 360 250" role="img" aria-label="England pass-start heatmap averaged over seven team games"></svg><figcaption>Passes within 15 seconds before a same-possession shot. Darker blue = more starts per team game. Attack →</figcaption></figure>
+</section>
+<section class="stat-strip wrap" aria-label="Research scope">
+  <div><strong>7</strong><span>England matches</span><small>9 June–6 July 2019</small></div>
+  <div><strong>200</strong><span>Qualifying passes</span><small>Same possession · 15 seconds</small></div>
+  <div><strong>98</strong><span>With shot xG &gt; 0.10</span><small>Strict cutoff · each pass counted once</small></div>
+  <div><strong>150</strong><span>Shots in the xG exercise</span><small>Both teams · penalties excluded</small></div>
+</section>
+<section id="research" class="section wrap">
+  <div class="section-heading"><div><p class="eyebrow">01 / Compare carefully</p><h2>The definition changes the comparison.</h2></div><p>Totals describe contribution. Per-90 rates describe frequency while playing. Testing two shot-quality cutoffs reveals which observations depend on the chosen definition.</p></div>
+  <figure class="research-figure"><div class="chart-scroll"><img src="assets/thresholds.png" alt="Player per-90 comparisons at shot-xG cutoffs 0.07 and 0.10. Kirby remains highest among players with at least 270 reconstructed minutes." loading="lazy" width="2346" height="1540"></div><figcaption><span>Outfield players with 270+ reconstructed minutes. A display choice, not a reliability guarantee.</span><a href="assets/thresholds.png" target="_blank" rel="noopener">Open full chart ↗</a></figcaption></figure>
+  <div class="finding-grid"><div><h3>Kirby stays prominent in this sample.</h3><p>At xG &gt; 0.10, Kirby records 12 qualifying passes and 2.17 per reconstructed 90, compared with Bronze’s 11 and 1.43. Their roles and opportunities differ; this does not establish who is the better passer.</p></div><div class="data-panel"><div class="control-label">Explore the shot-xG cutoff</div><div class="segmented" role="group" aria-label="Shot quality cutoff"><button type="button" data-threshold="0.07" aria-pressed="false">Above 0.07</button><button type="button" data-threshold="0.10" aria-pressed="true">Above 0.10</button></div><p class="selection-total" id="selection-total" aria-live="polite">98 qualifying passes</p><div class="table-scroll"><table><caption class="sr-only">Selected players and qualifying passes per 90 at the selected cutoff</caption><thead><tr><th scope="col">Player</th><th scope="col">Passes</th><th scope="col">Per 90</th></tr></thead><tbody id="player-rows"></tbody></table></div></div></div>
+</section>
+<section class="section section-tint"><div class="wrap">
+  <div class="section-heading"><div><p class="eyebrow">02 / Inspect the events</p><h2>Inside the final third is not an entry into it.</h2></div><p>A summary rate needs football context. Kirby’s 12 selected passes include nine starts already inside the final third, but only two entries from outside.</p></div>
+  <figure class="research-figure"><div class="chart-scroll"><img src="assets/kirby.png" alt="Kirby's 12 selected passes and start-zone heatmap. Two gold arrows enter the final third, while nine passes start already inside it." loading="lazy" width="2880" height="1260"></div><figcaption><span>Gold = entry across x = 80. Only passes before shots with xG &gt; 0.10 are shown; other and failed passes are omitted.</span><a href="assets/kirby.png" target="_blank" rel="noopener">Open full chart ↗</a></figcaption></figure>
+  <div class="margin-note"><strong>What this supports</strong><p>Within this selected sample, Kirby’s involvement was concentrated in attacking areas. It does not establish her full passing style, an assist total or causal chance creation.</p></div>
+</div></section>
+<section id="model" class="section wrap">
+  <div class="section-heading"><div><p class="eyebrow">03 / Learn to model</p><h2>A first xG model, with an unseen test.</h2></div><p>A separate educational exercise learns goal probability from distance. It uses 114 training shots from five matches and 36 held-out shots from two matches. StatsBomb xG is not an input.</p></div>
+  <div class="model-grid"><div class="simulator"><p class="eyebrow">Explore the fitted curve</p><h3>Change the shot distance.</h3><label for="distance">Distance to goal centre <strong><output id="distance-value" for="distance">15</output> coordinate units</strong></label><input type="range" id="distance" min="4" max="39" step="0.5" value="15"><div class="range-labels"><span>Closer</span><span>Farther</span></div><div class="probability"><span>Distance-only model estimate</span><strong id="xg-value" aria-live="polite">—</strong></div><div class="probability-track" aria-hidden="true"><span id="probability-bar"></span></div><p class="small">The slider stays within the training distance range. Coordinate units are not measured metres. Angle, headers, defenders and goalkeeper position are not modelled.</p></div><div class="model-explanation"><h3>Evaluate probabilities, not just a convincing curve.</h3><p>The distance model’s test Brier score was <strong>0.1315</strong>, versus <strong>0.1438</strong> for a constant training-goal-rate baseline. Lower probability error is better.</p><p>Only 36 shots were tested. This is a teaching example, not a validated scouting model or evidence of reliable general performance.</p><a class="text-link" href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis/blob/main/18_first_xg_model.py">Inspect the model code ↗</a></div></div>
+  <figure class="research-figure"><div class="chart-scroll"><img src="assets/xg-model.png" alt="Distance-only logistic curve and held-out Brier score comparison: 0.1315 for the model and 0.1438 for the constant baseline." loading="lazy" width="2346" height="1183"></div><figcaption><span>Training and testing use separate complete matches. No claim of statistical significance or calibrated production predictions.</span><a href="assets/xg-model.png" target="_blank" rel="noopener">Open full chart ↗</a></figcaption></figure>
+</section>
+<section id="methods" class="section section-dark"><div class="wrap methods-grid"><div><p class="eyebrow">04 / Make it inspectable</p><h2>Study the method.<br>Reproduce the result.</h2><p>The project preserves selected event IDs, definitions, reconstructed playing intervals, raw-input hashes and saved evidence checks. The code and documentation can be reused under the project licence; source data and logos retain their own terms.</p><a class="button button-light" href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis">Browse the public repository ↗</a></div><div class="method-list"><a href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis/blob/main/docs/METHODS.md"><span>01</span><div><strong>Definitions and limitations</strong><small>Possession matching, timing, minutes and denominators</small></div><b aria-hidden="true">↗</b></a><a href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis/blob/main/docs/REPRODUCIBILITY.md"><span>02</span><div><strong>Run the analysis</strong><small>Python 3.11 · Spyder or terminal · Windows, macOS, Linux</small></div><b aria-hidden="true">↗</b></a><a href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis/blob/main/LEARNING_JOURNAL.md"><span>03</span><div><strong>Follow the learning journal</strong><small>Guided work, documented findings and practical progress</small></div><b aria-hidden="true">↗</b></a></div></div></section>
+<section class="section wrap next-section"><p class="eyebrow">Research in progress</p><h2>A starting point for deeper football analysis.</h2><p>Next work includes role-specific comparisons, statistical uncertainty, training-only model validation and video review where available. The aim is a portfolio of research that can be reproduced, explained and challenged.</p><div class="hero-actions"><a class="button" href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis#readme">Study or contribute ↗</a><a class="text-link" href="https://github.com/alirezzaww/england-2019-attacking-pass-analysis/blob/main/PROJECT_BRIEF.md">Read the project brief ↗</a></div></section>
+</main>
+<footer class="wrap site-footer"><div><strong>Alireza Erfanian</strong><p>Applied football analysis · Guided portfolio project</p><p class="small">Developed with assistant support. The journal distinguishes guided coverage from independently demonstrated work.</p></div><div class="source-credit"><img src="assets/statsbomb-logo.png" alt="StatsBomb" width="145" height="42"><p class="small">Data: <a href="https://github.com/hudl/open-data">StatsBomb Open Data</a><br>Course foundation: <a href="https://soccermatics.readthedocs.io/en/latest/">Soccermatics</a><br>No club affiliation or provider endorsement is implied.</p></div></footer>
+<noscript><p class="wrap">The research and charts are readable without JavaScript. Enable it for the cutoff selector and educational model slider.</p></noscript>
+</body></html>
