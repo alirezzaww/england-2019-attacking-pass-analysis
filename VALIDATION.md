@@ -1,6 +1,6 @@
 # Validation record
 
-Updated: 29 October 2026.
+Updated: 30 October 2026.
 
 - Saved-evidence checker passed with all seven cached raw-input hashes verified.
 - Checker also passed in a clean temporary directory without the raw cache or
@@ -8,11 +8,22 @@ Updated: 29 October 2026.
 - Selected pass IDs, 200-pass baseline, 113/98 threshold subsets, player-time totals,
   per-90 rates and Kirby spatial counts reconcile.
 - Python source compiled successfully. Local Markdown links and referenced images resolve.
-- A pip dependency-resolution dry run using `--ignore-installed` successfully resolved
-  `requirements-core.txt` for Python 3.11 on the current macOS host. No fresh virtual
-  environment installation or full pipeline rerun was performed during portfolio packaging.
+- Installed `requirements-core.txt` successfully into a new Python 3.11 virtual
+  environment on macOS. Ran `scripts/run_research.py --headless` in a clean project
+  copy without an existing event cache. All stages (11, 13–18) and evidence checks
+  completed. All seven regenerated evidence files matched saved results within
+  1e-10 numerical tolerance; all seven raw-input hashes verified.
 - Analysis stages were executed and charts inspected during the guided project.
-- GitHub Actions configuration is included; no remote CI run is claimed before publication.
+- [Initial public GitHub Actions run](https://github.com/alirezzaww/england-2019-attacking-pass-analysis/actions/runs/41046075862)
+  passed on Windows, macOS and Ubuntu. It checks saved evidence, website assets/data,
+  browser script syntax and Python compilation. It does not install the full plotting
+  environment or rerun network-dependent analysis on all three operating systems.
+- Browser inspection at phone and desktop widths found no page-wide horizontal
+  overflow; all chart images loaded. Selecting xG > 0.07 updated the table to 113
+  passes. Moving the distance slider from 15 to 25 changed its estimate from 10.2%
+  to 3.1%. This is responsive browser verification, not testing on every physical device.
+- Website assets and JSON mirror reconcile with the original figures and research
+  evidence. Sites reported a successful public production deployment.
 
 These checks support artifact consistency and inspection. They do not establish
 statistical significance, tactical causality or general player quality.

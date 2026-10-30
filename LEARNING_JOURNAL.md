@@ -324,3 +324,18 @@ above before treating interpretation and denominator selection as independently 
 - [Soccermatics: pass heat maps](https://soccermatics.readthedocs.io/en/latest/gallery/lesson1/plot_PassHeatMap.html)
 
 Live data updates may change reproduced results; the values above record our current runs.
+
+## Public portfolio packaging — 30 October 2026
+
+At my request, the guided project was published publicly for others to study and
+reuse. The repository includes source code, saved evidence, methods, limitations,
+licence notices, cross-platform setup and contribution instructions. A responsive
+website introduces the findings and educational xG exercise.
+
+- [GitHub](https://github.com/alirezzaww/england-2019-attacking-pass-analysis)
+- [Website](https://alireza-england-2019-research.sara-erfania-6316.chatgpt.site)
+
+The assistant prepared publication and ran the full pipeline in a fresh environment.
+This demonstrates reproducibility of the implementation; it does not replace my
+independent practice. My next portfolio milestone is to change a research definition,
+rerun the analysis, explain the effect and document my own interpretation.

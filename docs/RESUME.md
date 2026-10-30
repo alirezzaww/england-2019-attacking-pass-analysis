@@ -26,7 +26,12 @@ machine learning that this project has not demonstrated.
 Before presenting it as independently completed, reproduce the pipeline, explain the
 join and duplicate handling, justify denominators, interpret a figure, identify a
 limitation and implement a small extension yourself. Record that work in the journal.
-Once published, use the real repository/case-study URL; no publication link is invented here.
+Published links for a CV or application:
+
+- [Public research repository](https://github.com/alirezzaww/england-2019-attacking-pass-analysis)
+- [Interactive portfolio](https://alireza-england-2019-research.sara-erfania-6316.chatgpt.site)
+
+Use the website for a quick overview and the repository for methods and reproducibility.
 
 A separate distance-only logistic xG exercise has now been implemented with assistance.
 It can be described as an educational train/test demonstration, not as a validated

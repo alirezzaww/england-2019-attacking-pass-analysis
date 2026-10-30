@@ -3,6 +3,11 @@
 **Football analytics portfolio · Python/pandas · In progress**
 **Author:** Alireza Erfanian
 
+[![Research checks](https://github.com/alirezzaww/england-2019-attacking-pass-analysis/actions/workflows/evidence.yml/badge.svg)](https://github.com/alirezzaww/england-2019-attacking-pass-analysis/actions/workflows/evidence.yml)
+
+**[Explore the live portfolio](https://alireza-england-2019-research.sara-erfania-6316.chatgpt.site)** ·
+[Study the source](https://github.com/alirezzaww/england-2019-attacking-pass-analysis)
+
 Which England players were involved in passing shortly before shots at the 2019
 Women's World Cup—and how does that picture change with playing time, shot quality
 and pitch location?
@@ -11,8 +16,6 @@ This applied case study covers seven England matches using StatsBomb Open Data.
 It extends a Soccermatics exercise with reconstructed playing time, threshold
 sensitivity checks and individual-event inspection. It is a guided learning project
 with assistant support, not an independently developed player-valuation model.
-
-**[Public source on GitHub](https://github.com/alirezzaww/england-2019-attacking-pass-analysis)**
 
 ## Read the case study
 
