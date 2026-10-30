@@ -58,3 +58,14 @@ boundaries/invalid coordinates, missing denominators versus measured zero, and
 pooled counts versus an unweighted mean. Saved-evidence checks validate every zone,
 count, percentage and empty cell. Full CI results are available under the repository's
 Actions tab for the published commit; local checks alone do not imply remote success.
+
+## Lesson 21 validation — 30 October 2026
+
+The match-bootstrap script ran successfully and figure 24 was visually inspected.
+Fixture summaries reconcile to the attacking-third ledger. All 10,000 valid draw
+differences replay exactly using the saved seed; no zero-denominator draw occurred.
+Observed shares, percentage-point difference and linear-interpolated interval endpoints
+reconcile. Four new unit tests cover pairing, repeated counts, zero exposure and
+quantile interpolation. Numerical consistency does not validate interval coverage
+with seven selected fixtures. Remote checks are recorded under the published commit
+in GitHub Actions.

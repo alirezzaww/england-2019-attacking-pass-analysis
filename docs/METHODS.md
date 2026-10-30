@@ -78,8 +78,8 @@ Roles, opposition, scoreline, possession and pass difficulty are not adjusted. S
 matches form a small nonrandom sample; repeated events in an attack are related.
 A qualifying pass is not necessarily the final pass, an assist or a cause of a shot.
 Multiple passes can share a shot; their associated shot xG must not be summed as
-player-created xG. No significance test, confidence interval or overall player ranking
-is claimed.
+player-created xG. No significance test, validated population confidence interval or overall player ranking
+is claimed. Lesson 21 adds an explicitly illustrative match-bootstrap interval.
 
 Primary sources: [StatsBomb Open Data](https://github.com/hudl/open-data) and
 [Soccermatics](https://soccermatics.readthedocs.io/en/latest/gallery/lesson1/plot_PassHeatMap.html).
@@ -137,3 +137,23 @@ lesson 17; the ledger preserves match, event ID, player, start x, zone and selec
 The conditional comparison provides broad location context without fully adjusting
 role, pass difficulty, pressure or tactical opportunity. No causal effect, confidence
 interval or player-quality ranking is inferred.
+
+## Educational paired whole-match bootstrap (lesson 21)
+
+For the attacking-third comparison only, aggregate lesson-20 qualifying and eligible
+completed-pass counts by fixture and player. Draw seven fixture indices with replacement
+10,000 times using Python `random.Random` seed 20261030. Both players use the same
+indices; repeated fixtures repeat both counts. Pool each numerator and denominator
+before dividing. The statistic is Kirby share minus Bronze share in percentage points.
+Zero-denominator draws are counted as invalid, not zero; intervals use valid draws.
+The seeded run has 10,000 valid draws and none invalid.
+
+The observed difference is +7.1475 pp. The illustrative interval is the linear-interpolated
+2.5th/97.5th percentiles of the saved differences: −3.1936 to +19.1253 pp. Whole-match
+resampling preserves observed within-match grouping; it does not establish independence
+or exchangeability between fixtures. Seven selected sequential tournament matches
+and sparse numerators limit the method. No validated population coverage, p-value,
+probability of superiority, equivalence or causal claim is inferred. The explicit loop
+implements the paired percentile idea described in the
+[SciPy method documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html),
+not its default BCa method.

@@ -10,6 +10,10 @@
 - [Soccermatics: fitting an xG model](https://soccermatics.readthedocs.io/en/latest/gallery/lesson2/plot_xGModelFit.html)
   Foundation for the separate educational model in lesson 18; its results do not replace provider xG.
 
+- [SciPy: bootstrap](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html)
+  Primary reference for replacement sampling, paired indices and percentile intervals.
+  Lesson 21 implements an explicit teaching loop; small-sample coverage remains unvalidated.
+
 ## Gaps
 
 Role-specific comparisons, statistical uncertainty, larger-sample model validation and

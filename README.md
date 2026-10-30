@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–20 and then validates saved evidence.
+The runner executes tournament stages 11, 13–21 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -142,3 +142,13 @@ can be downloaded and opened locally; GitHub displays its source.
 qualifying share is 9/57 (15.8%), compared with Bronze's 7/81 (8.6%). These are
 completed-pass shares, not completion rates or overall player-quality ratings.
 Run `python 20_pass_location_context.py` after caching events with lesson 13.
+
+## Match-sample uncertainty
+
+[Lesson 21](lessons/0003-match-bootstrap-uncertainty.html) adds a
+[paired match-bootstrap demonstration](reports/04_match_bootstrap_uncertainty.md).
+The observed Kirby-minus-Bronze attacking-third gap is 7.15 percentage points;
+an illustrative percentile interval from 10,000 paired fixture draws is −3.19 to
++19.13 points. Only seven selected matches are available: this is not a validated
+population interval, p-value or player-quality ranking. Run
+`python 21_match_bootstrap_uncertainty.py` using the saved lesson-20 evidence.

@@ -367,3 +367,18 @@ division; the evidence checker reconciles the full ledger and cached raw events.
 A report, teaching lesson and supported résumé wording accompany the implementation.
 Independent task still pending: interpret Parris and Walsh's attacking-third counts
 and shares, with a limitation. This entry records coverage, not demonstrated mastery.
+
+## Lesson 21 — paired match resampling — 30 October 2026
+
+Prepared and executed with assistant support. Learned material covers resampling
+whole fixtures with replacement, pairing both players' draws, pooling counts before
+dividing, percentage points and zero-exposure handling. The observed attacking-third
+gap is +7.15 points; the illustrative percentile interval is −3.19 to +19.13.
+Seven selected fixtures do not support a validated population confidence claim.
+
+The saved evidence records every valid difference and the simulation specification;
+the checker reconstructs counts and replays the draws. Four new unit tests cover
+pairing, repeated fixtures, zero denominators and quantile interpolation. Independent
+practice remains pending: write a coach-facing interpretation and explain why more
+resampling iterations do not increase the number of observed matches. This entry
+records material covered, not independently demonstrated mastery.

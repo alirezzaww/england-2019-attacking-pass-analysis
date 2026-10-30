@@ -13,3 +13,8 @@ Lesson 20 adds within-starting-third comparisons and distinguishes location mix 
 within-zone qualifying share. Independent Parris/Walsh interpretation remains pending.
 Next teaching should build from explanation of denominators and context, not assume
 that assistant-generated features demonstrate independent analytical competence.
+
+Lesson 21 introduces a paired whole-match bootstrap as an illustrative uncertainty
+exercise. Do not describe its interval as reliable population inference from seven
+selected fixtures or as probability of player superiority. Independent explanation
+of sampling units, pairing and resampling versus new evidence is still pending.

@@ -114,3 +114,11 @@ broad location context, not full role/opportunity adjustment. All-player evidenc
 a focused Kirby/Bronze figure, a report, lesson and offline tests are implemented.
 See [the report](reports/03_pass_location_context.md). Small-sample uncertainty,
 finer spatial context and independent student interpretation remain to develop.
+
+## Educational uncertainty extension
+
+Lesson 21 adds paired whole-match resampling of attacking-third qualifying shares,
+with 10,000 seeded draws and a documented illustrative percentile interval. This
+implements an uncertainty teaching exercise; larger, representative data and justified
+sampling assumptions remain necessary for dependable inference. See
+[the report](reports/04_match_bootstrap_uncertainty.md).

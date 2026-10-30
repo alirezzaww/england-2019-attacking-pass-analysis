@@ -55,6 +55,7 @@ python 17_passing_volume_adjustment.py
 python 18_first_xg_model.py
 python 19_time_window_sensitivity.py
 python 20_pass_location_context.py
+python 21_match_bootstrap_uncertainty.py
 python scripts/check_evidence.py
 ```
 
@@ -112,3 +113,11 @@ and creates `data/20_pass_location_evidence.json` plus figure 23. Run
 `python -m unittest discover -s tests -v` for offline boundary/denominator tests.
 The saved-evidence checker needs no plotting dependencies and independently reconstructs
 location denominators from raw inputs when available.
+
+## Match-bootstrap extension
+
+Lesson 21 reads saved lesson-20 evidence without downloading data, and creates
+`data/21_match_bootstrap_evidence.json` plus figure 24. Python's RNG algorithm,
+seed, fixture order, player order, draw count and percentile convention are recorded.
+The standard-library checker reconstructs fixture summaries and replays every draw.
+Offline unit tests cover paired indices, repeated counts, zero exposure and quantiles.

@@ -263,6 +263,56 @@ for match_id in base['match_ids']:
     assert actual == expected, f'Pass-location denominator differs from raw input: {match_id}'
     raw_context_matches += 1
 
+# Lesson 21: rebuild fixture counts and replay every paired match draw offline.
+bootstrap = read('21_match_bootstrap_evidence.json')
+assert bootstrap['source'] == '20_pass_location_evidence.json'
+assert bootstrap['zone'] == 'Attacking third'
+assert bootstrap['xg_threshold_strictly_greater_than'] == 0.10
+assert bootstrap['time_window_seconds_inclusive'] == 15
+assert [p['player_name'] for p in bootstrap['player_order']] == ['Francesca Kirby', 'Lucy Bronze']
+expected_players = [next(p for p in context['players'] if p['player_name'] == name)
+                    for name in ['Francesca Kirby', 'Lucy Bronze']]
+assert bootstrap['player_order'] == [{'player_id': p['player_id'], 'player_name': p['player_name']} for p in expected_players]
+fixture_rows = []
+for match_id in base['match_ids']:
+    cells = []
+    for player in bootstrap['player_order']:
+        passes = [p for p in ledger if p['match_id'] == match_id and p['player_id'] == player['player_id'] and p['x'] >= 80]
+        cells.append({'qualifying_passes': sum(p['qualifying'] for p in passes), 'eligible_completed_passes': len(passes)})
+    fixture_rows.append({'match_id': match_id, 'players': cells})
+assert bootstrap['match_counts'] == fixture_rows
+for j, expected_share in enumerate(bootstrap['observed_shares_pct']):
+    k = sum(row['players'][j]['qualifying_passes'] for row in fixture_rows)
+    n = sum(row['players'][j]['eligible_completed_passes'] for row in fixture_rows)
+    assert math.isclose(expected_share, 100 * k / n)
+assert math.isclose(bootstrap['observed_difference_percentage_points'], bootstrap['observed_shares_pct'][0] - bootstrap['observed_shares_pct'][1])
+import random
+rng = random.Random(bootstrap['seed'])
+assert bootstrap['n_resamples'] == 10000 and bootstrap['seed'] == 20261030
+replayed, invalid = [], 0
+for draw in range(bootstrap['n_resamples']):
+    indices = [rng.randrange(len(fixture_rows)) for _ in fixture_rows]
+    if draw == 0:
+        assert bootstrap['example_match_ids'] == [fixture_rows[i]['match_id'] for i in indices]
+    totals = [[sum(fixture_rows[i]['players'][j][key] for i in indices)
+               for key in ['qualifying_passes', 'eligible_completed_passes']] for j in range(2)]
+    if any(n == 0 for k, n in totals):
+        invalid += 1
+    else:
+        replayed.append(100 * totals[0][0] / totals[0][1] - 100 * totals[1][0] / totals[1][1])
+assert bootstrap['valid_resamples'] == len(replayed)
+assert bootstrap['zero_denominator_resamples'] == invalid
+assert len(replayed) + invalid == bootstrap['n_resamples']
+assert bootstrap['differences_percentage_points'] == replayed
+assert bootstrap['percentiles'] == [0.025, 0.975]
+assert bootstrap['percentile_method'] == 'linear interpolation at (n - 1) * q'
+ordered = sorted(replayed)
+for quantile, endpoint in zip(bootstrap['percentiles'], bootstrap['illustrative_interval_percentage_points']):
+    position = quantile * (len(ordered) - 1)
+    fraction = position % 1
+    expected = (1 - fraction) * ordered[math.floor(position)] + fraction * ordered[math.ceil(position)]
+    assert math.isclose(expected, endpoint)
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -270,7 +320,7 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, time-window and location context, and educational xG metrics reconcile.')
+print('PASS: passing evidence, spatial/time sensitivity, paired bootstrap and educational xG metrics reconcile.')
 print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')
 print(f'Raw input hashes checked locally: {checked}/7 (cache is optional and not committed).')

@@ -119,3 +119,13 @@ with Bronze's 23.1%. Within that area, the qualifying shares are 9/57 (15.8%) an
 small-sample shares do not fully account for tactical roles or pass difficulty.
 The [location-context report](../reports/03_pass_location_context.md) preserves the
 denominators, spatial rules and limits rather than treating the chart as a player ranking.
+
+## Follow-up: uncertainty across observed fixtures
+
+A paired whole-match bootstrap of the attacking-third shares retains the observed
++7.15-point Kirby-minus-Bronze difference but produces an illustrative percentile
+interval of −3.19 to +19.13 percentage points (10,000 draws). These match draws span
+both sides of zero. The result motivates caution about a general advantage; it does
+not prove equality. Seven selected fixtures do not validate population coverage.
+The [bootstrap report](../reports/04_match_bootstrap_uncertainty.md) documents pairing,
+pooled ratios, zero-exposure handling and the assumptions behind this teaching extension.

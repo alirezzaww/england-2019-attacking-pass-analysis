@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Test location boundaries and denominator handling
+      - name: Test spatial summaries and paired match resampling
         run: python -m unittest discover -s tests -v
       - name: Reconcile saved evidence
         run: python scripts/check_evidence.py
