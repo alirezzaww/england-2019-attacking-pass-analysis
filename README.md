@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–18 and then validates saved evidence.
+The runner executes tournament stages 11, 13–19 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -124,3 +124,12 @@ See [contributing](CONTRIBUTING.md) and [citation metadata](CITATION.cff).
 The responsive static website lives in `web/`. Read [deployment and device support](docs/DEPLOYMENT.md)
 to serve or publish your own copy. The website is readable on phones and computers;
 Python analysis runs in a computer environment.
+
+## Latest lesson: testing the time window
+
+[Lesson 19](lessons/0001-time-window-sensitivity.html) and its
+[research report](reports/02_time_window_sensitivity.md) compare 5, 10 and 15 seconds
+before shots while keeping xG > 0.10 and playing-time denominators fixed. Selections
+contain 38, 68 and 98 passes. Walsh's comparison with Bronze changes with the window.
+Run `python 19_time_window_sensitivity.py` in Spyder or a terminal. The lesson HTML
+can be downloaded and opened locally; GitHub displays its source.

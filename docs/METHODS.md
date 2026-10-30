@@ -111,3 +111,17 @@ population. The fitted curve is shown only over the training distance range; tes
 predictions can extrapolate. Once a test set has been inspected during development,
 repeated tuning against it is not an independent final evaluation. Larger data and
 training-only validation are needed for subsequent model selection.
+
+## Time-window sensitivity (lesson 19)
+
+At a fixed shot-xG threshold strictly above 0.10, inclusive windows of 5, 10 and 15
+nominal seconds retain 38, 68 and 98 unique passes. All other selection rules and
+playing-time denominators remain fixed. The smaller sets are obtained by filtering
+the lesson-14 nearest-eligible-shot gaps. Because the nearest eligible shot was
+selected after the xG filter, any pass whose nearest eligible shot is outside a shorter
+window cannot have another eligible shot inside it. This shortcut is valid for these
+shorter windows; it cannot discover extra events beyond the original 15 seconds.
+
+Event IDs are nested and each pass is counted once per setting. Changing the window
+alters the numerator and temporal scope, not the player's minutes. This is definition
+sensitivity; no statistical interval, independence or causal interpretation is claimed.

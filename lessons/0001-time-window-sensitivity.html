@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lesson 19 · Testing the time window</title><link rel="stylesheet" href="../assets/lesson.css"></head><body><main>
+<p class="eyebrow">Football analyst training · Project lesson 19</p>
+<h1>Does our finding depend on 15 seconds?</h1>
+<p>A credible analyst checks how a reasonable definition changes the result. Today you will read a sensitivity check and make one small extension in Spyder.</p>
+<h2>1. Understand what changes</h2>
+<p>A pass 4 seconds before a qualifying shot is included in all three windows. A pass 8 seconds before it is included in the 10- and 15-second windows. A pass 13 seconds before it is included only at 15 seconds. “Within 5 seconds” includes the boundary at exactly 5 on our nominal second clock.</p>
+<p>The seven matches, completed-pass rules, same-possession requirement, shot xG &gt; 0.10 and playing minutes stay fixed. This lets us isolate the effect of the time window.</p>
+<h2>2. Read the evidence</h2>
+<img src="../figures/22_time_window_sensitivity.png" alt="Totals are 38, 68 and 98 at 5, 10 and 15 seconds. Kirby remains prominent, while the Walsh and Bronze rate ordering changes.">
+<div class="finding"><strong>The useful finding:</strong> Kirby retains 8 of 12 selected passes at 5 seconds; Walsh retains 1 of 9. Walsh’s rate exceeds Bronze’s at 15 seconds (1.82 vs 1.43), but is below it at 5 seconds (0.20 vs 0.78). Their ordering depends on the definition.</div>
+<p>All three totals must grow or stay the same as the window expands: every 5-second pass also qualifies at 10 and 15. This increase alone is expected, not evidence that 15 seconds is better.</p>
+<h2>3. Follow the Python logic</h2>
+<pre><code>WINDOWS = [5, 10, 15]
+for window in WINDOWS:
+    selected = [p for p in baseline
+                if 0 &lt;= p['seconds_before_shot'] &lt;= window]</code></pre>
+<p><code>WINDOWS</code> lists the settings. The loop repeats the selection once per setting. <code>p</code> is one saved pass record; its gap is the time to the nearest subsequent eligible shot. The list keeps records satisfying the gap condition.</p>
+<p>The baseline contains all 98 passes within 15 seconds of the nearest shot meeting xG &gt; 0.10. Shorter windows can be filtered from it: if the nearest eligible shot is too far away, another eligible shot cannot be nearer. This works because the other selection rules and xG filter are unchanged.</p>
+<p>Next, <code>Counter</code> counts selected records for each player. We calculate <code>count / minutes * 90</code> using the same playing-time denominator for every setting. The numerator changes; the minutes do not.</p>
+<h2>4. Run and extend in Spyder</h2>
+<ol><li>Open <a href="../19_time_window_sensitivity.py">19_time_window_sensitivity.py</a> and run it. Find the printed totals 38, 68 and 98.</li><li>As an independent exercise, change <code>WINDOWS</code> to <code>[5, 8, 10, 15]</code> in a separate practice copy. In that copy, also change the output names to <code>data/19_practice_eight_seconds.json</code> and <code>figures/22_practice_eight_seconds.png</code> to preserve the published artifacts. The existing loop will include the additional setting.</li><li>Predict before running: the 8-second total must be between 38 and 68, inclusive. The 15-second total must still be 98.</li><li>Write two sentences: what happens to Walsh versus Bronze, and why this does not rank overall passing quality.</li></ol>
+<details><summary>Check your interpretation</summary><p>A shorter window captures recorded involvement closer in time to a shot. It can change player comparisons. It does not establish that those passes caused the shot, were assists, or prove a general playing style. The samples overlap and are too small to support a broad quality claim.</p><p>The production evidence checker intentionally expects the documented three-window analysis. Keep the practice experiment in a separate copy until its method, checks and report are deliberately updated.</p></details>
+<p>Ask your teacher to explain any line or review your two-sentence assessment. Independent explanations are the next step toward interview-ready understanding.</p>
+<h2>Keep this reference</h2><p><a href="../reference/time-window-sensitivity.html">Sensitivity-check reference</a> · <a href="../reports/02_time_window_sensitivity.md">Research report</a> · <a href="../docs/METHODS.md">Full methods</a></p>
+<footer>Primary reading: <a href="https://soccermatics.readthedocs.io/en/latest/gallery/lesson1/plot_PassHeatMap.html">Soccermatics: pass heat maps</a>. The course uses a 15-second window; this comparison is our extension. Data: StatsBomb Open Data. Prepared with assistant support; independent practice remains to be demonstrated.</footer>
+</main></body></html>

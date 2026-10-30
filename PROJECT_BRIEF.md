@@ -96,3 +96,12 @@ Lesson 18 begins the modelling learning path with a distance-only logistic xG mo
 StatsBomb xG in the passing study. It demonstrates a binary target, train/test
 separation, baseline comparison and probability-error metrics; it is not a validated
 production model. General uncertainty and opportunity adjustment remain future work.
+
+## Latest passing extension: time-window sensitivity
+
+Lesson 19 now tests 5-, 10- and 15-second windows at fixed shot xG > 0.10. Counts are
+38, 68 and 98. Walsh versus Bronze changes rate ordering between 5 and 15 seconds.
+The implementation preserves selected IDs and constant playing-time denominators,
+with independent cached-event reconstruction checks. See
+[the report](reports/02_time_window_sensitivity.md) and
+[the practical lesson](lessons/0001-time-window-sensitivity.html).

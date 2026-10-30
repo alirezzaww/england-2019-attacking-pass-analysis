@@ -339,3 +339,16 @@ The assistant prepared publication and ran the full pipeline in a fresh environm
 This demonstrates reproducibility of the implementation; it does not replace my
 independent practice. My next portfolio milestone is to change a research definition,
 rerun the analysis, explain the effect and document my own interpretation.
+
+## Lesson 19 — time-window sensitivity — 30 October 2026
+
+Implemented and executed with assistant support. At fixed shot xG > 0.10, the
+5/10/15-second windows contain 38/68/98 passes. Kirby retains 8/11/12, Walsh 1/7/9,
+and Bronze 6/10/11. Walsh versus Bronze changes ordering, illustrating definition
+sensitivity. Playing minutes stay fixed. A wider window necessarily includes more
+or the same events; this alone cannot justify selecting it.
+
+New practical task: run a separate 8-second experiment and write a supported
+interpretation without turning temporal association into causality. This task and
+independent mastery are not yet demonstrated. Code, saved evidence, the figure,
+report and lesson are committed as part of the public project.

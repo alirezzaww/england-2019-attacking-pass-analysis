@@ -37,3 +37,13 @@ passes; per-player shares and the volume × share decomposition match per-90 rat
 Lesson 18 executed successfully: optimiser converged; 114/36 match-disjoint split;
 training-only scaling and all stored probabilities/test scores reconcile independently.
 Figure 21 visually inspected. No external or general model-quality claim is inferred.
+
+## Lesson 19 validation — 30 October 2026
+
+The new time-window script ran successfully in the project environment. The resulting
+figure was visually inspected. Counts are 38, 68 and 98 for inclusive 5, 10 and 15
+seconds at fixed xG > 0.10. The evidence checker reconciles every selected ID, player
+count, unchanged minutes and per-90 rate. With the raw cache present, it independently
+reconstructs all three selections from all seven matches. The 15-second set equals
+the existing 98-pass selection. Python compilation, website mirror checks and local
+link checks pass. This extension does not rerun or alter the educational xG model.

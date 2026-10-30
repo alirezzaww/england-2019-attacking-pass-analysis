@@ -140,6 +140,59 @@ for key, probabilities in [
     assert math.isclose(model[key]['log_loss'], log_loss)
     assert math.isclose(model[key]['predicted_goal_total'], sum(probabilities))
 
+# Lesson 19: reconcile every time window, not only headline totals.
+window_study = read('19_time_window_evidence.json')
+assert window_study['windows_seconds_inclusive'] == [5, 10, 15]
+assert window_study['xg_threshold_strictly_greater_than'] == 0.10
+previous_ids = set()
+for window, expected_total in [(5, 38), (10, 68), (15, 98)]:
+    result = window_study['windows'][str(window)]
+    expected_rows = [p for p in high if 0 <= p['seconds_before_shot'] <= window]
+    assert result['selected_passes'] == expected_rows
+    current_ids = ids(result['selected_passes'])
+    assert previous_ids <= current_ids
+    previous_ids = current_ids
+    assert result['total'] == len(current_ids) == expected_total
+    by_player = Counter(p['player_id'] for p in expected_rows)
+    assert len(result['players']) == len(sensitivity['players'])
+    assert len({p['player_id'] for p in result['players']}) == len(result['players'])
+    original_players = {p['player_id']: p for p in sensitivity['players']}
+    for player in result['players']:
+        original = original_players[player['player_id']]
+        assert player['player_name'] == original['player_name']
+        assert player['minutes'] == original['minutes']
+        assert player['count'] == by_player[player['player_id']]
+        assert math.isclose(player['per90'], player['count'] / player['minutes'] * 90)
+    assert sum(p['count'] for p in result['players']) == result['total']
+assert previous_ids == ids(high)
+
+# Independently reconstruct from raw events when available. This verifies that
+# filtering the saved nearest-shot gaps gives the full shorter-window selections.
+raw_window_matches = 0
+for match_id in base['match_ids']:
+    path = ROOT / f'data/cache_2019_events/{match_id}.json'
+    if not path.exists():
+        continue
+    events = json.loads(path.read_text())
+    team_events = [e for e in events if e['team']['name'] == "England Women's"]
+    shots = [e for e in team_events if e['type']['name'] == 'Shot' and e['shot']['statsbomb_xg'] > 0.10]
+    passes = [e for e in team_events if e['type']['name'] == 'Pass'
+              and 'outcome' not in e['pass']
+              and e['possession_team']['id'] == e['team']['id']
+              and e['pass'].get('type', {}).get('name') not in
+              ['Throw-in', 'Corner', 'Free Kick', 'Kick Off', 'Goal Kick']]
+    for window in [5, 10, 15]:
+        expected = set()
+        for event in passes:
+            if any(shot['period'] == event['period'] and shot['possession'] == event['possession']
+                   and shot['index'] > event['index']
+                   and 0 <= (shot['minute'] - event['minute']) * 60 + shot['second'] - event['second'] <= window
+                   for shot in shots):
+                expected.add((match_id, event['id']))
+        saved = [p for p in window_study['windows'][str(window)]['selected_passes'] if p['match_id'] == match_id]
+        assert ids(saved) == expected, f'Raw window reconstruction differs: {match_id}, {window}'
+    raw_window_matches += 1
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -147,5 +200,6 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence and educational xG splits, predictions and test metrics reconcile.')
+print('PASS: passing evidence, time-window selections and educational xG metrics reconcile.')
+print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')
 print(f'Raw input hashes checked locally: {checked}/7 (cache is optional and not committed).')

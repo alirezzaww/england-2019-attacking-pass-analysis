@@ -53,6 +53,7 @@ python 15_kirby_passing_profile.py
 python 16_match_variation.py
 python 17_passing_volume_adjustment.py
 python 18_first_xg_model.py
+python 19_time_window_sensitivity.py
 python scripts/check_evidence.py
 ```
 
@@ -95,3 +96,10 @@ not the passing selection. Evidence is saved in `data/18_first_xg_model_evidence
 Split IDs, training-only scaling, coefficients, predictions and test metrics are
 stored. The checker recomputes these relationships without fitting the model.
 The training process itself was executed successfully in the existing environment.
+
+## Time-window extension
+
+Lesson 19 reads saved lesson-14 evidence and produces
+`data/19_time_window_evidence.json` and `figures/22_time_window_sensitivity.png`.
+It does not require the raw cache to run. The evidence checker independently checks
+all three windows against cached raw events when those inputs are present.

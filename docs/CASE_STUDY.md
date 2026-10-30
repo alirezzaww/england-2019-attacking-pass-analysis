@@ -101,3 +101,12 @@ Prepared with assistant support; independent reproduction and explanation remain
 part of the learning programme.
 
 ![StatsBomb](../assets/statsbomb-logo.png)
+
+## Follow-up: does 15 seconds drive the finding?
+
+At fixed shot xG > 0.10, shorter 5- and 10-second windows select 38 and 68 passes
+compared with 98 at 15 seconds. Kirby retains 8 of 12 at 5 seconds, versus Walsh's
+1 of 9. Walsh's rate exceeds Bronze's at 15 seconds but falls below it at 5 seconds;
+that ordering depends on temporal scope. The [time-window report](../reports/02_time_window_sensitivity.md)
+documents all settings without choosing a preferred player ranking. This is a
+sensitivity check, not evidence of causal impact or statistical significance.

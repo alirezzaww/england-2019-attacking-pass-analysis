@@ -14,6 +14,7 @@ STAGES = [
     "16_match_variation.py",
     "17_passing_volume_adjustment.py",
     "18_first_xg_model.py",
+    "19_time_window_sensitivity.py",
     "scripts/check_evidence.py",
 ]
 
