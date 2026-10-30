@@ -69,3 +69,14 @@ reconcile. Four new unit tests cover pairing, repeated counts, zero exposure and
 quantile interpolation. Numerical consistency does not validate interval coverage
 with seven selected fixtures. Remote checks are recorded under the published commit
 in GitHub Actions.
+
+## Lesson 22 validation — 30 October 2026
+
+The score-state script ran and figure 25 was visually inspected. All seven final
+scores reconcile to provider match metadata. All 2,837 pass identities and 98 selected
+flags match lesson 20. Goal timelines, pre-pass scores, state labels and all team,
+player and fixture denominators reconcile; the raw-event audit independently verifies
+all seven fixtures. The newly cached metadata SHA-256 is checked when present.
+Four new unit tests exercise same-second event ordering, halftime/shootout handling,
+own-goal counterparts and empty state denominators. These tests cover synthetic
+own-goal cases; none occurs in the seven research fixtures.

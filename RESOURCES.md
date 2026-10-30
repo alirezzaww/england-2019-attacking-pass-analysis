@@ -14,6 +14,10 @@
   Primary reference for replacement sampling, paired indices and percentile intervals.
   Lesson 21 implements an explicit teaching loop; small-sample coverage remains unvalidated.
 
+- [StatsBomb Open Data specification](https://raw.githubusercontent.com/statsbomb/open-data/master/doc/StatsBomb%20Open%20Data%20Specification%20v1.1.pdf)
+  Primary event definitions, including Shot outcomes and own-goal event types; used
+  for lesson-22 score reconstruction and its explicit accounting convention.
+
 ## Gaps
 
 Role-specific comparisons, statistical uncertainty, larger-sample model validation and

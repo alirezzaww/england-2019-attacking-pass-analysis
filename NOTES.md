@@ -18,3 +18,9 @@ Lesson 21 introduces a paired whole-match bootstrap as an illustrative uncertain
 exercise. Do not describe its interval as reliable population inference from seven
 selected fixtures or as probability of player superiority. Independent explanation
 of sampling units, pairing and resampling versus new evidence is still pending.
+
+The user reported understanding bootstrap after simpler concrete examples; do not
+repeat the entire method unless requested. Lesson 22 moves to whole-team score-state
+context, explicitly changing scope from attacking-third player comparisons. Explain
+pre-pass labeling and opponent/score confounding in plain language. Coach-facing
+independent interpretation remains pending.

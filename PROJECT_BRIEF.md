@@ -122,3 +122,11 @@ with 10,000 seeded draws and a documented illustrative percentile interval. This
 implements an uncertainty teaching exercise; larger, representative data and justified
 sampling assumptions remain necessary for dependable inference. See
 [the report](reports/04_match_bootstrap_uncertainty.md).
+
+## Score-state context extension
+
+Lesson 22 labels all eligible passes by the pre-pass score and compares team/player
+shares while leading, drawing and trailing. All seven reconstructed final scores
+match provider metadata. Opponent and score state are confounded: trailing happens
+only against USA and Sweden. This is descriptive context, not causal adjustment.
+See [the report](reports/05_score_state_context.md).

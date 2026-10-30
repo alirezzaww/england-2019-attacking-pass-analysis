@@ -17,6 +17,7 @@ STAGES = [
     "19_time_window_sensitivity.py",
     "20_pass_location_context.py",
     "21_match_bootstrap_uncertainty.py",
+    "22_score_state_context.py",
     "scripts/check_evidence.py",
 ]
 

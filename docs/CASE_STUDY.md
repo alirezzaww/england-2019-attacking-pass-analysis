@@ -129,3 +129,13 @@ both sides of zero. The result motivates caution about a general advantage; it d
 not prove equality. Seven selected fixtures do not validate population coverage.
 The [bootstrap report](../reports/04_match_bootstrap_uncertainty.md) documents pairing,
 pooled ratios, zero-exposure handling and the assumptions behind this teaching extension.
+
+## Follow-up: the score at the time of the pass
+
+Across all pitch areas and players, the qualifying share is 4.34% while England lead,
+2.74% while drawing and 1.96% while trailing. Labels use the score immediately before
+the pass, not the subsequent shot result or final score. England only trailed against
+USA and Sweden in these fixtures, making score state inseparable from opponent and
+other context in this simple comparison. See the [score-state report](../reports/05_score_state_context.md)
+for denominators, final-score validation and limits. The observed pattern does not
+establish that leading improves passing.

@@ -382,3 +382,19 @@ pairing, repeated fixtures, zero denominators and quantile interpolation. Indepe
 practice remains pending: write a coach-facing interpretation and explain why more
 resampling iterations do not increase the number of observed matches. This entry
 records material covered, not independently demonstrated mastery.
+
+## Lesson 22 — pre-pass score context — 30 October 2026
+
+The user reported understanding the bootstrap explanation after concrete count-and-
+denominator examples. Independent implementation or general inference skill has not
+yet been demonstrated.
+
+The assistant implemented and executed a score-state extension covering England's
+whole team and all eligible starting locations. Shares are 68/1568 (4.34%) while
+leading, 18/658 (2.74%) drawing and 12/611 (1.96%) trailing. Events are processed in
+index order to label passes before goal updates. All final scores match provider
+metadata. Trailing appears only against USA and Sweden, illustrating confounding.
+
+Four new tests cover pre-goal labels, halftime/shootouts, own-goal counterparts and
+empty denominators. Independent task pending: write an observation and an alternative
+explanation for a coach without implying that leading caused better passing.

@@ -157,3 +157,21 @@ probability of superiority, equivalence or causal claim is inferred. The explici
 implements the paired percentile idea described in the
 [SciPy method documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html),
 not its default BCa method.
+
+## Pre-pass score state (lesson 22)
+
+Return to the whole team and all eligible starting locations, retaining the same 2,837
+passes and 98 selected IDs. Process each fixture's events in index order from 0–0,
+assigning score and state before each pass. Shot/Goal events increment the scoring
+team; Own Goal Against increments its opponent, with Own Goal For ignored as a
+counterpart. Shootout events are excluded. No own goals occur in these seven inputs.
+Final England/opponent scores must match provider match metadata. Its cache path,
+source URL and content digest are recorded in lesson-22 evidence; original event
+hashes remain in the input manifest.
+
+Leading/drawing/trailing shares are 68/1568, 18/658 and 12/611. Their denominators are
+eligible completed passes in the same state, not attempts or minutes. Player and
+fixture summaries retain empty cells as null shares. Score is measured immediately
+before the pass, not after a following goal or at the final whistle. Trailing occurs
+only against USA and Sweden, so score, opponent and other context cannot be separated
+by these descriptive comparisons. No causal score effect or general rating is claimed.

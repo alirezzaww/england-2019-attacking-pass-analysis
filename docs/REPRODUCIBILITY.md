@@ -56,6 +56,7 @@ python 18_first_xg_model.py
 python 19_time_window_sensitivity.py
 python 20_pass_location_context.py
 python 21_match_bootstrap_uncertainty.py
+python 22_score_state_context.py
 python scripts/check_evidence.py
 ```
 
@@ -121,3 +122,13 @@ Lesson 21 reads saved lesson-20 evidence without downloading data, and creates
 seed, fixture order, player order, draw count and percentile convention are recorded.
 The standard-library checker reconstructs fixture summaries and replays every draw.
 Offline unit tests cover paired indices, repeated counts, zero exposure and quantiles.
+
+## Score-state extension
+
+Lesson 22 requires the seven raw event caches. If
+`data/cache_2019_events/matches_72_30.json` is absent, it downloads provider match
+metadata with a 60-second timeout and caches it outside Git. The saved evidence
+records its URL and SHA-256. The score timeline and provider score snapshots are
+included in `data/22_score_state_evidence.json`, alongside every tagged pass and
+summaries. The evidence checker runs offline without caches; with caches it also
+independently reconstructs every pre-pass score and checks the metadata digest.

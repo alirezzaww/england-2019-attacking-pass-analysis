@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Test spatial summaries and paired match resampling
+      - name: Test spatial summaries, resampling and pre-pass score states
         run: python -m unittest discover -s tests -v
       - name: Reconcile saved evidence
         run: python scripts/check_evidence.py

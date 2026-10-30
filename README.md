@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–21 and then validates saved evidence.
+The runner executes tournament stages 11, 13–22 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -152,3 +152,13 @@ an illustrative percentile interval from 10,000 paired fixture draws is −3.19 
 +19.13 points. Only seven selected matches are available: this is not a validated
 population interval, p-value or player-quality ranking. Run
 `python 21_match_bootstrap_uncertainty.py` using the saved lesson-20 evidence.
+
+## Match score context
+
+[Lesson 22](lessons/0004-score-state-context.html) reconstructs the score immediately
+before each eligible pass and [compares leading, drawing and trailing](reports/05_score_state_context.md).
+England's qualifying shares are 4.34%, 2.74% and 1.96% respectively, across all starting
+locations. Trailing occurs only against USA and Sweden, preventing a causal score-effect
+claim. Final scores reconcile to provider metadata; same-second ordering, halftime,
+shootout exclusion and own-goal handling have tests. Run
+`python 22_score_state_context.py` after lesson 13; match metadata downloads once if missing.

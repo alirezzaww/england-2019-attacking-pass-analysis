@@ -313,6 +313,99 @@ for quantile, endpoint in zip(bootstrap['percentiles'], bootstrap['illustrative_
     expected = (1 - fraction) * ordered[math.floor(position)] + fraction * ordered[math.ceil(position)]
     assert math.isclose(expected, endpoint)
 
+# Lesson 22: use the score before each pass, not the final result or future goals.
+score_context = read('22_score_state_evidence.json')
+assert score_context['match_ids'] == base['match_ids']
+assert score_context['time_window_seconds_inclusive'] == 15
+assert score_context['xg_threshold_strictly_greater_than'] == 0.10
+state_ledger = score_context['passes']
+assert ids(state_ledger) == ids(ledger)
+original_passes = {(p['match_id'], p['id']): p for p in ledger}
+state_names = ['Leading', 'Drawing', 'Trailing']
+audit_by_match = {a['match_id']: a for a in score_context['match_audits']}
+assert len(audit_by_match) == len(score_context['match_audits']) == 7
+assert set(audit_by_match) == set(base['match_ids'])
+
+def check_state_summary(saved, passes):
+    assert [r['state'] for r in saved] == state_names
+    for row in saved:
+        group = [p for p in passes if p['state'] == row['state']]
+        k, n = sum(p['qualifying'] for p in group), len(group)
+        assert row['eligible_completed_passes'] == n and row['qualifying_passes'] == k
+        if n:
+            assert math.isclose(row['qualifying_share_pct'], 100 * k / n)
+        else:
+            assert row['qualifying_share_pct'] is None
+
+for match_id, audit in audit_by_match.items():
+    tally = [0, 0]
+    last_index = -1
+    for goal in audit['goals']:
+        assert goal['index'] > last_index
+        assert goal['score_before'] == tally
+        credited = goal['credited_team_id']
+        assert credited in [audit['england_team_id'], audit['opponent_team_id']]
+        tally[0 if credited == audit['england_team_id'] else 1] += 1
+        assert goal['score_after'] == tally
+        last_index = goal['index']
+    assert tally == audit['provider_final_score_england_opponent'] == audit['reconstructed_final_score_england_opponent']
+    rows = [p for p in state_ledger if p['match_id'] == match_id]
+    for row in rows:
+        original = original_passes[(match_id, row['id'])]
+        assert row['player_id'] == original['player_id'] and row['qualifying'] == original['qualifying']
+        prior = [g for g in audit['goals'] if g['index'] < row['index']]
+        before = prior[-1]['score_after'] if prior else [0, 0]
+        assert [row['england_goals_before'], row['opponent_goals_before']] == before
+        expected_state = 'Leading' if before[0] > before[1] else 'Trailing' if before[0] < before[1] else 'Drawing'
+        assert row['state'] == expected_state
+    check_state_summary(audit['states'], rows)
+check_state_summary(score_context['team_states'], state_ledger)
+assert sum(r['qualifying_passes'] for r in score_context['team_states']) == 98
+assert sum(r['eligible_completed_passes'] for r in score_context['team_states']) == 2837
+assert {p['match_id'] for p in state_ledger if p['state'] == 'Trailing'} == {69258, 69301}
+assert {p['player_id'] for p in score_context['players']} == set(original_players)
+assert len(score_context['players']) == len(original_players)
+for player in score_context['players']:
+    assert player['player_name'] == original_players[player['player_id']]['player_name']
+    check_state_summary(player['states'], [p for p in state_ledger if p['player_id'] == player['player_id']])
+metadata_source = score_context['metadata_source']
+assert metadata_source['url'] == 'https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/72/30.json'
+metadata_path = ROOT / metadata_source['relative_path']
+if metadata_path.exists():
+    assert hashlib.sha256(metadata_path.read_bytes()).hexdigest() == metadata_source['sha256']
+    metadata = {m['match_id']: m for m in json.loads(metadata_path.read_text())}
+    for match_id, audit in audit_by_match.items():
+        match = metadata[match_id]
+        home = match['home_team']['home_team_name'] == "England Women's"
+        expected = [match['home_score'], match['away_score']] if home else [match['away_score'], match['home_score']]
+        assert expected == audit['provider_final_score_england_opponent']
+
+raw_score_matches = 0
+for match_id, audit in audit_by_match.items():
+    path = ROOT / f'data/cache_2019_events/{match_id}.json'
+    if not path.exists():
+        continue
+    rows = {p['id']: p for p in state_ledger if p['match_id'] == match_id}
+    tally = [0, 0]
+    raw_goal_ids = []
+    for event in sorted(json.loads(path.read_text()), key=lambda e: e['index']):
+        if event['period'] == 5:
+            continue
+        if event['id'] in rows:
+            saved = rows[event['id']]
+            assert saved['index'] == event['index']
+            assert [saved['england_goals_before'], saved['opponent_goals_before']] == tally
+        kind = event['type']['name']
+        if kind == 'Shot' and event['shot']['outcome']['name'] == 'Goal':
+            tally[0 if event['team']['id'] == audit['england_team_id'] else 1] += 1
+            raw_goal_ids.append(event['id'])
+        elif kind == 'Own Goal Against':
+            tally[1 if event['team']['id'] == audit['england_team_id'] else 0] += 1
+            raw_goal_ids.append(event['id'])
+    assert raw_goal_ids == [g['id'] for g in audit['goals']]
+    assert tally == audit['provider_final_score_england_opponent']
+    raw_score_matches += 1
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -320,7 +413,8 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, spatial/time sensitivity, paired bootstrap and educational xG metrics reconcile.')
+print('PASS: passing evidence, score/spatial/time context, paired bootstrap and educational xG metrics reconcile.')
+print(f'Pre-pass scores independently reconstructed from raw events: {raw_score_matches}/7 matches.')
 print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')
 print(f'Raw input hashes checked locally: {checked}/7 (cache is optional and not committed).')
