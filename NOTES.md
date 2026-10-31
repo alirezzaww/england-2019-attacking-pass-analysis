@@ -29,3 +29,8 @@ Lesson 23 checks fixture overlap and shows how restricting the Drawing/Trailing
 comparison to USA and Sweden changes the pooled ordering. Explain in plain language
 that a common fixture set still does not isolate score effects. Missing exposure and
 measured zero are different; do not infer mastery from material covered.
+
+Lesson 24 uses a concrete timeline to distinguish 12 pass actions from three
+represented shots and three possessions. Do not imply direct passer-to-recipient
+links or causal credit from the selected timeline. The independent reporting task
+is pending; avoid recording the lesson as demonstrated mastery.

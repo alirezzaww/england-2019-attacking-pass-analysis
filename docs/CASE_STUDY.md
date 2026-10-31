@@ -148,3 +148,12 @@ when pooled over that common set. The original 18 Drawing qualifiers all came fr
 the other five fixtures. Restricting the sample reverses the original pooled ordering,
 without establishing a causal score effect. See the [within-match report](../reports/06_within_match_score_comparison.md)
 for each fixture, missing comparisons and remaining differences in game context.
+
+## Follow-up: what do the 12 trailing passes represent?
+
+The 12 selected passes while trailing link to three assigned shots in three
+possessions, each with four selected passes. Two represented shots are goals and
+one is saved. This is passing involvement, not 12 separate chances. The
+[shot-unit audit](../reports/07_passes_shots_and_possessions.md) adds chronological
+timelines and demonstrates repeated-shot-xG duplication. Other actions and shots
+without a selected preceding pass are outside this display.

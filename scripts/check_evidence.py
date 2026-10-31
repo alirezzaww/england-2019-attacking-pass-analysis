@@ -447,6 +447,50 @@ for name, comparison in within['comparisons'].items():
 assert within['comparisons']['leading_vs_trailing']['common_match_ids'] == []
 assert within['comparisons']['drawing_vs_trailing']['common_match_ids'] == [69258, 69301]
 
+# Lesson 24: pass rows, represented shots and possessions are distinct units.
+units = read('24_shot_units_evidence.json')
+assert units['sources'] == ['14_threshold_sensitivity_evidence.json', '22_score_state_evidence.json']
+assert units['time_window_seconds_inclusive'] == 15 and units['xg_threshold_strictly_greater_than'] == 0.10
+expected_ids = ids([p for p in state_ledger if p['state'] == 'Trailing' and p['qualifying']])
+expected_passes = [p for p in high if (p['match_id'], p['id']) in expected_ids]
+flattened = [p for group in units['groups'] for p in group['selected_passes']]
+assert ids(flattened) == expected_ids
+assert {(p['match_id'], p['id']): p for p in flattened} == {(p['match_id'], p['id']): p for p in expected_passes}
+shot_keys = {(p['match_id'], p['shot_id']) for p in expected_passes}
+assert {(g['match_id'], g['shot']['id']) for g in units['groups']} == shot_keys
+assert len(units['groups']) == len(shot_keys)
+for group in units['groups']:
+    shot = group['shot']
+    rows = group['selected_passes']
+    assert group['opponent'] == audit_by_match[group['match_id']]['opponent']
+    assert rows == sorted(rows, key=lambda p: p['index'])
+    for row in rows:
+        assert row['match_id'] == group['match_id'] and row['shot_id'] == shot['id']
+        assert row['shot_xg'] == shot['xg'] > 0.10
+        assert row['possession'] == shot['possession'] and row['period'] == shot['period']
+        assert row['index'] < shot['index']
+        assert shot['minute'] * 60 + shot['second'] - row['clock'] == row['seconds_before_shot']
+    prior = [g for g in audit_by_match[group['match_id']]['goals'] if g['index'] < shot['index']]
+    assert shot['score_before_england_opponent'] == (prior[-1]['score_after'] if prior else [0, 0])
+    path = ROOT / f"data/cache_2019_events/{group['match_id']}.json"
+    if path.exists():
+        original = next(e for e in json.loads(path.read_text()) if e['id'] == shot['id'])
+        assert original['type']['name'] == 'Shot' and original['team']['name'] == "England Women's"
+        for key in ['index', 'period', 'possession', 'minute', 'second']:
+            assert shot[key] == original[key]
+        assert shot['player_name'] == original['player']['name']
+        assert shot['xg'] == original['shot']['statsbomb_xg']
+        assert shot['outcome'] == original['shot']['outcome']['name']
+summary = units['summary']
+assert summary['qualifying_passes'] == len(expected_passes) == 12
+assert summary['distinct_assigned_shots'] == len(shot_keys) == 3
+assert summary['distinct_possessions'] == len({(p['match_id'], p['period'], p['possession']) for p in expected_passes}) == 3
+assert summary['goals_from_represented_shots'] == sum(g['shot']['outcome'] == 'Goal' for g in units['groups']) == 2
+unique_xg = sum(g['shot']['xg'] for g in units['groups'])
+repeated_xg = sum(p['shot_xg'] for p in expected_passes)
+assert math.isclose(summary['assigned_shot_xg_counted_once'], unique_xg)
+assert math.isclose(summary['incorrect_repeated_shot_xg_sum_for_demonstration'], repeated_xg)
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -454,7 +498,7 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, score/within-match/spatial/time context, bootstrap and xG metrics reconcile.')
+print('PASS: passing evidence, shot units, match/score/spatial/time context, bootstrap and xG metrics reconcile.')
 print(f'Pre-pass scores independently reconstructed from raw events: {raw_score_matches}/7 matches.')
 print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')

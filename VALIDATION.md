@@ -89,3 +89,12 @@ Drawing/Trailing common fixtures are exactly USA and Sweden; Leading/Trailing ha
 none and its restricted comparison is undefined. Three new tests cover positive
 exposure with zero qualifiers, missing overlap and pooled counts with unequal fixture
 sizes. No new source data or interval estimation is introduced.
+
+## Lesson 24 validation — 31 October 2026
+
+The new script ran successfully and figure 27 was visually inspected. All 12 pass
+IDs match the selected trailing subset; the three assigned shots and possessions,
+nominal time gaps, event order, shooters, outcomes and xG match cached raw data.
+Scores before the shots reconcile to the saved goal timelines. The represented-shot
+sum and intentionally duplicated demonstration sum reconcile separately. Four new
+unit tests cover aggregation units and duplicate/conflicting identity handling.

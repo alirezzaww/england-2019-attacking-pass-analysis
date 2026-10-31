@@ -19,6 +19,7 @@ STAGES = [
     "21_match_bootstrap_uncertainty.py",
     "22_score_state_context.py",
     "23_within_match_score_comparison.py",
+    "24_passes_shots_and_possessions.py",
     "scripts/check_evidence.py",
 ]
 

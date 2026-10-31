@@ -187,3 +187,16 @@ An empty common set yields undefined shares and difference, not measured zeros.
 This is sample restriction and descriptive within-fixture comparison. Fixture weights
 remain proportional to state-specific pass volumes; game phase and other confounding
 remain. No causal, equal-weight adjusted or significance claim is made.
+
+## Pass, represented-shot and possession units (lesson 24)
+
+Restrict lesson-14 high-threshold passes by lesson-22 pre-pass Trailing labels. Group
+by match and assigned shot ID; count possession identities by match, period and
+possession. Twelve selected passes link to three represented shots and three
+possessions, with four passes per shot. All three shots are checked against cached
+raw event metadata; two outcomes are Goal and one Saved. This is not every team shot
+while trailing and not a full action chain. Timeline names are passers, not verified
+passer-to-recipient edges. Other actions may occur between selected passes.
+The represented-shot xG sum is 0.46052896. The deliberately incorrect per-pass repeated
+sum is 1.84211584; it is stored only to illustrate duplication. No pass-created xG,
+causal player credit or full team xG claim is made.

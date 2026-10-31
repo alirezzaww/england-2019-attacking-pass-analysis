@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–23 and then validates saved evidence.
+The runner executes tournament stages 11, 13–24 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -172,3 +172,12 @@ comparison: 0/120 versus 12/611 when pooled over those same two fixtures. This r
 the seven-match pooled ordering, showing why group composition must accompany a
 percentage comparison. Game phase and other context remain uncontrolled. Run
 `python 23_within_match_score_comparison.py` using saved lesson-22 evidence.
+
+## Audit what a passing count represents
+
+[Lesson 24](lessons/0006-passes-shots-possessions.html) inspects
+[the attacks behind the trailing-pass total](reports/07_passes_shots_and_possessions.md).
+The 12 selected passes link to three represented shots in three possessions, with four
+passes per shot. Timelines and identity checks distinguish action counts from shot
+counts and demonstrate why repeated shot xG must not be summed per preceding pass.
+Run `python 24_passes_shots_and_possessions.py` after caching raw events with lesson 13.

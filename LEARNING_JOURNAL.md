@@ -411,3 +411,17 @@ New tests cover true zero numerators, absent overlap and pooled ratios with uneq
 denominators. Independent practice pending: rewrite an overconfident score-effect
 claim with the observed comparison and remaining limitations. The user's earlier
 score-state follow-up was clarified; independent analysis has not yet been demonstrated.
+
+## Lesson 24 — passes, shots and possessions — 31 October 2026
+
+Prepared and executed with assistant support. The 12 selected trailing passes refer
+to three assigned shots and three possessions, with four passes before each shot.
+Reviewed the distinction between action counts, shot counts and possession counts
+using event timelines. Deduplicated represented-shot xG totals 0.46052896; repeating
+the shot value per preceding pass gives an intentionally incorrect 1.84211584.
+No pass-created xG or total team-shot claim is inferred.
+
+Four new tests cover shot-level aggregation, multiple shots in one possession,
+duplicate pass rejection and conflicting shot metadata. Independent practice remains:
+correct a coach-facing statement that mistakes 12 selected passes for 12 separate
+chances and explain a display limitation. Coverage is not evidence of independent mastery.

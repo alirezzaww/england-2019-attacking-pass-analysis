@@ -58,6 +58,7 @@ python 20_pass_location_context.py
 python 21_match_bootstrap_uncertainty.py
 python 22_score_state_context.py
 python 23_within_match_score_comparison.py
+python 24_passes_shots_and_possessions.py
 python scripts/check_evidence.py
 ```
 
@@ -141,3 +142,11 @@ Lesson 23 reads saved lesson-22 evidence without downloading raw data. It create
 common fixture IDs, numerators, denominators and percentage-point differences from
 the saved pass ledger. Unit tests cover zero qualifying counts with valid exposure,
 missing overlap and pooling unequal-size fixture groups.
+
+## Shot-unit audit
+
+Lesson 24 reads saved lesson-14 and lesson-22 evidence plus cached raw events for USA
+and Sweden; it downloads nothing. It creates `data/24_shot_units_evidence.json` and
+figure 27. The checker reconciles selected IDs, assigned-shot groups, possession
+identities, times, shot metadata and sums. Without raw caches, saved artifacts still
+reconcile; with caches, shot metadata is checked against original events.

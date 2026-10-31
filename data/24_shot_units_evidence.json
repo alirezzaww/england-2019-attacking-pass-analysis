@@ -1,0 +1,263 @@
+{
+  "sources": [
+    "14_threshold_sensitivity_evidence.json",
+    "22_score_state_evidence.json"
+  ],
+  "scope": "Selected passes made while England trailed; all eligible starting locations",
+  "time_window_seconds_inclusive": 15,
+  "xg_threshold_strictly_greater_than": 0.1,
+  "summary": {
+    "qualifying_passes": 12,
+    "distinct_assigned_shots": 3,
+    "distinct_possessions": 3,
+    "assigned_shot_xg_counted_once": 0.46052896,
+    "incorrect_repeated_shot_xg_sum_for_demonstration": 1.8421158399999995,
+    "goals_from_represented_shots": 2
+  },
+  "groups": [
+    {
+      "match_id": 69258,
+      "opponent": "United States Women's",
+      "shot": {
+        "id": "933eb72e-fb5d-45b3-bb0d-98a99824bb7b",
+        "index": 800,
+        "period": 1,
+        "possession": 37,
+        "minute": 18,
+        "second": 40,
+        "player_name": "Ellen White",
+        "xg": 0.22070982,
+        "outcome": "Goal",
+        "score_before_england_opponent": [
+          0,
+          1
+        ]
+      },
+      "selected_passes": [
+        {
+          "match_id": 69258,
+          "id": "34d6806f-2c8e-4f4a-820a-5c7e49e3ab08",
+          "index": 789,
+          "period": 1,
+          "possession": 37,
+          "clock": 1109,
+          "player_id": 4654,
+          "player_name": "Nikita Parris",
+          "x": 79.2,
+          "y": 72.2,
+          "shot_id": "933eb72e-fb5d-45b3-bb0d-98a99824bb7b",
+          "shot_xg": 0.22070982,
+          "seconds_before_shot": 11
+        },
+        {
+          "match_id": 69258,
+          "id": "8c2a0165-342c-4869-b7eb-76d961ab58c4",
+          "index": 792,
+          "period": 1,
+          "possession": 37,
+          "clock": 1111,
+          "player_id": 10178,
+          "player_name": "Lucy Bronze",
+          "x": 70.7,
+          "y": 69.9,
+          "shot_id": "933eb72e-fb5d-45b3-bb0d-98a99824bb7b",
+          "shot_xg": 0.22070982,
+          "seconds_before_shot": 9
+        },
+        {
+          "match_id": 69258,
+          "id": "15e17b4b-c1ea-4e9b-926b-3fabad56d8a8",
+          "index": 795,
+          "period": 1,
+          "possession": 37,
+          "clock": 1114,
+          "player_id": 4658,
+          "player_name": "Keira Walsh",
+          "x": 75.4,
+          "y": 58.2,
+          "shot_id": "933eb72e-fb5d-45b3-bb0d-98a99824bb7b",
+          "shot_xg": 0.22070982,
+          "seconds_before_shot": 6
+        },
+        {
+          "match_id": 69258,
+          "id": "af7d3919-3e2a-49e1-9281-39a0ab4d16a6",
+          "index": 798,
+          "period": 1,
+          "possession": 37,
+          "clock": 1119,
+          "player_id": 15619,
+          "player_name": "Bethany Mead",
+          "x": 104.5,
+          "y": 8.8,
+          "shot_id": "933eb72e-fb5d-45b3-bb0d-98a99824bb7b",
+          "shot_xg": 0.22070982,
+          "seconds_before_shot": 1
+        }
+      ]
+    },
+    {
+      "match_id": 69301,
+      "opponent": "Sweden Women's",
+      "shot": {
+        "id": "511a397d-ebab-4a3a-83df-a4853b4ad4b5",
+        "index": 956,
+        "period": 1,
+        "possession": 52,
+        "minute": 30,
+        "second": 38,
+        "player_name": "Francesca Kirby",
+        "xg": 0.1007295,
+        "outcome": "Goal",
+        "score_before_england_opponent": [
+          0,
+          2
+        ]
+      },
+      "selected_passes": [
+        {
+          "match_id": 69301,
+          "id": "436bae0c-f35c-42cd-80d5-b26408bcf9a3",
+          "index": 939,
+          "period": 1,
+          "possession": 52,
+          "clock": 1826,
+          "player_id": 10185,
+          "player_name": "Stephanie Houghton",
+          "x": 32.9,
+          "y": 70.0,
+          "shot_id": "511a397d-ebab-4a3a-83df-a4853b4ad4b5",
+          "shot_xg": 0.1007295,
+          "seconds_before_shot": 12
+        },
+        {
+          "match_id": 69301,
+          "id": "2a7dc6d6-0f92-49cf-b6e4-274ac69fa539",
+          "index": 942,
+          "period": 1,
+          "possession": 52,
+          "clock": 1827,
+          "player_id": 10172,
+          "player_name": "Jill Scott",
+          "x": 41.7,
+          "y": 71.0,
+          "shot_id": "511a397d-ebab-4a3a-83df-a4853b4ad4b5",
+          "shot_xg": 0.1007295,
+          "seconds_before_shot": 11
+        },
+        {
+          "match_id": 69301,
+          "id": "f5588158-20c7-4f7a-97e7-90f11efc2271",
+          "index": 945,
+          "period": 1,
+          "possession": 52,
+          "clock": 1830,
+          "player_id": 4654,
+          "player_name": "Nikita Parris",
+          "x": 53.9,
+          "y": 76.2,
+          "shot_id": "511a397d-ebab-4a3a-83df-a4853b4ad4b5",
+          "shot_xg": 0.1007295,
+          "seconds_before_shot": 8
+        },
+        {
+          "match_id": 69301,
+          "id": "6c67714a-6078-4494-8621-81133201ca20",
+          "index": 949,
+          "period": 1,
+          "possession": 52,
+          "clock": 1832,
+          "player_id": 10172,
+          "player_name": "Jill Scott",
+          "x": 70.4,
+          "y": 54.9,
+          "shot_id": "511a397d-ebab-4a3a-83df-a4853b4ad4b5",
+          "shot_xg": 0.1007295,
+          "seconds_before_shot": 6
+        }
+      ]
+    },
+    {
+      "match_id": 69301,
+      "opponent": "Sweden Women's",
+      "shot": {
+        "id": "603b9a9b-cffa-4ed7-997b-1646da452230",
+        "index": 1577,
+        "period": 1,
+        "possession": 86,
+        "minute": 50,
+        "second": 54,
+        "player_name": "Ellen White",
+        "xg": 0.13908964,
+        "outcome": "Saved",
+        "score_before_england_opponent": [
+          1,
+          2
+        ]
+      },
+      "selected_passes": [
+        {
+          "match_id": 69301,
+          "id": "b3725886-071c-4aff-9ec6-e218e69a0219",
+          "index": 1566,
+          "period": 1,
+          "possession": 86,
+          "clock": 3040,
+          "player_id": 10178,
+          "player_name": "Lucy Bronze",
+          "x": 21.1,
+          "y": 50.5,
+          "shot_id": "603b9a9b-cffa-4ed7-997b-1646da452230",
+          "shot_xg": 0.13908964,
+          "seconds_before_shot": 14
+        },
+        {
+          "match_id": 69301,
+          "id": "f45f13f8-434e-418b-9f25-aa9a6a77b07a",
+          "index": 1569,
+          "period": 1,
+          "possession": 86,
+          "clock": 3045,
+          "player_id": 10185,
+          "player_name": "Stephanie Houghton",
+          "x": 32.2,
+          "y": 50.3,
+          "shot_id": "603b9a9b-cffa-4ed7-997b-1646da452230",
+          "shot_xg": 0.13908964,
+          "seconds_before_shot": 9
+        },
+        {
+          "match_id": 69301,
+          "id": "9b9e924c-8e4d-47d7-8b80-70bd9358d448",
+          "index": 1572,
+          "period": 1,
+          "possession": 86,
+          "clock": 3047,
+          "player_id": 10178,
+          "player_name": "Lucy Bronze",
+          "x": 43.3,
+          "y": 75.6,
+          "shot_id": "603b9a9b-cffa-4ed7-997b-1646da452230",
+          "shot_xg": 0.13908964,
+          "seconds_before_shot": 7
+        },
+        {
+          "match_id": 69301,
+          "id": "3135fc04-58d9-4af1-b988-3f91aae3b077",
+          "index": 1575,
+          "period": 1,
+          "possession": 86,
+          "clock": 3051,
+          "player_id": 4654,
+          "player_name": "Nikita Parris",
+          "x": 84.6,
+          "y": 58.2,
+          "shot_id": "603b9a9b-cffa-4ed7-997b-1646da452230",
+          "shot_xg": 0.13908964,
+          "seconds_before_shot": 3
+        }
+      ]
+    }
+  ],
+  "interpretation_limit": "Only assigned shots represented by selected passes, not all shots while trailing; no pass-created xG or causal credit"
+}

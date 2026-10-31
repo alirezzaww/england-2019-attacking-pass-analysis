@@ -138,3 +138,11 @@ fixtures before presenting a restricted comparison. It reports unavailable Leadi
 Trailing comparisons and per-fixture Drawing/Trailing results for USA and Sweden,
 with a changed pooled ordering and explicit limits. See
 [the report](reports/06_within_match_score_comparison.md).
+
+## Measurement-unit audit
+
+Lesson 24 inspects the 12 trailing pass records as three represented shots in three
+possessions. It preserves identities, adds event timelines and rejects duplicated
+passes or inconsistent shot metadata. This supports more precise analyst reporting;
+it is not a new chance-creation or pass-value model. See
+[the audit](reports/07_passes_shots_and_possessions.md).
