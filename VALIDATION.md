@@ -117,3 +117,15 @@ no last-two-fixture rows included. Every shot belongs to exactly one fixed band;
 all counts, goals, prediction sums and rates reconcile. Four tests cover boundaries,
 probability means versus observed fractions, missing/zero distinctions and invalid
 or duplicate records. No new model fit or claim of reliable calibration is made.
+
+## Lesson 27 validation — 31 October 2026
+
+Frozen protocol was committed before new event downloads. The fixed evaluation ran
+successfully and figure 30 was visually inspected. Counts are 45 fixtures, 1,131
+included shots and 103 goals; 29 excluded events comprise 22 penalties and seven
+shootout shots. No fit was changed. All new raw hashes, fixture teams and every
+included/excluded shot record reconcile. Fixed probabilities, both scoring metrics,
+match loss sums and calibration cells reconcile independently. All 5,000 paired
+match-bootstrap draws replay from the protocol seed. Four new tests cover membership,
+losses, repeated match totals and paired resampling. These checks support numerical
+integrity, not general professional suitability.

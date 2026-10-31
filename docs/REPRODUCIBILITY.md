@@ -169,3 +169,19 @@ It creates `data/26_calibration_evidence.json` and figure 29. The standard-libra
 checker reconstructs all 114 selected-candidate out-of-fold records, bin memberships,
 counts, probabilities and observed rates. Unit tests include boundary values 0 and
 1, measured zero versus empty groups and duplicate-shot protection.
+
+## Optional extended fixed-model evaluation
+
+Run `python 27_frozen_model_evaluation.py` directly with the core environment installed,
+or `python scripts/run_research.py --headless --extended-evaluation` to include it
+in the full pipeline. The committed `data/27_evaluation_protocol.json` supplies frozen
+fits; they are not learned again. A digest checks the lesson-25 prediction code.
+The direct evaluation requires no original seven-match raw cache, and caches the
+45 other fixtures once (about 133 MB) into the ignored event directory.
+
+Output `data/27_frozen_evaluation_evidence.json` records every evaluated shot,
+exclusion, prediction, raw hash, calibration group and match loss summary. The default
+pipeline leaves this expensive stage optional but checks the saved evidence. Checks
+recompute every probability and metric and replay the seeded bootstrap with standard
+Python only. Raw caches add 45 source-hash, fixture-team and full shot-record checks.
+Do not edit the frozen protocol to improve an already inspected result.

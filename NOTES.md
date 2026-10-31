@@ -47,3 +47,10 @@ comparison versus practical reliability. Use one concrete group example at a tim
 do not assume familiarity with fitting or validation from prior code coverage.
 The calibration diagnostic is now implemented, but independent interpretation remains
 pending. More fresh match data is needed for an honest reliability assessment.
+
+Lesson 27 supplies actual new-fixture evidence after the user's questions about
+reliability. Clearly distinguish 114 TRAINING shots from 1,131 EVALUATION shots: no
+refit occurred. Model beats its fixed baseline on the 45 other same-tournament
+fixtures; do not imply exact true xG, different-season validation or readiness.
+The protocol was committed first. The new evaluation is now inspected; later tuning
+against it cannot be described as fresh. Independent explanation remains pending.

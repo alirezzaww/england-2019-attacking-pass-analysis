@@ -17,6 +17,11 @@ It extends a Soccermatics exercise with reconstructed playing time, threshold
 sensitivity checks and individual-event inspection. It is a guided learning project
 with assistant support, not an independently developed player-valuation model.
 
+A separate educational xG extension now evaluates a **frozen 114-shot model on 1,131
+shots from 45 other fixtures**, with lower log loss than a frozen training-rate
+baseline (0.2696 versus 0.3052). See the [fixed-model evaluation](reports/10_frozen_model_evaluation.md)
+for the protocol committed before event downloads, calibration, uncertainty and limits.
+
 ## Read the case study
 
 - **[Findings and football interpretation](docs/CASE_STUDY.md)**
@@ -51,7 +56,7 @@ the learning journal distinguishes coverage from independent practice.
 
 Use **Python 3.11** on Windows, macOS or Linux. Clone this repository, open its
 folder in a terminal, then follow [the setup guide](docs/REPRODUCIBILITY.md).
-After installing `requirements-core.txt`, run the complete research pipeline:
+After installing `requirements-core.txt`, run the core research pipeline:
 
 ```bash
 python scripts/run_research.py --headless
@@ -200,3 +205,17 @@ unimportant or establish production quality. Run `python 25_shot_angle_model.py`
 five goals (15.625% observed). These small, reused development groups do not establish
 true individual-shot probabilities or practical model reliability. No recalibration
 is fitted. Run `python 26_probability_calibration.py` using saved lesson-25 evidence.
+
+## Check the fixed model on previously unused fixtures
+
+[Lesson 27](lessons/0009-frozen-model-evaluation.html) adds a
+[protocol-first evaluation](reports/10_frozen_model_evaluation.md) on all 45 fixtures
+outside the seven development games. The model remains trained on 114 shots; it is
+not refitted on the new 1,131 shots. Its probability errors are lower than the frozen
+constant baseline in this fixture set. This does not establish new-season reliability,
+perfect calibration or practical readiness.
+
+Run `python 27_frozen_model_evaluation.py`, or add `--extended-evaluation` to the
+headless pipeline command. The first run caches about 133 MB of raw events outside
+Git. Default pipeline runs still validate the saved evaluation artifacts without
+rerunning this download stage.

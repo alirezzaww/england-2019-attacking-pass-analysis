@@ -28,11 +28,16 @@ STAGES = [
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--headless", action="store_true", help="Save plots without opening windows")
+    parser.add_argument("--extended-evaluation", action="store_true",
+                        help="Also rerun the frozen-model check on 45 other fixtures (downloads once)")
     args = parser.parse_args()
     env = os.environ.copy()
     if args.headless:
         env["MPLBACKEND"] = "Agg"
-    for stage in STAGES:
+    stages = list(STAGES)
+    if args.extended_evaluation:
+        stages.insert(-1, "27_frozen_model_evaluation.py")
+    for stage in stages:
         print(f"Running {stage}", flush=True)
         subprocess.run([sys.executable, str(ROOT / stage)], cwd=ROOT, env=env, check=True)
     print("Research pipeline and evidence checks completed.")

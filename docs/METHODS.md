@@ -231,3 +231,22 @@ These are pooled predictions from five fold-specific fits, reused after model
 selection. This is not a fresh calibration validation of the final refit. Small
 samples, shared fixture context and fixed-bin choices limit interpretation. No
 calibrator, confidence interval or true individual-shot xG label is inferred.
+
+## Frozen unused-fixture evaluation (lesson 27)
+
+The protocol was committed before downloading new shot events. It freezes lesson-25
+distance parameters and scaling, the original training-rate baseline, all 45 fixture
+IDs outside the seven development matches, exclusions, log loss/Brier metrics,
+calibration bins and paired match-bootstrap settings. No model is refitted. Metadata
+and public match scores were already available; the shot-event files were previously
+unused. The evaluation is not chronological future forecasting or a new-season test.
+
+New data contains 1,131 non-penalty shots and 103 goals; 22 penalty and seven shootout
+events are excluded, with no geometry/missing-location exclusions. Log loss is
+0.269628 for the fixed model versus 0.305178 for the fixed baseline. Brier is 0.075398
+versus 0.082806. A paired match bootstrap of 5,000 draws (seed 20261031), using pooled
+shot-weighted loss differences, has percentile intervals below zero for model-minus-
+baseline. Exchangeability is approximate because teams recur in one tournament;
+intervals are not universal coverage guarantees. Calibration rates and denominators
+remain visible. Later tuning against these results reuses the evaluation data.
+The original passing study continues to use supplied StatsBomb xG.

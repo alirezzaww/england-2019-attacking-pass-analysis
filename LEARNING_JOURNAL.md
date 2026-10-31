@@ -462,3 +462,18 @@ Four new tests and the checker cover every prediction's identity, band boundary,
 count, mean probability and observed rate, including undefined versus observed-zero
 groups. Independent task pending: write an observation and limitation for the 32-shot
 group without calling its observed rate the true xG of each shot.
+
+## Lesson 27 — fixed-model evaluation — 31 October 2026
+
+Prepared and executed with assistant support. Committed the frozen model, baseline and evaluation protocol before loading 45
+previously unused fixture shot files. The protocol was also pushed to GitHub. These are all other competition fixtures, not selected by outcome; public
+match metadata was already cached. Training remains 114 shots. Evaluation uses
+1,131 new-fixture non-penalty shots/103 goals, excluding 22 penalties and seven
+shootout events. Log loss is 0.2696 versus 0.3052 for the fixed baseline.
+
+Saved all prediction records, source hashes, calibration counts and paired match-
+bootstrap intervals. This supports lower error than that baseline in this fixture
+set, not true individual-shot xG or general readiness. Four tests protect fixture
+separation, probability losses and paired pooled resampling. Independent task pending:
+explain training versus evaluation sample sizes, the result and one scope limitation.
+Future tuning on these results would reuse this evaluation as development evidence.

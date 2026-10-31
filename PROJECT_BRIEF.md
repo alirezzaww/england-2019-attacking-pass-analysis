@@ -162,3 +162,12 @@ using the selected candidate's existing out-of-fold predictions. All shot identi
 bin boundaries and denominators are preserved. This is an exploratory post-selection
 diagnostic, not fresh validation or recalibration. See
 [the report](reports/09_probability_calibration.md).
+
+## Fixed-model evaluation on 45 other fixtures
+
+Lesson 27 adds a protocol-first evaluation on 1,131 new-fixture non-penalty shots,
+excluding all seven development games. The original model and baseline are frozen;
+training remains 114 shots. The model beats that baseline in probability error on
+this set, with input hashes, calibration and paired-match resampling preserved.
+Broader model reliability remains limited by the same-tournament scope and omitted
+context. See [the report](reports/10_frozen_model_evaluation.md).

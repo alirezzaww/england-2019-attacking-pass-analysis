@@ -61,3 +61,16 @@ An additional supported project statement, retaining the guided-work attribution
 This describes an educational implementation, not a validated professional xG model
 or independently demonstrated machine-learning expertise. Practise defending the
 split, metric, preprocessing and negative result before using it in an interview.
+
+## Larger fixed evaluation
+
+A supported bullet in the guided-project context:
+
+> Evaluated a frozen geometric xG model on 1,131 non-penalty shots from 45 previously
+> unused fixtures, using a protocol committed before event downloads, fixed-baseline
+> probability errors, paired match resampling and transparent calibration diagnostics.
+
+The fixed model has lower log loss than the fixed constant baseline in this set
+(0.2696 versus 0.3052). Do not describe it as trained on 1,131 shots, validated across
+seasons or ready for professional use. Explain the 114-shot training sample and the
+same-tournament, non-England evaluation scope accurately.

@@ -635,6 +635,149 @@ assert sum(b['shots'] for b in calibration['bins']) == summary['shots']
 assert sum(b['goals'] for b in calibration['bins']) == summary['goals']
 assert math.isclose(sum(b['predicted_goal_sum'] for b in calibration['bins']), summary['predicted_goal_sum'])
 
+# Lesson 27: a committed frozen model is checked on all other tournament fixtures.
+protocol_path = ROOT / 'data/27_evaluation_protocol.json'
+protocol = json.loads(protocol_path.read_text())
+evaluation = read('27_frozen_evaluation_evidence.json')
+assert evaluation['protocol_path'] == 'data/27_evaluation_protocol.json'
+assert evaluation['protocol_sha256'] == hashlib.sha256(protocol_path.read_bytes()).hexdigest()
+assert protocol['excluded_previously_used_match_ids'] == base['match_ids']
+assert len(protocol['evaluation_match_ids']) == len(set(protocol['evaluation_match_ids'])) == 45
+assert set(protocol['evaluation_match_ids']).isdisjoint(base['match_ids'])
+assert [m['match_id'] for m in protocol['fixture_metadata']] == protocol['evaluation_match_ids']
+assert protocol['no_refitting'] and protocol['no_ready_for_use_threshold']
+assert protocol['training_shots'] == evaluation['training_shots_unchanged'] == 114
+assert protocol['training_goals'] == 11 and protocol['selected_candidate'] == 'distance'
+assert protocol['calibration_bin_edges'] == [0, 0.05, 0.10, 0.20, 1]
+assert protocol['bootstrap'] == {'unit': 'whole match, paired for model and baseline', 'n_resamples': 5000,
+                                'seed': 20261031, 'percentiles': [0.025, 0.975], 'percentile_method': 'linear interpolation'}
+assert hashlib.sha256((ROOT / protocol['source_model_code']).read_bytes()).hexdigest() == protocol['source_model_code_sha256']
+check_angle_fit(protocol['frozen_fit'], angle_train, ['distance_template_m'])
+check_angle_fit(protocol['frozen_baseline_fit'], angle_train, [])
+assert evaluation['evaluation_match_ids'] == protocol['evaluation_match_ids']
+evaluation_rows = evaluation['shots']
+assert len(evaluation_rows) == evaluation['evaluation_shots']
+ids(evaluation_rows)
+assert all(r['match_id'] in protocol['evaluation_match_ids'] for r in evaluation_rows)
+assert set((r['match_id'], r['id']) for r in evaluation_rows).isdisjoint(ids(angle_rows))
+assert evaluation['evaluation_goals'] == sum(r['goal'] for r in evaluation_rows)
+for row in evaluation_rows:
+    assert row['goal'] in [0, 1] and 0 <= row['x'] <= 120 and 0 <= row['y'] <= 80
+    dx, lateral = (120 - row['x']) * 105 / 120, (row['y'] - 40) * 68 / 80
+    assert math.isclose(row['distance_template_m'], math.hypot(dx, lateral))
+    assert math.isclose(row['angle_radians'], math.atan2(7.32 * dx, dx * dx + lateral * lateral - 3.66 ** 2), abs_tol=1e-12)
+    assert math.isclose(row['model_probability'], angle_prediction(protocol['frozen_fit'], row))
+    assert math.isclose(row['baseline_probability'], angle_prediction(protocol['frozen_baseline_fit'], row))
+    assert math.isclose(row['baseline_probability'], 11 / 114)
+for name in ['model', 'baseline']:
+    check_angle_scores(evaluation[f'{name}_metrics'], evaluation_rows, [r[f'{name}_probability'] for r in evaluation_rows])
+for metric in ['log_loss', 'brier_score']:
+    expected = evaluation['model_metrics'][metric] - evaluation['baseline_metrics'][metric]
+    assert math.isclose(evaluation['model_minus_baseline'][metric], expected, abs_tol=1e-12)
+assert [r['match_id'] for r in evaluation['match_summaries']] == protocol['evaluation_match_ids']
+for saved in evaluation['match_summaries']:
+    rows = [r for r in evaluation_rows if r['match_id'] == saved['match_id']]
+    assert saved['shots'] == len(rows) and saved['goals'] == sum(r['goal'] for r in rows)
+    for name in ['model', 'baseline']:
+        squared, log_losses = [], []
+        for row in rows:
+            raw_p, y = row[f'{name}_probability'], row['goal']
+            clipped = max(1e-12, min(1 - 1e-12, raw_p))
+            squared.append((raw_p - y) ** 2)
+            log_losses.append(-y * math.log(clipped) - (1 - y) * math.log(1 - clipped))
+        assert math.isclose(saved[f'{name}_loss_sums']['brier_score'], sum(squared), abs_tol=1e-12)
+        assert math.isclose(saved[f'{name}_loss_sums']['log_loss'], sum(log_losses), abs_tol=1e-12)
+# Replay the paired match bootstrap from the frozen seed and aggregate losses.
+rng = random.Random(protocol['bootstrap']['seed'])
+match_summaries = evaluation['match_summaries']
+replicates = {'log_loss': [], 'brier_score': []}
+invalid = 0
+for _ in range(protocol['bootstrap']['n_resamples']):
+    draw = [match_summaries[rng.randrange(len(match_summaries))] for _ in match_summaries]
+    n = sum(row['shots'] for row in draw)
+    if not n:
+        invalid += 1
+        continue
+    for metric in replicates:
+        replicates[metric].append(sum(row['model_loss_sums'][metric] - row['baseline_loss_sums'][metric] for row in draw) / n)
+assert evaluation['bootstrap_valid_draws'] == len(replicates['log_loss'])
+assert evaluation['bootstrap_invalid_draws'] == invalid
+for metric, values in replicates.items():
+    ordered = sorted(values)
+    for q, endpoint in zip(protocol['bootstrap']['percentiles'], evaluation['paired_match_bootstrap_intervals'][metric]):
+        position = (len(ordered) - 1) * q
+        fraction = position % 1
+        expected = (1 - fraction) * ordered[math.floor(position)] + fraction * ordered[math.ceil(position)]
+        assert math.isclose(endpoint, expected, abs_tol=1e-12)
+# Rebuild fixed calibration bins from the new-fixture predictions.
+assert len(evaluation['calibration_bins']) == 4
+for j, cell in enumerate(evaluation['calibration_bins']):
+    lower, upper = protocol['calibration_bin_edges'][j:j + 2]
+    rows = [r for r in evaluation_rows if lower <= r['model_probability'] < upper or j == 3 and r['model_probability'] == 1]
+    assert cell['bin_index'] == j and cell['lower_inclusive'] == lower and cell['upper'] == upper
+    assert cell['upper_inclusive'] == (j == 3)
+    assert cell['shot_ids'] == [{'match_id': r['match_id'], 'id': r['id']} for r in rows]
+    assert cell['shots'] == len(rows) and cell['goals'] == sum(r['goal'] for r in rows)
+    expected = sum(r['model_probability'] for r in rows)
+    assert math.isclose(cell['predicted_goal_sum'], expected, abs_tol=1e-12)
+    if rows:
+        assert math.isclose(cell['mean_predicted_probability'], expected / len(rows))
+        assert math.isclose(cell['observed_goal_fraction'], cell['goals'] / len(rows), abs_tol=1e-12)
+    else:
+        assert cell['mean_predicted_probability'] is None and cell['observed_goal_fraction'] is None
+assert sum(r['shots'] for r in evaluation['calibration_bins']) == len(evaluation_rows)
+assert sum(r['goals'] for r in evaluation['calibration_bins']) == evaluation['evaluation_goals']
+excluded = evaluation['excluded_shots']
+ids(excluded)
+assert ids(excluded).isdisjoint(ids(evaluation_rows))
+assert all(r['reason'] in ['shootout', 'penalty', 'missing_location', 'invalid_geometry'] for r in excluded)
+assert dict(Counter(r['reason'] for r in excluded)) == evaluation['exclusion_counts']
+raw_evaluation_checked = 0
+assert [r['match_id'] for r in evaluation['raw_inputs']] == protocol['evaluation_match_ids']
+for record in evaluation['raw_inputs']:
+    mid = record['match_id']
+    assert record['relative_path'] == f'data/cache_2019_events/{mid}.json'
+    assert record['source_url'] == f'https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/{mid}.json'
+    path = ROOT / record['relative_path']
+    if not path.exists():
+        continue
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256']
+    events = json.loads(path.read_text())
+    fixture = next(m for m in protocol['fixture_metadata'] if m['match_id'] == mid)
+    assert {e['team']['name'] for e in events} == {fixture['home_team'], fixture['away_team']}
+    expected_included, expected_excluded = {}, {}
+    for event in events:
+        if event['type']['name'] != 'Shot':
+            continue
+        reason = None
+        if event['period'] >= 5:
+            reason = 'shootout'
+        elif event['shot'].get('type', {}).get('name') == 'Penalty':
+            reason = 'penalty'
+        elif 'location' not in event or len(event['location']) < 2:
+            reason = 'missing_location'
+        else:
+            x, y = event['location'][:2]
+            if not all(isinstance(v, (int, float)) and math.isfinite(v) for v in [x, y]) or not (0 <= x <= 120 and 0 <= y <= 80):
+                reason = 'invalid_geometry'
+            else:
+                dx, lateral = (120 - x) * 105 / 120, (y - 40) * 68 / 80
+                if dx == 0 and abs(dx * dx + lateral * lateral - 3.66 ** 2) < 1e-12:
+                    reason = 'invalid_geometry'
+        if reason:
+            expected_excluded[event['id']] = reason
+        else:
+            expected_included[event['id']] = (event['location'][0], event['location'][1], int(event['shot']['outcome']['name'] == 'Goal'))
+    actual = {r['id']: (r['x'], r['y'], r['goal']) for r in evaluation_rows if r['match_id'] == mid}
+    assert actual == expected_included
+    assert {r['id']: r['reason'] for r in excluded if r['match_id'] == mid} == expected_excluded
+    raw_evaluation_checked += 1
+metadata_path = ROOT / protocol['metadata_source']['relative_path']
+if metadata_path.exists():
+    assert hashlib.sha256(metadata_path.read_bytes()).hexdigest() == protocol['metadata_source']['sha256']
+    metadata = json.loads(metadata_path.read_text())
+    assert {m['match_id'] for m in metadata} - set(base['match_ids']) == set(protocol['evaluation_match_ids'])
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -642,7 +785,8 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, shot units, match context, bootstrap, xG and calibration reconcile.')
+print('PASS: passing evidence, xG, calibration and the frozen 45-fixture evaluation reconcile.')
+print(f'Unused-fixture shot records and raw hashes checked: {raw_evaluation_checked}/45 matches.')
 print(f'Pre-pass scores independently reconstructed from raw events: {raw_score_matches}/7 matches.')
 print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')
