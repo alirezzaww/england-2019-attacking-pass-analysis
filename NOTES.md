@@ -54,3 +54,10 @@ refit occurred. Model beats its fixed baseline on the 45 other same-tournament
 fixtures; do not imply exact true xG, different-season validation or readiness.
 The protocol was committed first. The new evaluation is now inspected; later tuning
 against it cannot be described as fresh. Independent explanation remains pending.
+
+The user again clarified the meaning of the 11/114 baseline and how the distance
+model changes it. Lesson 28 connects actual grouped training counts to real frozen
+formula outputs, then adds the new concept of extrapolation. Explain one example
+at a time. Neither group sample rates nor curve outputs are known true individual
+xG; independent explanation remains pending. Training-support plots are in-sample
+and the evaluation coverage audit reuses already inspected data.

@@ -778,6 +778,48 @@ if metadata_path.exists():
     metadata = json.loads(metadata_path.read_text())
     assert {m['match_id'] for m in metadata} - set(base['match_ids']) == set(protocol['evaluation_match_ids'])
 
+# Lesson 28: describe training counts and audit, without excluding, evaluation distances.
+support = read('28_distance_support_evidence.json')
+assert support['sources'] == ['25_shot_angle_evidence.json', '27_evaluation_protocol.json', '27_frozen_evaluation_evidence.json']
+assert support['protocol_sha256'] == evaluation['protocol_sha256']
+low = min(r['distance_template_m'] for r in angle_train)
+high_distance = max(r['distance_template_m'] for r in angle_train)
+assert support['training_distance_range_template_m'] == [low, high_distance]
+assert support['training_shots'] == len(angle_train) == 114
+assert support['evaluation_shots'] == len(evaluation_rows) == 1131
+
+def check_support_group(saved, rows):
+    n, goals = len(rows), sum(r['goal'] for r in rows)
+    assert saved['shots'] == n and saved['goals'] == goals
+    assert saved['shot_ids'] == [{'match_id': r['match_id'], 'id': r['id']} for r in rows]
+    if n:
+        assert math.isclose(saved['observed_goal_fraction'], goals / n, abs_tol=1e-12)
+        assert math.isclose(saved['mean_distance_template_m'], sum(r['distance_template_m'] for r in rows) / n)
+        assert saved['min_distance_template_m'] == min(r['distance_template_m'] for r in rows)
+        assert saved['max_distance_template_m'] == max(r['distance_template_m'] for r in rows)
+    else:
+        assert all(saved[key] is None for key in ['observed_goal_fraction', 'mean_distance_template_m',
+                                                 'min_distance_template_m', 'max_distance_template_m'])
+assert len(support['training_bands']) == 4
+training_partition = []
+for band, lower, upper in zip(support['training_bands'], [0, 10, 20, 30], [10, 20, 30, None]):
+    assert band['lower_inclusive_m'] == lower and band['upper_exclusive_m'] == upper
+    rows = [r for r in angle_train if r['distance_template_m'] >= lower and (upper is None or r['distance_template_m'] < upper)]
+    check_support_group(band, rows)
+    training_partition.extend(rows)
+assert ids(training_partition) == ids(angle_train)
+assert [g['category'] for g in support['evaluation_coverage']] == ['Closer than training range', 'Inside training range', 'Farther than training range']
+partitions = [[r for r in evaluation_rows if r['distance_template_m'] < low],
+              [r for r in evaluation_rows if low <= r['distance_template_m'] <= high_distance],
+              [r for r in evaluation_rows if r['distance_template_m'] > high_distance]]
+for group, rows in zip(support['evaluation_coverage'], partitions):
+    check_support_group(group, rows)
+assert ids([r for rows in partitions for r in rows]) == ids(evaluation_rows)
+assert [r['distance_template_m'] for r in support['example_predictions']] == [10, 20, 30]
+for example in support['example_predictions']:
+    assert math.isclose(example['frozen_probability'], angle_prediction(protocol['frozen_fit'], example))
+assert math.isclose(support['frozen_baseline_probability'], 11 / 114)
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:

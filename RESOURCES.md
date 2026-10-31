@@ -29,6 +29,11 @@
   Primary reference for reliability diagrams and comparison of bin-average probabilities
   with observed positive fractions. Lesson 26 is diagnostic only, with no recalibrator.
 
+- [SciPy: extrapolation background](https://docs.scipy.org/doc/scipy/tutorial/interpolate/extrapolation_examples.html)
+  Introduces evaluation outside an observed data domain using interpolation examples.
+  Lesson 28 uses the outside-range concept for a logistic distance model; it does not
+  use those interpolation routines or infer that all extrapolations must fail.
+
 ## Gaps
 
 Role-specific comparisons, statistical uncertainty, larger-sample model validation and

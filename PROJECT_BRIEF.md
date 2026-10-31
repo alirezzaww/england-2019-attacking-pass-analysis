@@ -171,3 +171,11 @@ training remains 114 shots. The model beats that baseline in probability error o
 this set, with input hashes, calibration and paired-match resampling preserved.
 Broader model reliability remains limited by the same-tournament scope and omitted
 context. See [the report](reports/10_frozen_model_evaluation.md).
+
+## Learned-distance pattern and support audit
+
+Lesson 28 makes the individual-shot fitting pattern visible through descriptive
+distance bands and actual frozen-model predictions. It flags 36 evaluation shots
+outside the observed training distance range, while retaining all 1,131 shots in
+the evaluation. This is one-feature coverage inspection, not another fit or fresh
+validation. See [the report](reports/11_training_distance_support.md).

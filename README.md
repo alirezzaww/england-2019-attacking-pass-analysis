@@ -63,7 +63,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–26 and then validates saved evidence.
+The runner executes tournament stages 11, 13–26 and 28 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -219,3 +219,12 @@ Run `python 27_frozen_model_evaluation.py`, or add `--extended-evaluation` to th
 headless pipeline command. The first run caches about 133 MB of raw events outside
 Git. Default pipeline runs still validate the saved evaluation artifacts without
 rerunning this download stage.
+
+## Understand the learned distance pattern and its support
+
+[Lesson 28](lessons/0010-training-pattern-and-support.html) compares
+[training distance-group counts with the frozen formula](reports/11_training_distance_support.md).
+The original training range is about 3.97–34.66 reference-pitch metres; 36 of the
+already evaluated shots lie outside it. All 1,131 evaluation shots remain included.
+This is a descriptive coverage audit, not new fitting or fresh validation. Run
+`python 28_training_distance_support.py` without downloads.

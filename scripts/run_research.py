@@ -22,6 +22,7 @@ STAGES = [
     "24_passes_shots_and_possessions.py",
     "25_shot_angle_model.py",
     "26_probability_calibration.py",
+    "28_training_distance_support.py",
     "scripts/check_evidence.py",
 ]
 
@@ -36,7 +37,7 @@ def main():
         env["MPLBACKEND"] = "Agg"
     stages = list(STAGES)
     if args.extended_evaluation:
-        stages.insert(-1, "27_frozen_model_evaluation.py")
+        stages.insert(stages.index("28_training_distance_support.py"), "27_frozen_model_evaluation.py")
     for stage in stages:
         print(f"Running {stage}", flush=True)
         subprocess.run([sys.executable, str(ROOT / stage)], cwd=ROOT, env=env, check=True)

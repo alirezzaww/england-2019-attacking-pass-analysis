@@ -477,3 +477,20 @@ set, not true individual-shot xG or general readiness. Four tests protect fixtur
 separation, probability losses and paired pooled resampling. Independent task pending:
 explain training versus evaluation sample sizes, the result and one scope limitation.
 Future tuning on these results would reuse this evaluation as development evidence.
+
+## Lesson 28 — training pattern and distance support — 1 November 2026
+
+The user requested more clarification of the constant training-rate baseline and
+what changes in a distance model. This extension uses actual counts and frozen
+predictions to connect those concepts without assuming independent mastery.
+
+Prepared and executed with assistance. Training groups have 6/27, 5/51, 0/31 and 0/5
+goals/shots across increasing distance bands. The frozen model outputs about 14.9%,
+4.0% and 1.0% at 10, 20 and 30 reference metres. Those outputs are not the grouped
+observed rates. The training range is about 3.97–34.66 m; evaluation has 20 closer,
+1,095 inside-range and 16 farther shots. No model, metric or inclusion rule changed.
+
+Six new tests cover distance bands, inclusive range edges, empty/zero observations,
+pooled rates and the default/extended pipeline sequence. Independent practice pending:
+explain why a 2 m prediction needs scrutiny and why inside-range membership alone
+does not establish trustworthy xG.

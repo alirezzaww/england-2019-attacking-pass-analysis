@@ -61,6 +61,7 @@ python 23_within_match_score_comparison.py
 python 24_passes_shots_and_possessions.py
 python 25_shot_angle_model.py
 python 26_probability_calibration.py
+python 28_training_distance_support.py
 python scripts/check_evidence.py
 ```
 
@@ -185,3 +186,12 @@ pipeline leaves this expensive stage optional but checks the saved evidence. Che
 recompute every probability and metric and replay the seeded bootstrap with standard
 Python only. Raw caches add 45 source-hash, fixture-team and full shot-record checks.
 Do not edit the frozen protocol to improve an already inspected result.
+
+## Training-support diagnostic
+
+Lesson 28 reads the committed lesson-25 training rows, frozen protocol and saved
+lesson-27 evaluation. It makes no download or fit. Run
+`python 28_training_distance_support.py` to create `data/28_distance_support_evidence.json`
+and figure 31. The core pipeline includes this diagnostic using saved evaluation
+artifacts. With `--extended-evaluation`, stage 27 reruns before stage 28 so the audit
+uses the latest regenerated evaluation. Both modes finish with evidence checks.

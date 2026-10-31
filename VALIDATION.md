@@ -129,3 +129,12 @@ match loss sums and calibration cells reconcile independently. All 5,000 paired
 match-bootstrap draws replay from the protocol seed. Four new tests cover membership,
 losses, repeated match totals and paired resampling. These checks support numerical
 integrity, not general professional suitability.
+
+## Lesson 28 validation — 1 November 2026
+
+The support script ran successfully and figure 31 was visually inspected. All 114
+training shot identities and all 1,131 evaluation identities partition exactly once;
+counts, goals, rates, full-precision bounds and actual frozen-model outputs reconcile.
+The frozen protocol digest is unchanged. Six tests cover band boundaries, range
+endpoints, missing versus measured-zero groups, pooled rates and pipeline ordering.
+No source events, model fit or prior evaluation inclusion criteria were changed.

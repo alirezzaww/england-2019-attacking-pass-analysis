@@ -250,3 +250,17 @@ baseline. Exchangeability is approximate because teams recur in one tournament;
 intervals are not universal coverage guarantees. Calibration rates and denominators
 remain visible. Later tuning against these results reuses the evaluation data.
 The original passing study continues to use supplied StatsBomb xG.
+
+## Training pattern and distance support (lesson 28)
+
+Describe the unchanged 114 training shots in [0,10), [10,20), [20,30), [30,infinity)
+reference-metre bands. Counts/goals are 27/6, 51/5, 31/0 and 5/0. These groups are a
+post-fit description; the logistic model was fitted to individual shot outcomes.
+The frozen formula gives probabilities 0.149467, 0.039851 and 0.009708 at 10, 20 and
+30 m. They are estimates, not empirical bin rates or known per-shot truths.
+The full-precision observed training distance range is 3.970391–34.661342 m.
+Partition the existing evaluation by below/inside/above that range, including endpoints
+inside: 20/1,095/16 shots with 9/94/0 goals. All evaluation records remain included.
+This diagnoses one-feature support after evaluation, without fitting, clipping,
+exclusions or fresh validation. Full contextual coverage and reliability are not
+established by distance-range membership.
