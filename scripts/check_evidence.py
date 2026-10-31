@@ -491,6 +491,104 @@ repeated_xg = sum(p['shot_xg'] for p in expected_passes)
 assert math.isclose(summary['assigned_shot_xg_counted_once'], unique_xg)
 assert math.isclose(summary['incorrect_repeated_shot_xg_sum_for_demonstration'], repeated_xg)
 
+# Lesson 25: geometry, grouped training-only validation and fold-local scaling.
+angle_study = read('25_shot_angle_evidence.json')
+assert angle_study['source'] == '18_first_xg_model_evidence.json'
+assert angle_study['training_match_ids'] == model['training_match_ids']
+assert angle_study['reused_test_match_ids'] == model['test_match_ids']
+assert set(angle_study['training_match_ids']).isdisjoint(angle_study['reused_test_match_ids'])
+assert angle_study['primary_selection_metric'] == 'pooled training-only leave-one-match-out log loss'
+angle_rows = angle_study['shots']
+assert ids(angle_rows) == ids(model['shots'])
+source_shots = {(r['match_id'], r['id']): r for r in model['shots']}
+for row in angle_rows:
+    original = source_shots[(row['match_id'], row['id'])]
+    for key in ['x', 'y', 'goal', 'split', 'body_part']:
+        assert row[key] == original[key]
+    dx, lateral = (120 - row['x']) * 105 / 120, (row['y'] - 40) * 68 / 80
+    # Independent angle check from the dot product of vectors to each goalpost.
+    a, b = -3.66 - lateral, 3.66 - lateral
+    cosine = (dx * dx + a * b) / (math.hypot(dx, a) * math.hypot(dx, b))
+    expected_angle = math.acos(max(-1, min(1, cosine)))
+    assert math.isclose(row['distance_template_m'], math.hypot(dx, lateral))
+    assert math.isclose(row['angle_radians'], expected_angle, abs_tol=1e-10)
+angle_train = [r for r in angle_rows if r['split'] == 'train']
+angle_test = [r for r in angle_rows if r['split'] == 'test']
+assert len(angle_train) == 114 and len(angle_test) == 36
+expected_features = {'constant': [], 'distance': ['distance_template_m'],
+                     'distance_angle': ['distance_template_m', 'angle_radians']}
+assert set(angle_study['candidates']) == set(expected_features)
+
+def angle_prediction(fit, row):
+    z = fit['coefficients'][0] + sum(fit['coefficients'][j + 1] * (row[f] - fit['means'][j]) / fit['scales'][j]
+                                    for j, f in enumerate(fit['features']))
+    if z >= 0:
+        return 1 / (1 + math.exp(-z))
+    exponent = math.exp(z)
+    return exponent / (1 + exponent)
+
+def check_angle_fit(fit, fitting_rows, features):
+    assert fit['features'] == features and fit['converged']
+    assert len(fit['coefficients']) == len(features) + 1
+    assert len(fit['means']) == len(fit['scales']) == len(features)
+    assert all(math.isfinite(v) for v in fit['coefficients'])
+    for j, f in enumerate(features):
+        mean = sum(r[f] for r in fitting_rows) / len(fitting_rows)
+        scale = math.sqrt(sum((r[f] - mean) ** 2 for r in fitting_rows) / len(fitting_rows))
+        assert math.isclose(fit['means'][j], mean)
+        assert scale > 0 and math.isclose(fit['scales'][j], scale)
+    predictions = [angle_prediction(fit, r) for r in fitting_rows]
+    if not features:
+        rate = sum(r['goal'] for r in fitting_rows) / len(fitting_rows)
+        assert all(math.isclose(p, rate) for p in predictions)
+    # Check the stored fit satisfies the logistic likelihood gradient tolerance.
+    residuals = [p - r['goal'] for p, r in zip(predictions, fitting_rows)]
+    assert abs(sum(residuals) / len(residuals)) < 1e-5
+    for j, f in enumerate(features):
+        gradient = sum(error * (r[f] - fit['means'][j]) / fit['scales'][j]
+                       for error, r in zip(residuals, fitting_rows)) / len(fitting_rows)
+        assert abs(gradient) < 1e-5
+
+def check_angle_scores(saved, rows, predictions):
+    assert len(rows) == len(predictions) and rows
+    assert all(math.isfinite(p) and 0 <= p <= 1 for p in predictions)
+    brier = sum((p - r['goal']) ** 2 for p, r in zip(predictions, rows)) / len(rows)
+    clipped = [max(1e-12, min(1 - 1e-12, p)) for p in predictions]
+    loss = -sum(r['goal'] * math.log(p) + (1 - r['goal']) * math.log(1 - p)
+                for r, p in zip(rows, clipped)) / len(rows)
+    assert math.isclose(saved['brier_score'], brier)
+    assert math.isclose(saved['log_loss'], loss)
+    assert math.isclose(saved['predicted_goal_total'], sum(predictions))
+
+for name, candidate in angle_study['candidates'].items():
+    features = expected_features[name]
+    assert candidate['features'] == features
+    folds = candidate['validation_folds']
+    assert [f['validation_match_id'] for f in folds] == angle_study['training_match_ids']
+    validation_rows, validation_predictions = [], []
+    for fold in folds:
+        held_id = fold['validation_match_id']
+        expected_fit_ids = [m for m in angle_study['training_match_ids'] if m != held_id]
+        assert fold['fitting_match_ids'] == expected_fit_ids
+        assert held_id not in expected_fit_ids
+        fitting = [r for r in angle_train if r['match_id'] in expected_fit_ids]
+        held = [r for r in angle_train if r['match_id'] == held_id]
+        assert fold['validation_shot_ids'] == [r['id'] for r in held]
+        check_angle_fit(fold['fit'], fitting, features)
+        assert len(fold['predictions']) == len(held)
+        assert all(math.isclose(p, angle_prediction(fold['fit'], r)) for p, r in zip(fold['predictions'], held))
+        validation_rows.extend(held); validation_predictions.extend(fold['predictions'])
+    assert ids(validation_rows) == ids(angle_train)
+    check_angle_scores(candidate['validation_metrics'], validation_rows, validation_predictions)
+    check_angle_fit(candidate['fit_all_training'], angle_train, features)
+    assert candidate['reused_test_shot_ids'] == [r['id'] for r in angle_test]
+    assert len(candidate['reused_test_predictions']) == len(angle_test)
+    assert all(math.isclose(p, angle_prediction(candidate['fit_all_training'], r))
+               for p, r in zip(candidate['reused_test_predictions'], angle_test))
+    check_angle_scores(candidate['reused_test_metrics'], angle_test, candidate['reused_test_predictions'])
+winner = min(angle_study['candidates'], key=lambda n: angle_study['candidates'][n]['validation_metrics']['log_loss'])
+assert angle_study['selected_candidate'] == winner
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -498,7 +596,7 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, shot units, match/score/spatial/time context, bootstrap and xG metrics reconcile.')
+print('PASS: passing evidence, shot units, match context, bootstrap and both xG studies reconcile.')
 print(f'Pre-pass scores independently reconstructed from raw events: {raw_score_matches}/7 matches.')
 print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')

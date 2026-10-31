@@ -98,3 +98,13 @@ nominal time gaps, event order, shooters, outcomes and xG match cached raw data.
 Scores before the shots reconcile to the saved goal timelines. The represented-shot
 sum and intentionally duplicated demonstration sum reconcile separately. Four new
 unit tests cover aggregation units and duplicate/conflicting identity handling.
+
+## Lesson 25 validation — 31 October 2026
+
+The new model-comparison script executed successfully. All 12 logistic optimisations across the five folds plus final training converge;
+the six constant baselines use analytic fitting-subset goal rates. Figure 28 was visually inspected. Six new
+offline tests cover goalpost geometry, symmetry/equal distances, invalid coordinates,
+grouped folds, probability scoring and stored scaling. The evidence checker verifies
+angles independently by vector dot products, fold-local means/scales and likelihood
+gradients, every held-out/reused-check prediction, all metrics and the selection rule.
+This validates numerical consistency, not general predictive reliability.

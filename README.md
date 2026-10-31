@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–24 and then validates saved evidence.
+The runner executes tournament stages 11, 13–25 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -181,3 +181,13 @@ The 12 selected passes link to three represented shots in three possessions, wit
 passes per shot. Timelines and identity checks distinguish action counts from shot
 counts and demonstrate why repeated shot xG must not be summed per preceding pass.
 Run `python 24_passes_shots_and_possessions.py` after caching raw events with lesson 13.
+
+## xG extension: test shot angle with training-only validation
+
+[Lesson 25](lessons/0007-shot-angle-and-validation.html) compares
+[constant, distance-only and distance-plus-angle candidates](reports/08_shot_angle_model_comparison.md).
+Leave-one-match-out validation inside the first five fixtures selects distance-only:
+log loss 0.2924 versus 0.3002 with angle. Both candidates use a common 105x68 reference
+geometry and fold-local scaling. The last two fixtures are explicitly a reused check,
+not a fresh final evaluation. This small educational result does not imply angle is
+unimportant or establish production quality. Run `python 25_shot_angle_model.py`.

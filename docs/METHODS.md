@@ -200,3 +200,21 @@ passer-to-recipient edges. Other actions may occur between selected passes.
 The represented-shot xG sum is 0.46052896. The deliberately incorrect per-pass repeated
 sum is 1.84211584; it is stored only to illustrate duplication. No pass-created xG,
 causal player credit or full team xG claim is made.
+
+## Educational angle candidate and grouped validation (lesson 25)
+
+Retain lesson-18 shot identities, non-penalty exclusions and 114/36 split. Convert x/y
+to a 105x68 reference and use a 7.32-wide goal. Distance is to centre; angle is
+atan2(7.32*dx, dx² + lateral² - 3.66²). Exact-post geometry is rejected. The reference
+is assumed, not a venue measurement. Both new fitted candidates use this distance;
+lesson 18's coordinate-unit baseline is not copied unchanged.
+
+Predefine constant, distance and distance+angle candidates. Leave each of the first
+five fixtures out once; fit all coefficients, means and scales using the remaining
+four. Select by pooled out-of-fold log loss, with Brier secondary. Distance wins
+(0.292377 vs 0.300214 for angle); constant scores 0.322997. All fits converge and
+likelihood gradients reconcile. Grouped folds are not forward-chaining time forecasts.
+Refit all candidates on the 114 training shots, then report the previously inspected
+36-shot final-two-fixture check as reused exploratory evaluation. No fresh test,
+calibration or general superiority claim is made. Provider xG in the passing study
+is unchanged. See [the model report](../reports/08_shot_angle_model_comparison.md).

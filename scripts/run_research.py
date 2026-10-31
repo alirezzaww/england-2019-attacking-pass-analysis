@@ -20,6 +20,7 @@ STAGES = [
     "22_score_state_context.py",
     "23_within_match_score_comparison.py",
     "24_passes_shots_and_possessions.py",
+    "25_shot_angle_model.py",
     "scripts/check_evidence.py",
 ]
 

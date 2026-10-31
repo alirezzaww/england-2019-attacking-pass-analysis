@@ -18,6 +18,13 @@
   Primary event definitions, including Shot outcomes and own-goal event types; used
   for lesson-22 score reconstruction and its explicit accounting convention.
 
+- [scikit-learn: LeaveOneGroupOut](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html)
+  Primary grouped-validation design reference. Lesson 25 implements fixture-held-out
+  folds directly without adding the library as a dependency.
+- [scikit-learn: cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html)
+  Primary reference for fitting preprocessing on the fitting subset before transforming
+  held-out rows. Use with the source xG lesson for model-comparison work.
+
 ## Gaps
 
 Role-specific comparisons, statistical uncertainty, larger-sample model validation and

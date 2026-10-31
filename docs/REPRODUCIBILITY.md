@@ -59,6 +59,7 @@ python 21_match_bootstrap_uncertainty.py
 python 22_score_state_context.py
 python 23_within_match_score_comparison.py
 python 24_passes_shots_and_possessions.py
+python 25_shot_angle_model.py
 python scripts/check_evidence.py
 ```
 
@@ -150,3 +151,12 @@ and Sweden; it downloads nothing. It creates `data/24_shot_units_evidence.json` 
 figure 27. The checker reconciles selected IDs, assigned-shot groups, possession
 identities, times, shot metadata and sums. Without raw caches, saved artifacts still
 reconcile; with caches, shot metadata is checked against original events.
+
+## Angle model comparison
+
+Lesson 25 reads saved lesson-18 shots without downloading raw data and uses the
+existing NumPy/SciPy dependencies. It creates `data/25_shot_angle_evidence.json` and
+figure 28. Folds, feature scaling, coefficients and predictions are preserved. The
+standard-library checker recomputes geometry independently, checks fold membership,
+means/scales and fitting gradients, and reconciles every prediction, score and
+training-only selection. It does not refit models in CI.

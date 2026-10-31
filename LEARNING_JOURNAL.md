@@ -425,3 +425,21 @@ Four new tests cover shot-level aggregation, multiple shots in one possession,
 duplicate pass rejection and conflicting shot metadata. Independent practice remains:
 correct a coach-facing statement that mistakes 12 selected passes for 12 separate
 chances and explain a display limitation. Coverage is not evidence of independent mastery.
+
+## Lesson 25 — shot angle and validation — 31 October 2026
+
+The user requested a faster pace through easy concepts. This lesson bundles geometric
+feature construction and training-only grouped model comparison, with fuller details
+saved for reference. Implemented and executed with assistant support.
+
+Opening angle measures the goalpost opening seen from the shot. Candidates share an
+assumed 105x68 reference geometry; the distance baseline is refitted rather than copied
+from lesson 18's coordinate-unit version. Five training-only held-out-fixture folds
+select distance-only by pooled log loss (0.2924 vs 0.3002 with angle). Feature scaling
+is fit on each fitting subset only. All 12 logistic optimisations converge; six constant fits are analytic. The final-two-fixture check
+is reused, not fresh; no general model quality or angle-irrelevance claim is inferred.
+
+Six offline tests and the evidence checker cover geometry, fold separation, stored
+scaling, likelihood gradients, predictions and scores. Independent task pending:
+write a three-sentence comparison that states the method, negative result and limits.
+No independent modelling mastery is claimed from assistant-prepared code.

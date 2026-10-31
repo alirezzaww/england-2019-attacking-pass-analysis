@@ -34,3 +34,9 @@ Lesson 24 uses a concrete timeline to distinguish 12 pass actions from three
 represented shots and three possessions. Do not imply direct passer-to-recipient
 links or causal credit from the selected timeline. The independent reporting task
 is pending; avoid recording the lesson as demonstrated mastery.
+
+The user explicitly wants easy concepts covered faster. Lesson 25 returns to the
+Soccermatics xG path and bundles angle features with grouped training-only validation.
+Keep the live explanation focused on the feature, fair check and negative result;
+formulas and implementation details can be opened on request. Independent defence
+of the modelling workflow remains pending; do not equate coverage with competence.

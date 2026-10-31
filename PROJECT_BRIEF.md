@@ -146,3 +146,11 @@ possessions. It preserves identities, adds event timelines and rejects duplicate
 passes or inconsistent shot metadata. This supports more precise analyst reporting;
 it is not a new chance-creation or pass-value model. See
 [the audit](reports/07_passes_shots_and_possessions.md).
+
+## xG angle comparison
+
+Lesson 25 implements shot-angle geometry and training-only grouped model comparison.
+Distance-only beats the angle candidate on the predefined validation log loss in
+this tiny sample. Folds and scaling are auditable; the final two games are explicitly
+reused exploratory evaluation. Larger, fresh validation and additional context remain
+future work. See [the report](reports/08_shot_angle_model_comparison.md).

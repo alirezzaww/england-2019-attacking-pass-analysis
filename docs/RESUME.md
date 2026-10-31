@@ -49,3 +49,15 @@ This demonstrates the project's implemented method. Describe personal ownership
 accurately, and practise explaining the different denominators before using the
 bullet in an interview. Broad location stratification is not full tactical adjustment,
 causal inference or proof of scouting impact.
+
+## Educational model-comparison work
+
+An additional supported project statement, retaining the guided-work attribution:
+
+> Compared geometric xG candidates using fixture-disjoint training validation and
+> fold-local preprocessing; retained a distance baseline when adding angle failed
+> to improve validation log loss, and documented the reused-test and small-sample limits.
+
+This describes an educational implementation, not a validated professional xG model
+or independently demonstrated machine-learning expertise. Practise defending the
+split, metric, preprocessing and negative result before using it in an interview.
