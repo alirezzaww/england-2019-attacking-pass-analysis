@@ -1,0 +1,1223 @@
+{
+  "source": "25_shot_angle_evidence.json",
+  "selected_candidate": "distance",
+  "prediction_source": "Training-only leave-one-match-out validation folds; reused after candidate selection",
+  "match_ids": [
+    22936,
+    22962,
+    68337,
+    68362,
+    69199
+  ],
+  "bin_edges": [
+    0,
+    0.05,
+    0.1,
+    0.2,
+    1
+  ],
+  "summary": {
+    "shots": 114,
+    "goals": 11,
+    "predicted_goal_sum": 11.213548925999715,
+    "mean_predicted_probability": 0.0983644642631554,
+    "observed_goal_fraction": 0.09649122807017543
+  },
+  "bins": [
+    {
+      "bin_index": 0,
+      "lower_inclusive": 0,
+      "upper": 0.05,
+      "upper_inclusive": false,
+      "shots": 41,
+      "goals": 0,
+      "predicted_goal_sum": 0.8999438516574755,
+      "mean_predicted_probability": 0.02194985004042623,
+      "observed_goal_fraction": 0.0,
+      "shot_ids": [
+        {
+          "match_id": 22936,
+          "id": "e6b39e24-9093-4176-b1e0-7cd25365ac69"
+        },
+        {
+          "match_id": 22936,
+          "id": "fcf69b6e-2903-4242-93b4-efbfa6c092b0"
+        },
+        {
+          "match_id": 22936,
+          "id": "77a6ee5b-0bcb-4d3b-91df-9768b522f165"
+        },
+        {
+          "match_id": 22936,
+          "id": "713bd277-4325-4637-a9a8-571de5eb9c0b"
+        },
+        {
+          "match_id": 22936,
+          "id": "4c15f17b-f2cb-467a-9cf8-5b3fc63a90e1"
+        },
+        {
+          "match_id": 22936,
+          "id": "c35af804-58bd-4b6a-a257-ae02cf184a93"
+        },
+        {
+          "match_id": 22936,
+          "id": "80a16ab2-594e-4585-b9fd-4417879265be"
+        },
+        {
+          "match_id": 22936,
+          "id": "7afb34b1-2088-49b4-a387-0436d26fac83"
+        },
+        {
+          "match_id": 22962,
+          "id": "bfc9e47d-8ef5-46fc-b49e-606e74fcfeaa"
+        },
+        {
+          "match_id": 22962,
+          "id": "9d2b2d20-21a9-4d82-80c2-bad897ddb84a"
+        },
+        {
+          "match_id": 22962,
+          "id": "faebbcb4-4e26-46f2-b89b-88eaf997a04b"
+        },
+        {
+          "match_id": 22962,
+          "id": "f42f14d7-459a-431a-bd57-490d71850641"
+        },
+        {
+          "match_id": 68337,
+          "id": "f68e498a-f7d9-471c-949d-95cfd32875b8"
+        },
+        {
+          "match_id": 68337,
+          "id": "4c6a333c-e43a-4be1-b38e-f12626669632"
+        },
+        {
+          "match_id": 68337,
+          "id": "71e04806-4ae0-47e6-a45b-6952330b40af"
+        },
+        {
+          "match_id": 68337,
+          "id": "44167344-5505-47f9-9de6-45ac7e1c8307"
+        },
+        {
+          "match_id": 68337,
+          "id": "3f7fb012-2df3-48bb-ab52-379ab2ee10fd"
+        },
+        {
+          "match_id": 68337,
+          "id": "3abbf946-9a95-4090-82a3-539ac7a62c9a"
+        },
+        {
+          "match_id": 68337,
+          "id": "1b692bb4-c573-4438-bf65-8934d7a5f00b"
+        },
+        {
+          "match_id": 68337,
+          "id": "1163fb4c-73ce-4436-8533-afaa85781f76"
+        },
+        {
+          "match_id": 68337,
+          "id": "d898f8d8-bcac-438d-882e-f794a270e2bf"
+        },
+        {
+          "match_id": 68337,
+          "id": "c1dbfe59-0d85-4dfd-94bd-6c2d29986456"
+        },
+        {
+          "match_id": 68337,
+          "id": "17b23832-47b1-4061-90b0-439c8d7824ff"
+        },
+        {
+          "match_id": 68337,
+          "id": "76336f97-0ae9-464f-9897-e1724a137704"
+        },
+        {
+          "match_id": 68337,
+          "id": "08daa72f-42cf-43a4-943b-bd56b50a49a7"
+        },
+        {
+          "match_id": 68337,
+          "id": "bdf5c233-59d5-4bae-8bdf-e5af9585bbd5"
+        },
+        {
+          "match_id": 68337,
+          "id": "ea383bc0-821d-44fa-93bd-e93dda73b0bf"
+        },
+        {
+          "match_id": 68337,
+          "id": "17f63054-9d89-4c76-96b3-5a6d177e3c27"
+        },
+        {
+          "match_id": 68362,
+          "id": "873f45cc-3cd7-40ac-9f6e-55b40350b0bd"
+        },
+        {
+          "match_id": 68362,
+          "id": "b9f58549-7847-4a5a-9701-c38a88924553"
+        },
+        {
+          "match_id": 68362,
+          "id": "f1a257f9-1f74-4676-8c8c-70a175ab9f24"
+        },
+        {
+          "match_id": 68362,
+          "id": "47a23727-56da-4fee-a6aa-eec2f65c5ec7"
+        },
+        {
+          "match_id": 68362,
+          "id": "7e62080d-71ed-442e-bf93-590b0f6390ad"
+        },
+        {
+          "match_id": 69199,
+          "id": "b29d3926-563c-46b8-9ca0-9c351a62923e"
+        },
+        {
+          "match_id": 69199,
+          "id": "ceba1b7b-5442-4dca-8234-704d43c30e5b"
+        },
+        {
+          "match_id": 69199,
+          "id": "055562f0-0477-48e6-a61b-b7a2aaea530a"
+        },
+        {
+          "match_id": 69199,
+          "id": "3502eb13-b617-4dcd-bf51-b5eb26403ea7"
+        },
+        {
+          "match_id": 69199,
+          "id": "2ebd40f8-e6e8-4b42-b288-287ab90d38ad"
+        },
+        {
+          "match_id": 69199,
+          "id": "c5eb2929-a518-4f47-b366-35c84cfd53f6"
+        },
+        {
+          "match_id": 69199,
+          "id": "317841bf-cb02-40be-9e54-e43e928914d2"
+        },
+        {
+          "match_id": 69199,
+          "id": "cdcb9d2c-9e6a-4dae-a4a2-0edf082d2ff1"
+        }
+      ]
+    },
+    {
+      "bin_index": 1,
+      "lower_inclusive": 0.05,
+      "upper": 0.1,
+      "upper_inclusive": false,
+      "shots": 32,
+      "goals": 5,
+      "predicted_goal_sum": 2.3875166113123183,
+      "mean_predicted_probability": 0.07460989410350995,
+      "observed_goal_fraction": 0.15625,
+      "shot_ids": [
+        {
+          "match_id": 22936,
+          "id": "fa246ada-98d7-436f-a414-a347777c0b81"
+        },
+        {
+          "match_id": 22936,
+          "id": "4647910c-e22c-426b-a57d-0f31338018c0"
+        },
+        {
+          "match_id": 22936,
+          "id": "4df47747-3b2d-4b40-bde4-fe64805e9b1c"
+        },
+        {
+          "match_id": 22936,
+          "id": "adf8fd58-d814-480d-bac4-13d268bdce35"
+        },
+        {
+          "match_id": 22936,
+          "id": "9587308f-7211-41af-9096-e4d95a909b91"
+        },
+        {
+          "match_id": 22936,
+          "id": "4bdbcb6f-faa8-4455-a85c-620826571b23"
+        },
+        {
+          "match_id": 22936,
+          "id": "d7214cad-e997-4f63-8bbd-9e4fafbb09c7"
+        },
+        {
+          "match_id": 22962,
+          "id": "6f7baffe-0539-4778-afd8-4c08b71deef4"
+        },
+        {
+          "match_id": 22962,
+          "id": "814f0bde-0fa4-404c-849b-909001a1fb0d"
+        },
+        {
+          "match_id": 68337,
+          "id": "7b081cf0-302e-4e6e-8c7b-368828764fcf"
+        },
+        {
+          "match_id": 68337,
+          "id": "1486e69c-5851-48f9-b41f-508d41e57891"
+        },
+        {
+          "match_id": 68337,
+          "id": "bd31c9c0-27ac-467b-85e6-b1ac1d22a33d"
+        },
+        {
+          "match_id": 68337,
+          "id": "1ab47da3-46a3-4185-8660-2d5adf600cf1"
+        },
+        {
+          "match_id": 68337,
+          "id": "facd853b-c4ff-4093-97f3-82c075ef734f"
+        },
+        {
+          "match_id": 68337,
+          "id": "0605925d-4499-469a-806a-bdc3554ab021"
+        },
+        {
+          "match_id": 68337,
+          "id": "ed99f29c-0daf-4796-8194-17324b4a2e01"
+        },
+        {
+          "match_id": 68337,
+          "id": "a4e2f23a-238d-4292-b8c2-54c834d414dc"
+        },
+        {
+          "match_id": 68362,
+          "id": "81f86df1-aa96-4b93-b25b-7f8ce45033a4"
+        },
+        {
+          "match_id": 68362,
+          "id": "2e62e6ce-07e8-4be2-aa61-a63d557cd4c2"
+        },
+        {
+          "match_id": 68362,
+          "id": "35ad6d70-a7b7-43f9-8d56-0af036333160"
+        },
+        {
+          "match_id": 68362,
+          "id": "565d9562-0bf3-4986-ba5c-e01a0bb5a983"
+        },
+        {
+          "match_id": 68362,
+          "id": "edd4a998-f37f-49bb-9aac-6a473e3e2d40"
+        },
+        {
+          "match_id": 69199,
+          "id": "37372087-e57b-45fa-ad3e-d325e6187bea"
+        },
+        {
+          "match_id": 69199,
+          "id": "10c4fb9a-bedd-420f-acf3-6da5db54ba38"
+        },
+        {
+          "match_id": 69199,
+          "id": "598bcc62-986a-45c6-86ac-acd6d48455fa"
+        },
+        {
+          "match_id": 69199,
+          "id": "231e8e61-54ff-4ec3-8489-14ce3cd85a6d"
+        },
+        {
+          "match_id": 69199,
+          "id": "63c0f5f3-a6af-4a3b-923d-c83469e3e83a"
+        },
+        {
+          "match_id": 69199,
+          "id": "78074236-6040-42a3-8310-6a7ebd45c40e"
+        },
+        {
+          "match_id": 69199,
+          "id": "a7550b06-d939-4dcb-8e20-1288e0af1007"
+        },
+        {
+          "match_id": 69199,
+          "id": "20f96480-2382-482e-8d16-420688bfd12c"
+        },
+        {
+          "match_id": 69199,
+          "id": "446da48e-5bce-405e-9f61-c38a7cb2d0f5"
+        },
+        {
+          "match_id": 69199,
+          "id": "ebd609f9-fd3a-4671-9e37-a6107d5ce98c"
+        }
+      ]
+    },
+    {
+      "bin_index": 2,
+      "lower_inclusive": 0.1,
+      "upper": 0.2,
+      "upper_inclusive": false,
+      "shots": 20,
+      "goals": 3,
+      "predicted_goal_sum": 2.6758500156381912,
+      "mean_predicted_probability": 0.13379250078190957,
+      "observed_goal_fraction": 0.15,
+      "shot_ids": [
+        {
+          "match_id": 22936,
+          "id": "c0bcc36b-5690-4027-96bf-bfa4aa210a5e"
+        },
+        {
+          "match_id": 22962,
+          "id": "de291480-f6a6-44ad-8bb7-20a394bb871e"
+        },
+        {
+          "match_id": 22962,
+          "id": "740934c9-25ca-4159-9d97-8445e49797c4"
+        },
+        {
+          "match_id": 22962,
+          "id": "365c226b-b7d8-46f1-96c5-c8fca40f1f92"
+        },
+        {
+          "match_id": 22962,
+          "id": "48f438b2-bcc7-46c6-931f-07cbc0410d4b"
+        },
+        {
+          "match_id": 68337,
+          "id": "c7b7ade3-a96f-4c8b-8992-5d0b3864b5ee"
+        },
+        {
+          "match_id": 68337,
+          "id": "7b308894-5c93-4ca9-98db-c8f541604391"
+        },
+        {
+          "match_id": 68337,
+          "id": "02e6325c-fbdf-4960-bc45-155464b0d3bb"
+        },
+        {
+          "match_id": 68337,
+          "id": "ba3bbd84-3e55-461d-8c5e-2dca922e12af"
+        },
+        {
+          "match_id": 68337,
+          "id": "891b3231-096a-43fc-87f1-3a1a694cdd1a"
+        },
+        {
+          "match_id": 68362,
+          "id": "ce9bd1af-5305-4679-8764-3224b408d1f9"
+        },
+        {
+          "match_id": 68362,
+          "id": "d8cddadd-3ff3-46d7-a97c-d42d0c81641c"
+        },
+        {
+          "match_id": 68362,
+          "id": "2eb77cdc-74d4-42cb-abb1-03b78f13cf81"
+        },
+        {
+          "match_id": 68362,
+          "id": "f95462e6-0f12-4e59-9ac0-5b72815e0737"
+        },
+        {
+          "match_id": 69199,
+          "id": "a2dc1ae0-c837-4756-b8d1-e618d31910e9"
+        },
+        {
+          "match_id": 69199,
+          "id": "e82aadea-c710-42a7-80b5-e10a176656fe"
+        },
+        {
+          "match_id": 69199,
+          "id": "77d722fb-d9db-4ca9-9e00-c92dfd2c91d4"
+        },
+        {
+          "match_id": 69199,
+          "id": "90f3d91d-66aa-4e54-b67f-962ac3a6095c"
+        },
+        {
+          "match_id": 69199,
+          "id": "af7e767d-87ff-4edc-b30a-02899993227e"
+        },
+        {
+          "match_id": 69199,
+          "id": "c97b7b65-52e0-4334-8d1c-d737ed0d2b34"
+        }
+      ]
+    },
+    {
+      "bin_index": 3,
+      "lower_inclusive": 0.2,
+      "upper": 1,
+      "upper_inclusive": true,
+      "shots": 21,
+      "goals": 3,
+      "predicted_goal_sum": 5.250238447391731,
+      "mean_predicted_probability": 0.25001135463770147,
+      "observed_goal_fraction": 0.14285714285714285,
+      "shot_ids": [
+        {
+          "match_id": 22936,
+          "id": "3946ca68-6fa4-46dc-8610-83f9daf0c3b8"
+        },
+        {
+          "match_id": 22936,
+          "id": "5eb2f3b8-8a21-4952-9511-8b335d719c88"
+        },
+        {
+          "match_id": 22936,
+          "id": "3cf8b51b-a664-423d-a4e7-086dae5d4c78"
+        },
+        {
+          "match_id": 22936,
+          "id": "3706eb95-39f5-4ea1-a11c-9ece0cfff48b"
+        },
+        {
+          "match_id": 22936,
+          "id": "20a9fb1f-2719-47f9-aab5-a56f24376751"
+        },
+        {
+          "match_id": 22936,
+          "id": "4c7096d1-135e-4f2c-a086-3b8cb59c0c8a"
+        },
+        {
+          "match_id": 22936,
+          "id": "4d40d37c-2c46-42a9-a48b-a6912063b2d9"
+        },
+        {
+          "match_id": 22962,
+          "id": "62e11bfb-ae2f-42d5-85c8-24705d8dccbf"
+        },
+        {
+          "match_id": 22962,
+          "id": "76b7b36f-bbf0-43ae-bd92-ee308597be25"
+        },
+        {
+          "match_id": 22962,
+          "id": "3667b92d-4b2f-4561-8d77-5b09fce9f1fd"
+        },
+        {
+          "match_id": 22962,
+          "id": "4561957c-e446-44c9-88d3-a33e01ec8a39"
+        },
+        {
+          "match_id": 22962,
+          "id": "1b333152-445f-45e1-9412-b11cca027334"
+        },
+        {
+          "match_id": 22962,
+          "id": "b74637f8-eaa2-4c5f-bbc7-d47174ebd7a4"
+        },
+        {
+          "match_id": 22962,
+          "id": "52dc48df-385a-4f84-8c46-571c6a16d320"
+        },
+        {
+          "match_id": 22962,
+          "id": "52f446e2-a1cf-4d81-a22e-839c81718b03"
+        },
+        {
+          "match_id": 68337,
+          "id": "aca3824b-d148-45e7-8d1d-a79d951034b6"
+        },
+        {
+          "match_id": 68337,
+          "id": "05f0a32e-4592-48a6-b856-4da1a7074ec7"
+        },
+        {
+          "match_id": 68337,
+          "id": "5c991ebe-02b6-496f-8bf5-9844af273a8b"
+        },
+        {
+          "match_id": 69199,
+          "id": "5a74f53b-c960-4f79-818a-7bbdf9ef8133"
+        },
+        {
+          "match_id": 69199,
+          "id": "d1db5a96-2ae6-4c3d-99ea-3109dec53f85"
+        },
+        {
+          "match_id": 69199,
+          "id": "babb7693-ed70-4712-b621-100dd6c3ee32"
+        }
+      ]
+    }
+  ],
+  "predictions": [
+    {
+      "match_id": 22936,
+      "id": "e6b39e24-9093-4176-b1e0-7cd25365ac69",
+      "goal": 0,
+      "predicted_probability": 0.010253201316606703
+    },
+    {
+      "match_id": 22936,
+      "id": "3946ca68-6fa4-46dc-8610-83f9daf0c3b8",
+      "goal": 0,
+      "predicted_probability": 0.2621316836323663
+    },
+    {
+      "match_id": 22936,
+      "id": "fa246ada-98d7-436f-a414-a347777c0b81",
+      "goal": 0,
+      "predicted_probability": 0.06443146131236281
+    },
+    {
+      "match_id": 22936,
+      "id": "5eb2f3b8-8a21-4952-9511-8b335d719c88",
+      "goal": 0,
+      "predicted_probability": 0.23720019955923033
+    },
+    {
+      "match_id": 22936,
+      "id": "4647910c-e22c-426b-a57d-0f31338018c0",
+      "goal": 0,
+      "predicted_probability": 0.09265452569907631
+    },
+    {
+      "match_id": 22936,
+      "id": "c0bcc36b-5690-4027-96bf-bfa4aa210a5e",
+      "goal": 0,
+      "predicted_probability": 0.10381667719788185
+    },
+    {
+      "match_id": 22936,
+      "id": "4df47747-3b2d-4b40-bde4-fe64805e9b1c",
+      "goal": 0,
+      "predicted_probability": 0.07574201042929891
+    },
+    {
+      "match_id": 22936,
+      "id": "adf8fd58-d814-480d-bac4-13d268bdce35",
+      "goal": 1,
+      "predicted_probability": 0.09943173727403826
+    },
+    {
+      "match_id": 22936,
+      "id": "9587308f-7211-41af-9096-e4d95a909b91",
+      "goal": 0,
+      "predicted_probability": 0.05936501964710201
+    },
+    {
+      "match_id": 22936,
+      "id": "3cf8b51b-a664-423d-a4e7-086dae5d4c78",
+      "goal": 0,
+      "predicted_probability": 0.23107563318104862
+    },
+    {
+      "match_id": 22936,
+      "id": "fcf69b6e-2903-4242-93b4-efbfa6c092b0",
+      "goal": 0,
+      "predicted_probability": 0.016723190711188208
+    },
+    {
+      "match_id": 22936,
+      "id": "77a6ee5b-0bcb-4d3b-91df-9768b522f165",
+      "goal": 0,
+      "predicted_probability": 0.018587202026028447
+    },
+    {
+      "match_id": 22936,
+      "id": "3706eb95-39f5-4ea1-a11c-9ece0cfff48b",
+      "goal": 0,
+      "predicted_probability": 0.21001300896114292
+    },
+    {
+      "match_id": 22936,
+      "id": "4bdbcb6f-faa8-4455-a85c-620826571b23",
+      "goal": 0,
+      "predicted_probability": 0.06366612541937632
+    },
+    {
+      "match_id": 22936,
+      "id": "20a9fb1f-2719-47f9-aab5-a56f24376751",
+      "goal": 0,
+      "predicted_probability": 0.24718493632810973
+    },
+    {
+      "match_id": 22936,
+      "id": "d7214cad-e997-4f63-8bbd-9e4fafbb09c7",
+      "goal": 0,
+      "predicted_probability": 0.06838166273379986
+    },
+    {
+      "match_id": 22936,
+      "id": "713bd277-4325-4637-a9a8-571de5eb9c0b",
+      "goal": 0,
+      "predicted_probability": 0.012635853534805378
+    },
+    {
+      "match_id": 22936,
+      "id": "4c7096d1-135e-4f2c-a086-3b8cb59c0c8a",
+      "goal": 0,
+      "predicted_probability": 0.27648365705448524
+    },
+    {
+      "match_id": 22936,
+      "id": "4c15f17b-f2cb-467a-9cf8-5b3fc63a90e1",
+      "goal": 0,
+      "predicted_probability": 0.04683883617372795
+    },
+    {
+      "match_id": 22936,
+      "id": "4d40d37c-2c46-42a9-a48b-a6912063b2d9",
+      "goal": 1,
+      "predicted_probability": 0.20982248589607683
+    },
+    {
+      "match_id": 22936,
+      "id": "c35af804-58bd-4b6a-a257-ae02cf184a93",
+      "goal": 0,
+      "predicted_probability": 0.009049175010651616
+    },
+    {
+      "match_id": 22936,
+      "id": "80a16ab2-594e-4585-b9fd-4417879265be",
+      "goal": 0,
+      "predicted_probability": 0.039074516277869474
+    },
+    {
+      "match_id": 22936,
+      "id": "7afb34b1-2088-49b4-a387-0436d26fac83",
+      "goal": 0,
+      "predicted_probability": 0.01453578583495156
+    },
+    {
+      "match_id": 22962,
+      "id": "de291480-f6a6-44ad-8bb7-20a394bb871e",
+      "goal": 0,
+      "predicted_probability": 0.1654408073989335
+    },
+    {
+      "match_id": 22962,
+      "id": "bfc9e47d-8ef5-46fc-b49e-606e74fcfeaa",
+      "goal": 0,
+      "predicted_probability": 0.01654234541432254
+    },
+    {
+      "match_id": 22962,
+      "id": "6f7baffe-0539-4778-afd8-4c08b71deef4",
+      "goal": 0,
+      "predicted_probability": 0.05587415992644135
+    },
+    {
+      "match_id": 22962,
+      "id": "62e11bfb-ae2f-42d5-85c8-24705d8dccbf",
+      "goal": 0,
+      "predicted_probability": 0.22001667863701468
+    },
+    {
+      "match_id": 22962,
+      "id": "9d2b2d20-21a9-4d82-80c2-bad897ddb84a",
+      "goal": 0,
+      "predicted_probability": 0.005657737989822998
+    },
+    {
+      "match_id": 22962,
+      "id": "faebbcb4-4e26-46f2-b89b-88eaf997a04b",
+      "goal": 0,
+      "predicted_probability": 0.030357888214445156
+    },
+    {
+      "match_id": 22962,
+      "id": "76b7b36f-bbf0-43ae-bd92-ee308597be25",
+      "goal": 0,
+      "predicted_probability": 0.2684604186175346
+    },
+    {
+      "match_id": 22962,
+      "id": "740934c9-25ca-4159-9d97-8445e49797c4",
+      "goal": 0,
+      "predicted_probability": 0.10124942104501526
+    },
+    {
+      "match_id": 22962,
+      "id": "814f0bde-0fa4-404c-849b-909001a1fb0d",
+      "goal": 0,
+      "predicted_probability": 0.09694193427405721
+    },
+    {
+      "match_id": 22962,
+      "id": "3667b92d-4b2f-4561-8d77-5b09fce9f1fd",
+      "goal": 0,
+      "predicted_probability": 0.2855287972667205
+    },
+    {
+      "match_id": 22962,
+      "id": "4561957c-e446-44c9-88d3-a33e01ec8a39",
+      "goal": 0,
+      "predicted_probability": 0.2628291942567901
+    },
+    {
+      "match_id": 22962,
+      "id": "365c226b-b7d8-46f1-96c5-c8fca40f1f92",
+      "goal": 0,
+      "predicted_probability": 0.13580864040579665
+    },
+    {
+      "match_id": 22962,
+      "id": "1b333152-445f-45e1-9412-b11cca027334",
+      "goal": 0,
+      "predicted_probability": 0.2872516090055847
+    },
+    {
+      "match_id": 22962,
+      "id": "b74637f8-eaa2-4c5f-bbc7-d47174ebd7a4",
+      "goal": 1,
+      "predicted_probability": 0.3419671176454397
+    },
+    {
+      "match_id": 22962,
+      "id": "52dc48df-385a-4f84-8c46-571c6a16d320",
+      "goal": 0,
+      "predicted_probability": 0.23655400498883108
+    },
+    {
+      "match_id": 22962,
+      "id": "52f446e2-a1cf-4d81-a22e-839c81718b03",
+      "goal": 0,
+      "predicted_probability": 0.23872635754062138
+    },
+    {
+      "match_id": 22962,
+      "id": "f42f14d7-459a-431a-bd57-490d71850641",
+      "goal": 0,
+      "predicted_probability": 0.02554842672133138
+    },
+    {
+      "match_id": 22962,
+      "id": "48f438b2-bcc7-46c6-931f-07cbc0410d4b",
+      "goal": 0,
+      "predicted_probability": 0.10465632339124784
+    },
+    {
+      "match_id": 68337,
+      "id": "f68e498a-f7d9-471c-949d-95cfd32875b8",
+      "goal": 0,
+      "predicted_probability": 0.030569086260017815
+    },
+    {
+      "match_id": 68337,
+      "id": "4c6a333c-e43a-4be1-b38e-f12626669632",
+      "goal": 0,
+      "predicted_probability": 0.004809250417067066
+    },
+    {
+      "match_id": 68337,
+      "id": "71e04806-4ae0-47e6-a45b-6952330b40af",
+      "goal": 0,
+      "predicted_probability": 0.017796907984773527
+    },
+    {
+      "match_id": 68337,
+      "id": "c7b7ade3-a96f-4c8b-8992-5d0b3864b5ee",
+      "goal": 0,
+      "predicted_probability": 0.13336653455673286
+    },
+    {
+      "match_id": 68337,
+      "id": "44167344-5505-47f9-9de6-45ac7e1c8307",
+      "goal": 0,
+      "predicted_probability": 0.019176164279715645
+    },
+    {
+      "match_id": 68337,
+      "id": "7b081cf0-302e-4e6e-8c7b-368828764fcf",
+      "goal": 1,
+      "predicted_probability": 0.0924036127803923
+    },
+    {
+      "match_id": 68337,
+      "id": "3f7fb012-2df3-48bb-ab52-379ab2ee10fd",
+      "goal": 0,
+      "predicted_probability": 0.01273405702695037
+    },
+    {
+      "match_id": 68337,
+      "id": "3abbf946-9a95-4090-82a3-539ac7a62c9a",
+      "goal": 0,
+      "predicted_probability": 0.030363986377804856
+    },
+    {
+      "match_id": 68337,
+      "id": "aca3824b-d148-45e7-8d1d-a79d951034b6",
+      "goal": 0,
+      "predicted_probability": 0.21577942677550932
+    },
+    {
+      "match_id": 68337,
+      "id": "1b692bb4-c573-4438-bf65-8934d7a5f00b",
+      "goal": 0,
+      "predicted_probability": 0.005196866903557288
+    },
+    {
+      "match_id": 68337,
+      "id": "7b308894-5c93-4ca9-98db-c8f541604391",
+      "goal": 0,
+      "predicted_probability": 0.14274892852074483
+    },
+    {
+      "match_id": 68337,
+      "id": "1163fb4c-73ce-4436-8533-afaa85781f76",
+      "goal": 0,
+      "predicted_probability": 0.013921975265011268
+    },
+    {
+      "match_id": 68337,
+      "id": "1486e69c-5851-48f9-b41f-508d41e57891",
+      "goal": 0,
+      "predicted_probability": 0.09607258014025699
+    },
+    {
+      "match_id": 68337,
+      "id": "bd31c9c0-27ac-467b-85e6-b1ac1d22a33d",
+      "goal": 0,
+      "predicted_probability": 0.0771116044705358
+    },
+    {
+      "match_id": 68337,
+      "id": "d898f8d8-bcac-438d-882e-f794a270e2bf",
+      "goal": 0,
+      "predicted_probability": 0.0030226551163523422
+    },
+    {
+      "match_id": 68337,
+      "id": "c1dbfe59-0d85-4dfd-94bd-6c2d29986456",
+      "goal": 0,
+      "predicted_probability": 0.02972842206198808
+    },
+    {
+      "match_id": 68337,
+      "id": "1ab47da3-46a3-4185-8660-2d5adf600cf1",
+      "goal": 0,
+      "predicted_probability": 0.05872943544415161
+    },
+    {
+      "match_id": 68337,
+      "id": "facd853b-c4ff-4093-97f3-82c075ef734f",
+      "goal": 0,
+      "predicted_probability": 0.08014277581144934
+    },
+    {
+      "match_id": 68337,
+      "id": "17b23832-47b1-4061-90b0-439c8d7824ff",
+      "goal": 0,
+      "predicted_probability": 0.018999917243926828
+    },
+    {
+      "match_id": 68337,
+      "id": "05f0a32e-4592-48a6-b856-4da1a7074ec7",
+      "goal": 0,
+      "predicted_probability": 0.23048016238095895
+    },
+    {
+      "match_id": 68337,
+      "id": "76336f97-0ae9-464f-9897-e1724a137704",
+      "goal": 0,
+      "predicted_probability": 0.01954167568720445
+    },
+    {
+      "match_id": 68337,
+      "id": "08daa72f-42cf-43a4-943b-bd56b50a49a7",
+      "goal": 0,
+      "predicted_probability": 0.012371421863856095
+    },
+    {
+      "match_id": 68337,
+      "id": "bdf5c233-59d5-4bae-8bdf-e5af9585bbd5",
+      "goal": 0,
+      "predicted_probability": 0.015479551886771761
+    },
+    {
+      "match_id": 68337,
+      "id": "ea383bc0-821d-44fa-93bd-e93dda73b0bf",
+      "goal": 0,
+      "predicted_probability": 0.0168102869977114
+    },
+    {
+      "match_id": 68337,
+      "id": "0605925d-4499-469a-806a-bdc3554ab021",
+      "goal": 0,
+      "predicted_probability": 0.07026949300927875
+    },
+    {
+      "match_id": 68337,
+      "id": "02e6325c-fbdf-4960-bc45-155464b0d3bb",
+      "goal": 0,
+      "predicted_probability": 0.19966990243773786
+    },
+    {
+      "match_id": 68337,
+      "id": "ed99f29c-0daf-4796-8194-17324b4a2e01",
+      "goal": 1,
+      "predicted_probability": 0.05820146162608604
+    },
+    {
+      "match_id": 68337,
+      "id": "17f63054-9d89-4c76-96b3-5a6d177e3c27",
+      "goal": 0,
+      "predicted_probability": 0.02518271353933792
+    },
+    {
+      "match_id": 68337,
+      "id": "a4e2f23a-238d-4292-b8c2-54c834d414dc",
+      "goal": 0,
+      "predicted_probability": 0.07976108390398368
+    },
+    {
+      "match_id": 68337,
+      "id": "ba3bbd84-3e55-461d-8c5e-2dca922e12af",
+      "goal": 0,
+      "predicted_probability": 0.18530838219350892
+    },
+    {
+      "match_id": 68337,
+      "id": "891b3231-096a-43fc-87f1-3a1a694cdd1a",
+      "goal": 0,
+      "predicted_probability": 0.12285030166167973
+    },
+    {
+      "match_id": 68337,
+      "id": "5c991ebe-02b6-496f-8bf5-9844af273a8b",
+      "goal": 0,
+      "predicted_probability": 0.23748081662796905
+    },
+    {
+      "match_id": 68362,
+      "id": "ce9bd1af-5305-4679-8764-3224b408d1f9",
+      "goal": 1,
+      "predicted_probability": 0.1768001509086837
+    },
+    {
+      "match_id": 68362,
+      "id": "873f45cc-3cd7-40ac-9f6e-55b40350b0bd",
+      "goal": 0,
+      "predicted_probability": 0.04619237070582624
+    },
+    {
+      "match_id": 68362,
+      "id": "b9f58549-7847-4a5a-9701-c38a88924553",
+      "goal": 0,
+      "predicted_probability": 0.012746999180275628
+    },
+    {
+      "match_id": 68362,
+      "id": "f1a257f9-1f74-4676-8c8c-70a175ab9f24",
+      "goal": 0,
+      "predicted_probability": 0.019700554793818145
+    },
+    {
+      "match_id": 68362,
+      "id": "81f86df1-aa96-4b93-b25b-7f8ce45033a4",
+      "goal": 1,
+      "predicted_probability": 0.07989230896438569
+    },
+    {
+      "match_id": 68362,
+      "id": "d8cddadd-3ff3-46d7-a97c-d42d0c81641c",
+      "goal": 0,
+      "predicted_probability": 0.10483818864621837
+    },
+    {
+      "match_id": 68362,
+      "id": "2eb77cdc-74d4-42cb-abb1-03b78f13cf81",
+      "goal": 1,
+      "predicted_probability": 0.11952988271607981
+    },
+    {
+      "match_id": 68362,
+      "id": "2e62e6ce-07e8-4be2-aa61-a63d557cd4c2",
+      "goal": 0,
+      "predicted_probability": 0.054411272603283836
+    },
+    {
+      "match_id": 68362,
+      "id": "35ad6d70-a7b7-43f9-8d56-0af036333160",
+      "goal": 0,
+      "predicted_probability": 0.09910411666009403
+    },
+    {
+      "match_id": 68362,
+      "id": "f95462e6-0f12-4e59-9ac0-5b72815e0737",
+      "goal": 0,
+      "predicted_probability": 0.10714258943554793
+    },
+    {
+      "match_id": 68362,
+      "id": "47a23727-56da-4fee-a6aa-eec2f65c5ec7",
+      "goal": 0,
+      "predicted_probability": 0.009536315787497095
+    },
+    {
+      "match_id": 68362,
+      "id": "565d9562-0bf3-4986-ba5c-e01a0bb5a983",
+      "goal": 0,
+      "predicted_probability": 0.07606273257579081
+    },
+    {
+      "match_id": 68362,
+      "id": "edd4a998-f37f-49bb-9aac-6a473e3e2d40",
+      "goal": 0,
+      "predicted_probability": 0.0500469863800292
+    },
+    {
+      "match_id": 68362,
+      "id": "7e62080d-71ed-442e-bf93-590b0f6390ad",
+      "goal": 0,
+      "predicted_probability": 0.0366997976250515
+    },
+    {
+      "match_id": 69199,
+      "id": "a2dc1ae0-c837-4756-b8d1-e618d31910e9",
+      "goal": 1,
+      "predicted_probability": 0.1450623952711968
+    },
+    {
+      "match_id": 69199,
+      "id": "b29d3926-563c-46b8-9ca0-9c351a62923e",
+      "goal": 0,
+      "predicted_probability": 0.011890060230384832
+    },
+    {
+      "match_id": 69199,
+      "id": "e82aadea-c710-42a7-80b5-e10a176656fe",
+      "goal": 0,
+      "predicted_probability": 0.12040351219422128
+    },
+    {
+      "match_id": 69199,
+      "id": "ceba1b7b-5442-4dca-8234-704d43c30e5b",
+      "goal": 0,
+      "predicted_probability": 0.04334922112239285
+    },
+    {
+      "match_id": 69199,
+      "id": "77d722fb-d9db-4ca9-9e00-c92dfd2c91d4",
+      "goal": 0,
+      "predicted_probability": 0.11622993068292141
+    },
+    {
+      "match_id": 69199,
+      "id": "055562f0-0477-48e6-a61b-b7a2aaea530a",
+      "goal": 0,
+      "predicted_probability": 0.03712467234320891
+    },
+    {
+      "match_id": 69199,
+      "id": "37372087-e57b-45fa-ad3e-d325e6187bea",
+      "goal": 0,
+      "predicted_probability": 0.06018212315921932
+    },
+    {
+      "match_id": 69199,
+      "id": "90f3d91d-66aa-4e54-b67f-962ac3a6095c",
+      "goal": 0,
+      "predicted_probability": 0.15115146461085344
+    },
+    {
+      "match_id": 69199,
+      "id": "5a74f53b-c960-4f79-818a-7bbdf9ef8133",
+      "goal": 1,
+      "predicted_probability": 0.255786384142571
+    },
+    {
+      "match_id": 69199,
+      "id": "d1db5a96-2ae6-4c3d-99ea-3109dec53f85",
+      "goal": 0,
+      "predicted_probability": 0.24385270232963976
+    },
+    {
+      "match_id": 69199,
+      "id": "3502eb13-b617-4dcd-bf51-b5eb26403ea7",
+      "goal": 0,
+      "predicted_probability": 0.04319219778405719
+    },
+    {
+      "match_id": 69199,
+      "id": "2ebd40f8-e6e8-4b42-b288-287ab90d38ad",
+      "goal": 0,
+      "predicted_probability": 0.022196071011561527
+    },
+    {
+      "match_id": 69199,
+      "id": "10c4fb9a-bedd-420f-acf3-6da5db54ba38",
+      "goal": 1,
+      "predicted_probability": 0.051376500948959465
+    },
+    {
+      "match_id": 69199,
+      "id": "c5eb2929-a518-4f47-b366-35c84cfd53f6",
+      "goal": 0,
+      "predicted_probability": 0.04572557556791243
+    },
+    {
+      "match_id": 69199,
+      "id": "598bcc62-986a-45c6-86ac-acd6d48455fa",
+      "goal": 0,
+      "predicted_probability": 0.09972487780453683
+    },
+    {
+      "match_id": 69199,
+      "id": "231e8e61-54ff-4ec3-8489-14ce3cd85a6d",
+      "goal": 0,
+      "predicted_probability": 0.09350116623720882
+    },
+    {
+      "match_id": 69199,
+      "id": "63c0f5f3-a6af-4a3b-923d-c83469e3e83a",
+      "goal": 0,
+      "predicted_probability": 0.06628470499968146
+    },
+    {
+      "match_id": 69199,
+      "id": "af7e767d-87ff-4edc-b30a-02899993227e",
+      "goal": 0,
+      "predicted_probability": 0.12824167912135911
+    },
+    {
+      "match_id": 69199,
+      "id": "babb7693-ed70-4712-b621-100dd6c3ee32",
+      "goal": 0,
+      "predicted_probability": 0.2516131725640856
+    },
+    {
+      "match_id": 69199,
+      "id": "78074236-6040-42a3-8310-6a7ebd45c40e",
+      "goal": 0,
+      "predicted_probability": 0.07207018668810816
+    },
+    {
+      "match_id": 69199,
+      "id": "a7550b06-d939-4dcb-8e20-1288e0af1007",
+      "goal": 0,
+      "predicted_probability": 0.08414761029541033
+    },
+    {
+      "match_id": 69199,
+      "id": "317841bf-cb02-40be-9e54-e43e928914d2",
+      "goal": 0,
+      "predicted_probability": 0.03750994337274704
+    },
+    {
+      "match_id": 69199,
+      "id": "cdcb9d2c-9e6a-4dae-a4a2-0edf082d2ff1",
+      "goal": 0,
+      "predicted_probability": 0.012570973994943875
+    },
+    {
+      "match_id": 69199,
+      "id": "c97b7b65-52e0-4334-8d1c-d737ed0d2b34",
+      "goal": 0,
+      "predicted_probability": 0.11153430324183018
+    },
+    {
+      "match_id": 69199,
+      "id": "20f96480-2382-482e-8d16-420688bfd12c",
+      "goal": 0,
+      "predicted_probability": 0.07968819690033316
+    },
+    {
+      "match_id": 69199,
+      "id": "446da48e-5bce-405e-9f61-c38a7cb2d0f5",
+      "goal": 0,
+      "predicted_probability": 0.05994017486078074
+    },
+    {
+      "match_id": 69199,
+      "id": "ebd609f9-fd3a-4671-9e37-a6107d5ce98c",
+      "goal": 0,
+      "predicted_probability": 0.07190296833280926
+    }
+  ],
+  "interpretation_limit": "114 selected shots, 11 goals and five fixtures; binned post-selection diagnostic of fold-specific fits, no fresh evaluation, confidence interval or recalibration"
+}

@@ -60,6 +60,7 @@ python 22_score_state_context.py
 python 23_within_match_score_comparison.py
 python 24_passes_shots_and_possessions.py
 python 25_shot_angle_model.py
+python 26_probability_calibration.py
 python scripts/check_evidence.py
 ```
 
@@ -160,3 +161,11 @@ figure 28. Folds, feature scaling, coefficients and predictions are preserved. T
 standard-library checker recomputes geometry independently, checks fold membership,
 means/scales and fitting gradients, and reconciles every prediction, score and
 training-only selection. It does not refit models in CI.
+
+## Probability-calibration diagnostic
+
+Lesson 26 reads saved lesson-25 evidence and does not download or refit anything.
+It creates `data/26_calibration_evidence.json` and figure 29. The standard-library
+checker reconstructs all 114 selected-candidate out-of-fold records, bin memberships,
+counts, probabilities and observed rates. Unit tests include boundary values 0 and
+1, measured zero versus empty groups and duplicate-shot protection.

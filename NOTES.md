@@ -40,3 +40,10 @@ Soccermatics xG path and bundles angle features with grouped training-only valid
 Keep the live explanation focused on the feature, fair check and negative result;
 formulas and implementation details can be opened on request. Independent defence
 of the modelling workflow remains pending; do not equate coverage with competence.
+
+Before resuming lesson 26, the user needed repeated clarification of model training,
+predicted probabilities versus binary outcomes, true unknown per-shot xG, and relative
+comparison versus practical reliability. Use one concrete group example at a time;
+do not assume familiarity with fitting or validation from prior code coverage.
+The calibration diagnostic is now implemented, but independent interpretation remains
+pending. More fresh match data is needed for an honest reliability assessment.

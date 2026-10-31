@@ -154,3 +154,11 @@ Distance-only beats the angle candidate on the predefined validation log loss in
 this tiny sample. Folds and scaling are auditable; the final two games are explicitly
 reused exploratory evaluation. Larger, fresh validation and additional context remain
 future work. See [the report](reports/08_shot_angle_model_comparison.md).
+
+## Calibration diagnostic
+
+Lesson 26 compares grouped predicted probabilities with observed scoring frequencies
+using the selected candidate's existing out-of-fold predictions. All shot identities,
+bin boundaries and denominators are preserved. This is an exploratory post-selection
+diagnostic, not fresh validation or recalibration. See
+[the report](reports/09_probability_calibration.md).

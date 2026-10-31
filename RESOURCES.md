@@ -25,6 +25,10 @@
   Primary reference for fitting preprocessing on the fitting subset before transforming
   held-out rows. Use with the source xG lesson for model-comparison work.
 
+- [scikit-learn: probability calibration](https://scikit-learn.org/stable/modules/calibration.html)
+  Primary reference for reliability diagrams and comparison of bin-average probabilities
+  with observed positive fractions. Lesson 26 is diagnostic only, with no recalibrator.
+
 ## Gaps
 
 Role-specific comparisons, statistical uncertainty, larger-sample model validation and

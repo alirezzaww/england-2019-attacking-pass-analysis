@@ -589,6 +589,52 @@ for name, candidate in angle_study['candidates'].items():
 winner = min(angle_study['candidates'], key=lambda n: angle_study['candidates'][n]['validation_metrics']['log_loss'])
 assert angle_study['selected_candidate'] == winner
 
+# Lesson 26: use each out-of-fold training prediction once; never the reused test set.
+calibration = read('26_calibration_evidence.json')
+assert calibration['source'] == '25_shot_angle_evidence.json'
+assert calibration['selected_candidate'] == angle_study['selected_candidate']
+assert calibration['match_ids'] == angle_study['training_match_ids']
+assert calibration['bin_edges'] == [0, 0.05, 0.10, 0.20, 1]
+shot_lookup = {(r['match_id'], r['id']): r for r in angle_train}
+expected_predictions = []
+for fold in angle_study['candidates'][angle_study['selected_candidate']]['validation_folds']:
+    for identity, probability in zip(fold['validation_shot_ids'], fold['predictions']):
+        original = shot_lookup[(fold['validation_match_id'], identity)]
+        expected_predictions.append({'match_id': original['match_id'], 'id': identity,
+                                     'goal': original['goal'], 'predicted_probability': probability})
+assert calibration['predictions'] == expected_predictions
+assert ids(expected_predictions) == ids(angle_train)
+assert all(p['match_id'] not in angle_study['reused_test_match_ids'] for p in expected_predictions)
+assert len(calibration['bins']) == 4
+binned_ids = []
+for j, cell in enumerate(calibration['bins']):
+    lower, upper = calibration['bin_edges'][j:j + 2]
+    assert cell['bin_index'] == j and cell['lower_inclusive'] == lower and cell['upper'] == upper
+    assert cell['upper_inclusive'] == (j == 3)
+    rows = [r for r in expected_predictions if lower <= r['predicted_probability'] < upper
+            or j == 3 and r['predicted_probability'] == 1]
+    assert cell['shot_ids'] == [{'match_id': r['match_id'], 'id': r['id']} for r in rows]
+    binned_ids.extend(rows)
+    n, goals = len(rows), sum(r['goal'] for r in rows)
+    predicted = sum(r['predicted_probability'] for r in rows)
+    assert cell['shots'] == n and cell['goals'] == goals
+    assert math.isclose(cell['predicted_goal_sum'], predicted, abs_tol=1e-12)
+    if n:
+        assert math.isclose(cell['mean_predicted_probability'], predicted / n)
+        assert math.isclose(cell['observed_goal_fraction'], goals / n, abs_tol=1e-12)
+    else:
+        assert cell['mean_predicted_probability'] is None and cell['observed_goal_fraction'] is None
+assert ids(binned_ids) == ids(expected_predictions)
+summary = calibration['summary']
+assert summary['shots'] == len(expected_predictions) == 114
+assert summary['goals'] == sum(r['goal'] for r in expected_predictions) == 11
+assert math.isclose(summary['predicted_goal_sum'], sum(r['predicted_probability'] for r in expected_predictions))
+assert math.isclose(summary['mean_predicted_probability'], summary['predicted_goal_sum'] / summary['shots'])
+assert math.isclose(summary['observed_goal_fraction'], summary['goals'] / summary['shots'])
+assert sum(b['shots'] for b in calibration['bins']) == summary['shots']
+assert sum(b['goals'] for b in calibration['bins']) == summary['goals']
+assert math.isclose(sum(b['predicted_goal_sum'] for b in calibration['bins']), summary['predicted_goal_sum'])
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -596,7 +642,7 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, shot units, match context, bootstrap and both xG studies reconcile.')
+print('PASS: passing evidence, shot units, match context, bootstrap, xG and calibration reconcile.')
 print(f'Pre-pass scores independently reconstructed from raw events: {raw_score_matches}/7 matches.')
 print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')

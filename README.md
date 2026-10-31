@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–25 and then validates saved evidence.
+The runner executes tournament stages 11, 13–26 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -191,3 +191,12 @@ log loss 0.2924 versus 0.3002 with angle. Both candidates use a common 105x68 re
 geometry and fold-local scaling. The last two fixtures are explicitly a reused check,
 not a fresh final evaluation. This small educational result does not imply angle is
 unimportant or establish production quality. Run `python 25_shot_angle_model.py`.
+
+## Inspect probability calibration
+
+[Lesson 26](lessons/0008-probability-calibration.html) adds a
+[binned diagnostic](reports/09_probability_calibration.md) of the selected candidate's
+114 out-of-fold predictions. The 32-shot 5–<10% group has a 7.46% mean prediction and
+five goals (15.625% observed). These small, reused development groups do not establish
+true individual-shot probabilities or practical model reliability. No recalibration
+is fitted. Run `python 26_probability_calibration.py` using saved lesson-25 evidence.

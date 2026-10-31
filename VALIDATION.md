@@ -108,3 +108,12 @@ grouped folds, probability scoring and stored scaling. The evidence checker veri
 angles independently by vector dot products, fold-local means/scales and likelihood
 gradients, every held-out/reused-check prediction, all metrics and the selection rule.
 This validates numerical consistency, not general predictive reliability.
+
+## Lesson 26 validation — 31 October 2026
+
+The calibration script ran successfully and figure 29 was visually inspected. All
+114 records match the selected lesson-25 candidate's out-of-fold predictions, with
+no last-two-fixture rows included. Every shot belongs to exactly one fixed band;
+all counts, goals, prediction sums and rates reconcile. Four tests cover boundaries,
+probability means versus observed fractions, missing/zero distinctions and invalid
+or duplicate records. No new model fit or claim of reliable calibration is made.

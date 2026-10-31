@@ -443,3 +443,22 @@ Six offline tests and the evidence checker cover geometry, fold separation, stor
 scaling, likelihood gradients, predictions and scores. Independent task pending:
 write a three-sentence comparison that states the method, negative result and limits.
 No independent modelling mastery is claimed from assistant-prepared code.
+
+## Lesson 26 — inspect model probabilities — 31 October 2026
+
+The user requested clarification of how xG estimates are learned and assessed,
+including whether the model predicts probabilities or binary outcomes and the actual
+114-shot fitting sample size. Explained that outcomes train a probability model;
+relative validation improvement does not establish practical reliability. These
+questions reveal a need for concrete examples; independent mastery is not assumed.
+
+Resumed and completed the calibration diagnostic with assistant support. The 32-shot
+5–<10% group has mean probability 7.46% and five observed goals (15.625%). Overall
+predicted goals 11.214 versus 11 does not establish reliable band-level probabilities.
+The 114 predictions are held out from their individual fitting fixtures but reused
+from candidate selection, so the plot is exploratory. No recalibrator is fitted.
+
+Four new tests and the checker cover every prediction's identity, band boundary,
+count, mean probability and observed rate, including undefined versus observed-zero
+groups. Independent task pending: write an observation and limitation for the 32-shot
+group without calling its observed rate the true xG of each shot.

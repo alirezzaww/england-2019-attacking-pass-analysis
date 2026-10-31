@@ -218,3 +218,16 @@ Refit all candidates on the 114 training shots, then report the previously inspe
 36-shot final-two-fixture check as reused exploratory evaluation. No fresh test,
 calibration or general superiority claim is made. Provider xG in the passing study
 is unchanged. See [the model report](../reports/08_shot_angle_model_comparison.md).
+
+## Exploratory calibration diagnostic (lesson 26)
+
+Use the selected lesson-25 candidate's 114 out-of-fold training predictions only.
+Each shot appears once, with its fixture excluded from the corresponding fit. Group
+predictions into [0,.05), [.05,.10), [.10,.20), [.20,1], including 1 in the last band.
+Compare mean probability and observed goals/shots separately; empty bands remain
+undefined. Counts are 41/32/20/21 shots and 0/5/3/3 goals. Predicted sums total 11.21355
+versus 11 observed goals, but group rates vary from their mean predictions.
+These are pooled predictions from five fold-specific fits, reused after model
+selection. This is not a fresh calibration validation of the final refit. Small
+samples, shared fixture context and fixed-bin choices limit interpretation. No
+calibrator, confidence interval or true individual-shot xG label is inferred.
