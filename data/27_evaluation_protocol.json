@@ -1,0 +1,398 @@
+{
+  "prepared_on": "2026-10-31",
+  "source_git_commit": "1f84b9f5c101f8303c47d7203e9209fe323aca4a",
+  "source_model_evidence": "data/25_shot_angle_evidence.json",
+  "source_model_evidence_sha256": "2a60104ac6583aefe765cf12eaf48e1f0f3385ddb6e5d32ca64ec22310b74169",
+  "source_model_code": "25_shot_angle_model.py",
+  "source_model_code_sha256": "10801eaaccb7a44d2470322a7e5ff8f2b8540244b2dd0575cad2357da973b997",
+  "selected_candidate": "distance",
+  "frozen_fit": {
+    "features": [
+      "distance_template_m"
+    ],
+    "means": [
+      16.318952266299576
+    ],
+    "scales": [
+      7.614128315205316
+    ],
+    "coefficients": [
+      -2.650708870266698,
+      -1.0988317075893248
+    ],
+    "converged": true
+  },
+  "frozen_baseline_fit": {
+    "features": [],
+    "means": [],
+    "scales": [],
+    "coefficients": [
+      -2.236833715431265
+    ],
+    "converged": true
+  },
+  "training_shots": 114,
+  "training_goals": 11,
+  "excluded_previously_used_match_ids": [
+    22936,
+    22962,
+    68337,
+    68362,
+    69199,
+    69258,
+    69301
+  ],
+  "evaluation_match_ids": [
+    22921,
+    22926,
+    22930,
+    22924,
+    22933,
+    22934,
+    22940,
+    22939,
+    22942,
+    22944,
+    22943,
+    22945,
+    22949,
+    22948,
+    22955,
+    22956,
+    22961,
+    22963,
+    22964,
+    22966,
+    22973,
+    22974,
+    22983,
+    22984,
+    22980,
+    22981,
+    68311,
+    68312,
+    68338,
+    68344,
+    68346,
+    68343,
+    68345,
+    68355,
+    68357,
+    69137,
+    69161,
+    69163,
+    69191,
+    69188,
+    69202,
+    69205,
+    69208,
+    69284,
+    69321
+  ],
+  "evaluation_rule": "All other competition 72 season 30 fixtures, irrespective of outcomes; both teams, non-penalty shots, no shootouts",
+  "fixture_metadata": [
+    {
+      "match_id": 22921,
+      "match_date": "2019-06-07",
+      "home_team": "France Women's",
+      "away_team": "Korea Republic Women's"
+    },
+    {
+      "match_id": 22926,
+      "match_date": "2019-06-08",
+      "home_team": "Germany Women's",
+      "away_team": "China PR Women's"
+    },
+    {
+      "match_id": 22930,
+      "match_date": "2019-06-08",
+      "home_team": "Spain Women's",
+      "away_team": "South Africa Women's"
+    },
+    {
+      "match_id": 22924,
+      "match_date": "2019-06-08",
+      "home_team": "Norway Women's",
+      "away_team": "Nigeria Women's"
+    },
+    {
+      "match_id": 22933,
+      "match_date": "2019-06-09",
+      "home_team": "Australia Women's",
+      "away_team": "Italy Women's"
+    },
+    {
+      "match_id": 22934,
+      "match_date": "2019-06-09",
+      "home_team": "Brazil Women's",
+      "away_team": "Jamaica Women's"
+    },
+    {
+      "match_id": 22940,
+      "match_date": "2019-06-10",
+      "home_team": "Argentina Women's",
+      "away_team": "Japan Women's"
+    },
+    {
+      "match_id": 22939,
+      "match_date": "2019-06-10",
+      "home_team": "Canada Women's",
+      "away_team": "Cameroon W"
+    },
+    {
+      "match_id": 22942,
+      "match_date": "2019-06-11",
+      "home_team": "New Zealand Women's",
+      "away_team": "Netherlands Women's"
+    },
+    {
+      "match_id": 22944,
+      "match_date": "2019-06-11",
+      "home_team": "Chile Women's",
+      "away_team": "Sweden Women's"
+    },
+    {
+      "match_id": 22943,
+      "match_date": "2019-06-11",
+      "home_team": "United States Women's",
+      "away_team": "Thailand W"
+    },
+    {
+      "match_id": 22945,
+      "match_date": "2019-06-12",
+      "home_team": "Nigeria Women's",
+      "away_team": "Korea Republic Women's"
+    },
+    {
+      "match_id": 22949,
+      "match_date": "2019-06-12",
+      "home_team": "Germany Women's",
+      "away_team": "Spain Women's"
+    },
+    {
+      "match_id": 22948,
+      "match_date": "2019-06-12",
+      "home_team": "France Women's",
+      "away_team": "Norway Women's"
+    },
+    {
+      "match_id": 22955,
+      "match_date": "2019-06-13",
+      "home_team": "Australia Women's",
+      "away_team": "Brazil Women's"
+    },
+    {
+      "match_id": 22956,
+      "match_date": "2019-06-13",
+      "home_team": "South Africa Women's",
+      "away_team": "China PR Women's"
+    },
+    {
+      "match_id": 22961,
+      "match_date": "2019-06-14",
+      "home_team": "Japan Women's",
+      "away_team": "Scotland W"
+    },
+    {
+      "match_id": 22963,
+      "match_date": "2019-06-14",
+      "home_team": "Jamaica Women's",
+      "away_team": "Italy Women's"
+    },
+    {
+      "match_id": 22964,
+      "match_date": "2019-06-15",
+      "home_team": "Netherlands Women's",
+      "away_team": "Cameroon W"
+    },
+    {
+      "match_id": 22966,
+      "match_date": "2019-06-15",
+      "home_team": "Canada Women's",
+      "away_team": "New Zealand Women's"
+    },
+    {
+      "match_id": 22973,
+      "match_date": "2019-06-16",
+      "home_team": "Sweden Women's",
+      "away_team": "Thailand W"
+    },
+    {
+      "match_id": 22974,
+      "match_date": "2019-06-16",
+      "home_team": "United States Women's",
+      "away_team": "Chile Women's"
+    },
+    {
+      "match_id": 22983,
+      "match_date": "2019-06-17",
+      "home_team": "China PR Women's",
+      "away_team": "Spain Women's"
+    },
+    {
+      "match_id": 22984,
+      "match_date": "2019-06-17",
+      "home_team": "South Africa Women's",
+      "away_team": "Germany Women's"
+    },
+    {
+      "match_id": 22980,
+      "match_date": "2019-06-17",
+      "home_team": "Nigeria Women's",
+      "away_team": "France Women's"
+    },
+    {
+      "match_id": 22981,
+      "match_date": "2019-06-17",
+      "home_team": "Korea Republic Women's",
+      "away_team": "Norway Women's"
+    },
+    {
+      "match_id": 68311,
+      "match_date": "2019-06-18",
+      "home_team": "Jamaica Women's",
+      "away_team": "Australia Women's"
+    },
+    {
+      "match_id": 68312,
+      "match_date": "2019-06-18",
+      "home_team": "Italy Women's",
+      "away_team": "Brazil Women's"
+    },
+    {
+      "match_id": 68338,
+      "match_date": "2019-06-19",
+      "home_team": "Scotland W",
+      "away_team": "Argentina Women's"
+    },
+    {
+      "match_id": 68344,
+      "match_date": "2019-06-20",
+      "home_team": "Netherlands Women's",
+      "away_team": "Canada Women's"
+    },
+    {
+      "match_id": 68346,
+      "match_date": "2019-06-20",
+      "home_team": "Cameroon W",
+      "away_team": "New Zealand Women's"
+    },
+    {
+      "match_id": 68343,
+      "match_date": "2019-06-20",
+      "home_team": "Thailand W",
+      "away_team": "Chile Women's"
+    },
+    {
+      "match_id": 68345,
+      "match_date": "2019-06-20",
+      "home_team": "Sweden Women's",
+      "away_team": "United States Women's"
+    },
+    {
+      "match_id": 68355,
+      "match_date": "2019-06-22",
+      "home_team": "Germany Women's",
+      "away_team": "Nigeria Women's"
+    },
+    {
+      "match_id": 68357,
+      "match_date": "2019-06-22",
+      "home_team": "Norway Women's",
+      "away_team": "Australia Women's"
+    },
+    {
+      "match_id": 69137,
+      "match_date": "2019-06-23",
+      "home_team": "France Women's",
+      "away_team": "Brazil Women's"
+    },
+    {
+      "match_id": 69161,
+      "match_date": "2019-06-24",
+      "home_team": "Spain Women's",
+      "away_team": "United States Women's"
+    },
+    {
+      "match_id": 69163,
+      "match_date": "2019-06-24",
+      "home_team": "Sweden Women's",
+      "away_team": "Canada Women's"
+    },
+    {
+      "match_id": 69191,
+      "match_date": "2019-06-25",
+      "home_team": "Italy Women's",
+      "away_team": "China PR Women's"
+    },
+    {
+      "match_id": 69188,
+      "match_date": "2019-06-25",
+      "home_team": "Netherlands Women's",
+      "away_team": "Japan Women's"
+    },
+    {
+      "match_id": 69202,
+      "match_date": "2019-06-28",
+      "home_team": "France Women's",
+      "away_team": "United States Women's"
+    },
+    {
+      "match_id": 69205,
+      "match_date": "2019-06-29",
+      "home_team": "Italy Women's",
+      "away_team": "Netherlands Women's"
+    },
+    {
+      "match_id": 69208,
+      "match_date": "2019-06-29",
+      "home_team": "Germany Women's",
+      "away_team": "Sweden Women's"
+    },
+    {
+      "match_id": 69284,
+      "match_date": "2019-07-03",
+      "home_team": "Netherlands Women's",
+      "away_team": "Sweden Women's"
+    },
+    {
+      "match_id": 69321,
+      "match_date": "2019-07-07",
+      "home_team": "United States Women's",
+      "away_team": "Netherlands Women's"
+    }
+  ],
+  "metadata_source": {
+    "url": "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/72/30.json",
+    "relative_path": "data/cache_2019_events/matches_72_30.json",
+    "sha256": "7051c0aa9bef4d726fa4068eaa2185d16dcc3d04f2c346d9fb6f17e770a3aa4a"
+  },
+  "exclusion_rules": [
+    "Shot period >= 5",
+    "Penalty shot type",
+    "Missing location",
+    "Invalid or exact-goalpost geometry"
+  ],
+  "primary_metric": "Mean per-shot log loss; frozen model minus frozen constant baseline, negative favours model",
+  "secondary_metric": "Brier score",
+  "calibration_bin_edges": [
+    0,
+    0.05,
+    0.1,
+    0.2,
+    1
+  ],
+  "bootstrap": {
+    "unit": "whole match, paired for model and baseline",
+    "n_resamples": 5000,
+    "seed": 20261031,
+    "percentiles": [
+      0.025,
+      0.975
+    ],
+    "percentile_method": "linear interpolation"
+  },
+  "no_refitting": true,
+  "no_ready_for_use_threshold": true,
+  "scope_limit": "Previously unused fixture shot events, same tournament and non-England fixtures; not a new-season or different-population validation"
+}
