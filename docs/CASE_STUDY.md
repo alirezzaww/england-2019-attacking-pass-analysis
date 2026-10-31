@@ -139,3 +139,12 @@ USA and Sweden in these fixtures, making score state inseparable from opponent a
 other context in this simple comparison. See the [score-state report](../reports/05_score_state_context.md)
 for denominators, final-score validation and limits. The observed pattern does not
 establish that leading improves passing.
+
+## Follow-up: check which fixtures support the comparison
+
+No fixture contains eligible passes in both Leading and Trailing. Drawing and Trailing
+can both be observed against USA and Sweden: Drawing is 0/120 and Trailing 12/611
+when pooled over that common set. The original 18 Drawing qualifiers all came from
+the other five fixtures. Restricting the sample reverses the original pooled ordering,
+without establishing a causal score effect. See the [within-match report](../reports/06_within_match_score_comparison.md)
+for each fixture, missing comparisons and remaining differences in game context.

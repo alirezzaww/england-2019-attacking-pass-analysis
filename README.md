@@ -58,7 +58,7 @@ python scripts/run_research.py --headless
 ```
 
 For Spyder, select your environment's interpreter and open the numbered lesson files.
-The runner executes tournament stages 11, 13–22 and then validates saved evidence.
+The runner executes tournament stages 11, 13–23 and then validates saved evidence.
 The early numbered files remain independent learning exercises.
 Internet is needed to acquire source data. Raw events are cached locally and ignored
 by Git; saved derived evidence and figures are included for immediate study.
@@ -162,3 +162,13 @@ locations. Trailing occurs only against USA and Sweden, preventing a causal scor
 claim. Final scores reconcile to provider metadata; same-second ordering, halftime,
 shootout exclusion and own-goal handling have tests. Run
 `python 22_score_state_context.py` after lesson 13; match metadata downloads once if missing.
+
+## Compare score states on the same fixture set
+
+[Lesson 23](lessons/0005-within-match-comparisons.html) checks
+[fixture overlap](reports/06_within_match_score_comparison.md). No fixture has eligible
+passes while both leading and trailing. USA and Sweden support a drawing/trailing
+comparison: 0/120 versus 12/611 when pooled over those same two fixtures. This reverses
+the seven-match pooled ordering, showing why group composition must accompany a
+percentage comparison. Game phase and other context remain uncontrolled. Run
+`python 23_within_match_score_comparison.py` using saved lesson-22 evidence.

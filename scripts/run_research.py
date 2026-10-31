@@ -18,6 +18,7 @@ STAGES = [
     "20_pass_location_context.py",
     "21_match_bootstrap_uncertainty.py",
     "22_score_state_context.py",
+    "23_within_match_score_comparison.py",
     "scripts/check_evidence.py",
 ]
 

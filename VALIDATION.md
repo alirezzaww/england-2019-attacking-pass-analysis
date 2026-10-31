@@ -80,3 +80,12 @@ all seven fixtures. The newly cached metadata SHA-256 is checked when present.
 Four new unit tests exercise same-second event ordering, halftime/shootout handling,
 own-goal counterparts and empty state denominators. These tests cover synthetic
 own-goal cases; none occurs in the seven research fixtures.
+
+## Lesson 23 validation — 31 October 2026
+
+The fixture-overlap script ran successfully; figure 26 was visually inspected. All
+coverage cells and pairwise pools reconcile to the unchanged lesson-22 ledger.
+Drawing/Trailing common fixtures are exactly USA and Sweden; Leading/Trailing has
+none and its restricted comparison is undefined. Three new tests cover positive
+exposure with zero qualifiers, missing overlap and pooled counts with unequal fixture
+sizes. No new source data or interval estimation is introduced.

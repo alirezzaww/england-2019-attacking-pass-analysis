@@ -175,3 +175,15 @@ fixture summaries retain empty cells as null shares. Score is measured immediate
 before the pass, not after a following goal or at the final whistle. Trailing occurs
 only against USA and Sweden, so score, opponent and other context cannot be separated
 by these descriptive comparisons. No causal score effect or general rating is claimed.
+
+## Fixture-overlap check (lesson 23)
+
+Pairwise common fixtures require a positive eligible completed-pass denominator in
+both states; a zero selected numerator does not disqualify a fixture. Leading versus
+Trailing has no common fixture. Drawing versus Trailing has USA and Sweden. The
+restricted pools are 0/120 and 12/611, compared with 18/658 and 12/611 across all seven
+fixtures. Within USA the shares are 0/92 and 4/236; within Sweden, 0/28 and 8/375.
+An empty common set yields undefined shares and difference, not measured zeros.
+This is sample restriction and descriptive within-fixture comparison. Fixture weights
+remain proportional to state-specific pass volumes; game phase and other confounding
+remain. No causal, equal-weight adjusted or significance claim is made.

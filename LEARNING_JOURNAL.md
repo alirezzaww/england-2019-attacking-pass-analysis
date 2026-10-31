@@ -398,3 +398,16 @@ metadata. Trailing appears only against USA and Sweden, illustrating confounding
 Four new tests cover pre-goal labels, halftime/shootouts, own-goal counterparts and
 empty denominators. Independent task pending: write an observation and an alternative
 explanation for a coach without implying that leading caused better passing.
+
+## Lesson 23 — check fixture overlap — 31 October 2026
+
+Prepared and executed with assistant support. Before comparing score states, check
+which fixtures contain eligible passes in both. Leading/Trailing has no common
+fixture; Drawing/Trailing has USA and Sweden. Restricting both pools to those fixtures
+gives 0/120 versus 12/611, changing the seven-match pooled ordering. Individual fixture
+counts are retained, and no causal interpretation is claimed.
+
+New tests cover true zero numerators, absent overlap and pooled ratios with unequal
+denominators. Independent practice pending: rewrite an overconfident score-effect
+claim with the observed comparison and remaining limitations. The user's earlier
+score-state follow-up was clarified; independent analysis has not yet been demonstrated.

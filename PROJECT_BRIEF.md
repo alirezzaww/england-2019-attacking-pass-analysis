@@ -130,3 +130,11 @@ shares while leading, drawing and trailing. All seven reconstructed final scores
 match provider metadata. Opponent and score state are confounded: trailing happens
 only against USA and Sweden. This is descriptive context, not causal adjustment.
 See [the report](reports/05_score_state_context.md).
+
+## Fixture-overlap extension
+
+Lesson 23 checks that both score states have eligible pass observations in the same
+fixtures before presenting a restricted comparison. It reports unavailable Leading/
+Trailing comparisons and per-fixture Drawing/Trailing results for USA and Sweden,
+with a changed pooled ordering and explicit limits. See
+[the report](reports/06_within_match_score_comparison.md).

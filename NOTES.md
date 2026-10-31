@@ -24,3 +24,8 @@ repeat the entire method unless requested. Lesson 22 moves to whole-team score-s
 context, explicitly changing scope from attacking-third player comparisons. Explain
 pre-pass labeling and opponent/score confounding in plain language. Coach-facing
 independent interpretation remains pending.
+
+Lesson 23 checks fixture overlap and shows how restricting the Drawing/Trailing
+comparison to USA and Sweden changes the pooled ordering. Explain in plain language
+that a common fixture set still does not isolate score effects. Missing exposure and
+measured zero are different; do not infer mastery from material covered.

@@ -57,6 +57,7 @@ python 19_time_window_sensitivity.py
 python 20_pass_location_context.py
 python 21_match_bootstrap_uncertainty.py
 python 22_score_state_context.py
+python 23_within_match_score_comparison.py
 python scripts/check_evidence.py
 ```
 
@@ -132,3 +133,11 @@ records its URL and SHA-256. The score timeline and provider score snapshots are
 included in `data/22_score_state_evidence.json`, alongside every tagged pass and
 summaries. The evidence checker runs offline without caches; with caches it also
 independently reconstructs every pre-pass score and checks the metadata digest.
+
+## Within-fixture comparison
+
+Lesson 23 reads saved lesson-22 evidence without downloading raw data. It creates
+`data/23_within_match_evidence.json` and figure 26. The checker rebuilds coverage,
+common fixture IDs, numerators, denominators and percentage-point differences from
+the saved pass ledger. Unit tests cover zero qualifying counts with valid exposure,
+missing overlap and pooling unequal-size fixture groups.

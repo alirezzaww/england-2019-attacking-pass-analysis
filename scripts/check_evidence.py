@@ -406,6 +406,47 @@ for match_id, audit in audit_by_match.items():
     assert tally == audit['provider_final_score_england_opponent']
     raw_score_matches += 1
 
+# Lesson 23: a within-match comparison needs observations in both states.
+within = read('23_within_match_evidence.json')
+assert within['source'] == '22_score_state_evidence.json'
+assert within['match_ids'] == base['match_ids']
+assert within['time_window_seconds_inclusive'] == 15
+assert within['xg_threshold_strictly_greater_than'] == 0.10
+assert [m['match_id'] for m in within['coverage']] == base['match_ids']
+for match in within['coverage']:
+    assert match['opponent'] == audit_by_match[match['match_id']]['opponent']
+    check_state_summary(match['states'], [p for p in state_ledger if p['match_id'] == match['match_id']])
+assert set(within['comparisons']) == {'drawing_vs_trailing', 'leading_vs_trailing'}
+for name, comparison in within['comparisons'].items():
+    first, second = comparison['states']
+    assert name == f'{first.lower()}_vs_{second.lower()}'
+    observed = {state: {p['match_id'] for p in state_ledger if p['state'] == state} for state in [first, second]}
+    expected_common = [m for m in base['match_ids'] if m in observed[first] & observed[second]]
+    assert comparison['common_match_ids'] == expected_common
+    for key, rows in [('all_fixture_pool', state_ledger),
+                      ('common_fixture_pool', [p for p in state_ledger if p['match_id'] in expected_common])]:
+        assert [c['state'] for c in comparison[key]] == [first, second]
+        for cell in comparison[key]:
+            group = [p for p in rows if p['state'] == cell['state']]
+            k, n = sum(p['qualifying'] for p in group), len(group)
+            assert cell['qualifying_passes'] == k and cell['eligible_completed_passes'] == n
+            if n:
+                assert math.isclose(cell['qualifying_share_pct'], 100 * k / n)
+            else:
+                assert cell['qualifying_share_pct'] is None
+        shares = [c['qualifying_share_pct'] for c in comparison[key]]
+        difference_key = ('all' if key == 'all_fixture_pool' else 'common') + '_difference_second_minus_first_pp'
+        if any(value is None for value in shares):
+            assert comparison[difference_key] is None
+        else:
+            assert math.isclose(comparison[difference_key], shares[1] - shares[0], abs_tol=1e-12)
+    assert [row['match_id'] for row in comparison['per_common_fixture']] == expected_common
+    for fixture in comparison['per_common_fixture']:
+        original = {r['state']: r for r in audit_by_match[fixture['match_id']]['states']}
+        assert fixture['states'] == [original[state] for state in [first, second]]
+assert within['comparisons']['leading_vs_trailing']['common_match_ids'] == []
+assert within['comparisons']['drawing_vs_trailing']['common_match_ids'] == [69258, 69301]
+
 assert {p['match_id'] for p in manifest['raw_inputs']} == set(base['match_ids'])
 checked = 0
 for record in manifest['raw_inputs']:
@@ -413,7 +454,7 @@ for record in manifest['raw_inputs']:
     if path.exists():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'], 'Raw input changed: ' + path.name
         checked += 1
-print('PASS: passing evidence, score/spatial/time context, paired bootstrap and educational xG metrics reconcile.')
+print('PASS: passing evidence, score/within-match/spatial/time context, bootstrap and xG metrics reconcile.')
 print(f'Pre-pass scores independently reconstructed from raw events: {raw_score_matches}/7 matches.')
 print(f'Location denominators independently reconstructed from raw events: {raw_context_matches}/7 matches.')
 print(f'Time-window selections independently reconstructed from raw events: {raw_window_matches}/7 matches.')

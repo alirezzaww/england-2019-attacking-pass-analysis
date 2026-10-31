@@ -1,0 +1,303 @@
+{
+  "source": "22_score_state_evidence.json",
+  "match_ids": [
+    22936,
+    22962,
+    68337,
+    68362,
+    69199,
+    69258,
+    69301
+  ],
+  "scope": "England whole team, all eligible starting locations",
+  "time_window_seconds_inclusive": 15,
+  "xg_threshold_strictly_greater_than": 0.1,
+  "common_fixture_rule": "Positive eligible completed-pass denominator in both states; qualifying numerator may be zero",
+  "coverage": [
+    {
+      "match_id": 22936,
+      "opponent": "Scotland W",
+      "states": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 21,
+          "eligible_completed_passes": 370,
+          "qualifying_share_pct": 5.675675675675675
+        },
+        {
+          "state": "Drawing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 71,
+          "qualifying_share_pct": 0.0
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        }
+      ]
+    },
+    {
+      "match_id": 22962,
+      "opponent": "Argentina Women's",
+      "states": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 8,
+          "eligible_completed_passes": 162,
+          "qualifying_share_pct": 4.938271604938271
+        },
+        {
+          "state": "Drawing",
+          "qualifying_passes": 13,
+          "eligible_completed_passes": 295,
+          "qualifying_share_pct": 4.406779661016949
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        }
+      ]
+    },
+    {
+      "match_id": 68337,
+      "opponent": "Japan Women's",
+      "states": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 11,
+          "eligible_completed_passes": 318,
+          "qualifying_share_pct": 3.459119496855346
+        },
+        {
+          "state": "Drawing",
+          "qualifying_passes": 2,
+          "eligible_completed_passes": 88,
+          "qualifying_share_pct": 2.272727272727273
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        }
+      ]
+    },
+    {
+      "match_id": 68362,
+      "opponent": "Cameroon W",
+      "states": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 13,
+          "eligible_completed_passes": 372,
+          "qualifying_share_pct": 3.4946236559139785
+        },
+        {
+          "state": "Drawing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 68,
+          "qualifying_share_pct": 0.0
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        }
+      ]
+    },
+    {
+      "match_id": 69199,
+      "opponent": "Norway Women's",
+      "states": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 15,
+          "eligible_completed_passes": 346,
+          "qualifying_share_pct": 4.335260115606936
+        },
+        {
+          "state": "Drawing",
+          "qualifying_passes": 3,
+          "eligible_completed_passes": 16,
+          "qualifying_share_pct": 18.75
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        }
+      ]
+    },
+    {
+      "match_id": 69258,
+      "opponent": "United States Women's",
+      "states": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        },
+        {
+          "state": "Drawing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 92,
+          "qualifying_share_pct": 0.0
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 4,
+          "eligible_completed_passes": 236,
+          "qualifying_share_pct": 1.694915254237288
+        }
+      ]
+    },
+    {
+      "match_id": 69301,
+      "opponent": "Sweden Women's",
+      "states": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        },
+        {
+          "state": "Drawing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 28,
+          "qualifying_share_pct": 0.0
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 8,
+          "eligible_completed_passes": 375,
+          "qualifying_share_pct": 2.1333333333333333
+        }
+      ]
+    }
+  ],
+  "comparisons": {
+    "drawing_vs_trailing": {
+      "states": [
+        "Drawing",
+        "Trailing"
+      ],
+      "common_match_ids": [
+        69258,
+        69301
+      ],
+      "all_fixture_pool": [
+        {
+          "state": "Drawing",
+          "qualifying_passes": 18,
+          "eligible_completed_passes": 658,
+          "qualifying_share_pct": 2.735562310030395
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 12,
+          "eligible_completed_passes": 611,
+          "qualifying_share_pct": 1.9639934533551555
+        }
+      ],
+      "common_fixture_pool": [
+        {
+          "state": "Drawing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 120,
+          "qualifying_share_pct": 0.0
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 12,
+          "eligible_completed_passes": 611,
+          "qualifying_share_pct": 1.9639934533551555
+        }
+      ],
+      "all_difference_second_minus_first_pp": -0.7715688566752394,
+      "common_difference_second_minus_first_pp": 1.9639934533551555,
+      "per_common_fixture": [
+        {
+          "match_id": 69258,
+          "states": [
+            {
+              "state": "Drawing",
+              "qualifying_passes": 0,
+              "eligible_completed_passes": 92,
+              "qualifying_share_pct": 0.0
+            },
+            {
+              "state": "Trailing",
+              "qualifying_passes": 4,
+              "eligible_completed_passes": 236,
+              "qualifying_share_pct": 1.694915254237288
+            }
+          ]
+        },
+        {
+          "match_id": 69301,
+          "states": [
+            {
+              "state": "Drawing",
+              "qualifying_passes": 0,
+              "eligible_completed_passes": 28,
+              "qualifying_share_pct": 0.0
+            },
+            {
+              "state": "Trailing",
+              "qualifying_passes": 8,
+              "eligible_completed_passes": 375,
+              "qualifying_share_pct": 2.1333333333333333
+            }
+          ]
+        }
+      ]
+    },
+    "leading_vs_trailing": {
+      "states": [
+        "Leading",
+        "Trailing"
+      ],
+      "common_match_ids": [],
+      "all_fixture_pool": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 68,
+          "eligible_completed_passes": 1568,
+          "qualifying_share_pct": 4.336734693877551
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 12,
+          "eligible_completed_passes": 611,
+          "qualifying_share_pct": 1.9639934533551555
+        }
+      ],
+      "common_fixture_pool": [
+        {
+          "state": "Leading",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        },
+        {
+          "state": "Trailing",
+          "qualifying_passes": 0,
+          "eligible_completed_passes": 0,
+          "qualifying_share_pct": null
+        }
+      ],
+      "all_difference_second_minus_first_pp": -2.3727412405223953,
+      "common_difference_second_minus_first_pp": null,
+      "per_common_fixture": []
+    }
+  },
+  "interpretation_limit": "Restricting to common fixtures changes the analysed sample; game phase, lineup and other context remain uncontrolled"
+}
