@@ -35,7 +35,7 @@ def cache_fixture(match_id):
         if not isinstance(events, list):
             raise ValueError('Expected an event list')
         path.write_bytes(response.content)
-    return {'match_id': match_id, 'relative_path': str(path.relative_to(ROOT)),
+    return {'match_id': match_id, 'relative_path': path.relative_to(ROOT).as_posix(),
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'source_url': f'https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/{match_id}.json'}
 
